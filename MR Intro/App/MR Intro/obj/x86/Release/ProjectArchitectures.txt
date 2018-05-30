@@ -1,0 +1,2 @@
+C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\MR Intro.csproj;x86
