@@ -9,7 +9,7 @@
     <SolutionConfiguration>Release|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>afc1711b-571a-447f-b121-366fa9263b86</PackageIdentityName>
-    <PackageIdentityPublisher>CN=DefaultCompany</PackageIdentityPublisher>
+    <PackageIdentityPublisher>CN=Chris Darcy</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\obj\x86\Release\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
@@ -19,11 +19,11 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\bin\x86\Release\AppX</LayoutDir>
-    <RegisteredManifestChecksum>40FF5EB90CE815184DC0AEEE8306563FE250C9B7964DD76610D0BA2E12E1FB58</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>MRIntro_1.0.0.0_x86__pzq3xp76mxafg</RegisteredPackageMoniker>
-    <RegisteredUserModeAppID>MRIntro_pzq3xp76mxafg!App</RegisteredUserModeAppID>
+    <RegisteredManifestChecksum>2322BD345F059D60C4DC9BCFC471234A7246953DA87BEA198B1FF15767972EAB</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>MRIntro_1.0.0.0_x86__qh776ymc4n368</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>MRIntro_qh776ymc4n368!App</RegisteredUserModeAppID>
     <RegisteredPackageID>MRIntro</RegisteredPackageID>
-    <RegisteredPackagePublisher>CN=DefaultCompany</RegisteredPackagePublisher>
+    <RegisteredPackagePublisher>CN=Chris Darcy</RegisteredPackagePublisher>
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
     <JitOptimizationSuppressed>False</JitOptimizationSuppressed>
   </PropertyGroup>
@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\bin\x86\Release\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-30T23:43:07.675</Modified>
+      <Modified>2018-05-31T18:01:18.870</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\bin\x86\Release\MR Intro.exe">
       <PackagePath>entrypoint\MR Intro.exe</PackagePath>
-      <Modified>2018-05-30T23:42:49.116</Modified>
+      <Modified>2018-05-31T18:00:59.427</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\.nuget\packages\microsoft.applicationinsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -501,7 +501,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Resource.res">
       <PackagePath>Resource.res</PackagePath>
-      <Modified>2018-05-30T23:42:11.430</Modified>
+      <Modified>2018-05-31T17:59:12.313</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -539,15 +539,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Data\boot.config">
       <PackagePath>Data\boot.config</PackagePath>
-      <Modified>2018-05-30T23:41:08.783</Modified>
+      <Modified>2018-05-31T17:58:06.819</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Data\globalgamemanagers">
       <PackagePath>Data\globalgamemanagers</PackagePath>
-      <Modified>2018-05-30T23:41:07.406</Modified>
+      <Modified>2018-05-31T17:58:05.183</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Data\level0">
       <PackagePath>Data\level0</PackagePath>
-      <Modified>2018-05-30T23:41:05.806</Modified>
+      <Modified>2018-05-31T17:58:03.438</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Data\Resources\unity default resources">
       <PackagePath>Data\Resources\unity default resources</PackagePath>
@@ -555,23 +555,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Data\Resources\unity_builtin_extra">
       <PackagePath>Data\Resources\unity_builtin_extra</PackagePath>
-      <Modified>2018-05-30T23:41:08.778</Modified>
+      <Modified>2018-05-31T17:58:06.815</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Data\globalgamemanagers.assets">
       <PackagePath>Data\globalgamemanagers.assets</PackagePath>
-      <Modified>2018-05-30T23:41:07.637</Modified>
+      <Modified>2018-05-31T17:58:05.408</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Data\sharedassets0.assets">
       <PackagePath>Data\sharedassets0.assets</PackagePath>
-      <Modified>2018-05-30T23:41:07.914</Modified>
+      <Modified>2018-05-31T17:58:05.921</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Data\level0.resS">
       <PackagePath>Data\level0.resS</PackagePath>
-      <Modified>2018-05-30T23:41:05.806</Modified>
+      <Modified>2018-05-31T17:58:03.438</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Data\managedAssemblies.txt">
       <PackagePath>Data\managedAssemblies.txt</PackagePath>
-      <Modified>2018-05-30T23:42:11.354</Modified>
+      <Modified>2018-05-31T17:59:12.236</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -580,203 +580,203 @@
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-05-30T23:42:50.326</Modified>
+      <Modified>2018-05-31T18:01:00.688</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.TilemapModule.dll">
       <PackagePath>UnityEngine.TilemapModule.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.927</Modified>
+      <Modified>2018-05-31T18:01:10.953</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UNETModule.dll">
       <PackagePath>UnityEngine.UNETModule.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.942</Modified>
+      <Modified>2018-05-31T18:01:11.004</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UIModule.dll">
       <PackagePath>UnityEngine.UIModule.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.948</Modified>
+      <Modified>2018-05-31T18:01:11.012</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UIElementsModule.dll">
       <PackagePath>UnityEngine.UIElementsModule.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.972</Modified>
+      <Modified>2018-05-31T18:01:11.038</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.StyleSheetsModule.dll">
       <PackagePath>UnityEngine.StyleSheetsModule.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.977</Modified>
+      <Modified>2018-05-31T18:01:11.044</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.SpriteMaskModule.dll">
       <PackagePath>UnityEngine.SpriteMaskModule.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.982</Modified>
+      <Modified>2018-05-31T18:01:11.048</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.ScreenCaptureModule.dll">
       <PackagePath>UnityEngine.ScreenCaptureModule.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.987</Modified>
+      <Modified>2018-05-31T18:01:11.052</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.TextRenderingModule.dll">
       <PackagePath>UnityEngine.TextRenderingModule.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.992</Modified>
+      <Modified>2018-05-31T18:01:11.058</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.TerrainPhysicsModule.dll">
       <PackagePath>UnityEngine.TerrainPhysicsModule.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.996</Modified>
+      <Modified>2018-05-31T18:01:11.062</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.TerrainModule.dll">
       <PackagePath>UnityEngine.TerrainModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.006</Modified>
+      <Modified>2018-05-31T18:01:11.071</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.VRModule.dll">
       <PackagePath>UnityEngine.VRModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.044</Modified>
+      <Modified>2018-05-31T18:01:11.092</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.VideoModule.dll">
       <PackagePath>UnityEngine.VideoModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.050</Modified>
+      <Modified>2018-05-31T18:01:11.099</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.VehiclesModule.dll">
       <PackagePath>UnityEngine.VehiclesModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.055</Modified>
+      <Modified>2018-05-31T18:01:11.103</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.WindModule.dll">
       <PackagePath>UnityEngine.WindModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.060</Modified>
+      <Modified>2018-05-31T18:01:11.107</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.WebModule.dll">
       <PackagePath>UnityEngine.WebModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.068</Modified>
+      <Modified>2018-05-31T18:01:11.115</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UnityWebRequestAudioModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestAudioModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.072</Modified>
+      <Modified>2018-05-31T18:01:11.119</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UnityConnectModule.dll">
       <PackagePath>UnityEngine.UnityConnectModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.078</Modified>
+      <Modified>2018-05-31T18:01:11.124</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UnityAnalyticsModule.dll">
       <PackagePath>UnityEngine.UnityAnalyticsModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.084</Modified>
+      <Modified>2018-05-31T18:01:11.130</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UnityWebRequestWWWModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestWWWModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.090</Modified>
+      <Modified>2018-05-31T18:01:11.152</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UnityWebRequestTextureModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestTextureModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.094</Modified>
+      <Modified>2018-05-31T18:01:11.156</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UnityWebRequestModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.101</Modified>
+      <Modified>2018-05-31T18:01:11.163</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.PhysicsModule.dll">
       <PackagePath>UnityEngine.PhysicsModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.112</Modified>
+      <Modified>2018-05-31T18:01:11.175</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.CoreModule.dll">
       <PackagePath>UnityEngine.CoreModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.310</Modified>
+      <Modified>2018-05-31T18:01:11.405</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.ClothModule.dll">
       <PackagePath>UnityEngine.ClothModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.315</Modified>
+      <Modified>2018-05-31T18:01:11.411</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.AudioModule.dll">
       <PackagePath>UnityEngine.AudioModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.325</Modified>
+      <Modified>2018-05-31T18:01:11.424</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.dll">
       <PackagePath>UnityEngine.dll</PackagePath>
-      <Modified>2018-05-30T23:41:33.213</Modified>
+      <Modified>2018-05-31T17:58:33.004</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.DirectorModule.dll">
       <PackagePath>UnityEngine.DirectorModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.330</Modified>
+      <Modified>2018-05-31T18:01:11.430</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.CrashReportingModule.dll">
       <PackagePath>UnityEngine.CrashReportingModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.334</Modified>
+      <Modified>2018-05-31T18:01:11.434</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.AccessibilityModule.dll">
       <PackagePath>UnityEngine.AccessibilityModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.339</Modified>
+      <Modified>2018-05-31T18:01:11.439</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.ARModule.dll">
       <PackagePath>UnityEngine.ARModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.346</Modified>
+      <Modified>2018-05-31T18:01:11.445</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.AnimationModule.dll">
       <PackagePath>UnityEngine.AnimationModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.364</Modified>
+      <Modified>2018-05-31T18:01:11.462</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.AIModule.dll">
       <PackagePath>UnityEngine.AIModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.373</Modified>
+      <Modified>2018-05-31T18:01:11.471</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.ParticlesLegacyModule.dll">
       <PackagePath>UnityEngine.ParticlesLegacyModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.378</Modified>
+      <Modified>2018-05-31T18:01:11.477</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.JSONSerializeModule.dll">
       <PackagePath>UnityEngine.JSONSerializeModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.383</Modified>
+      <Modified>2018-05-31T18:01:11.482</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.Physics2DModule.dll">
       <PackagePath>UnityEngine.Physics2DModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.405</Modified>
+      <Modified>2018-05-31T18:01:11.501</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.PerformanceReportingModule.dll">
       <PackagePath>UnityEngine.PerformanceReportingModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.410</Modified>
+      <Modified>2018-05-31T18:01:11.506</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.ParticleSystemModule.dll">
       <PackagePath>UnityEngine.ParticleSystemModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.431</Modified>
+      <Modified>2018-05-31T18:01:11.528</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.GridModule.dll">
       <PackagePath>UnityEngine.GridModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.437</Modified>
+      <Modified>2018-05-31T18:01:11.534</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.GameCenterModule.dll">
       <PackagePath>UnityEngine.GameCenterModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.446</Modified>
+      <Modified>2018-05-31T18:01:11.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.InputModule.dll">
       <PackagePath>UnityEngine.InputModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.451</Modified>
+      <Modified>2018-05-31T18:01:11.550</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.IMGUIModule.dll">
       <PackagePath>UnityEngine.IMGUIModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.470</Modified>
+      <Modified>2018-05-31T18:01:11.577</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.ImageConversionModule.dll">
       <PackagePath>UnityEngine.ImageConversionModule.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.475</Modified>
+      <Modified>2018-05-31T18:01:11.586</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.Timeline.dll">
       <PackagePath>UnityEngine.Timeline.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.522</Modified>
+      <Modified>2018-05-31T18:01:11.629</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\nunit.framework.dll">
       <PackagePath>nunit.framework.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.574</Modified>
+      <Modified>2018-05-31T18:01:11.674</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.UI.dll">
       <PackagePath>UnityEngine.UI.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.792</Modified>
+      <Modified>2018-05-31T18:01:11.984</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.HoloLens.dll">
       <PackagePath>UnityEngine.HoloLens.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.806</Modified>
+      <Modified>2018-05-31T18:01:11.998</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\UnityEngine.Networking.dll">
       <PackagePath>UnityEngine.Networking.dll</PackagePath>
-      <Modified>2018-05-30T23:43:00.865</Modified>
+      <Modified>2018-05-31T18:01:12.055</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\Assembly-CSharp.dll">
       <PackagePath>Assembly-CSharp.dll</PackagePath>
-      <Modified>2018-05-30T23:42:59.911</Modified>
+      <Modified>2018-05-31T18:01:10.934</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\bin\x86\Release\Core\MR Intro.exe">
       <PackagePath>MR Intro.exe</PackagePath>
-      <Modified>2018-05-30T23:43:07.669</Modified>
+      <Modified>2018-05-31T18:01:18.864</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

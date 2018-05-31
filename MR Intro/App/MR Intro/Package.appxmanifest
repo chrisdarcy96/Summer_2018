@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" IgnorableNamespaces="uap uap2 mp" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10">
-  <Identity Name="MRIntro" Publisher="CN=DefaultCompany" Version="1.0.0.0" />
+  <Identity Name="MRIntro" Publisher="CN=Chris Darcy" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="afc1711b-571a-447f-b121-366fa9263b86" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>MR Intro</DisplayName>

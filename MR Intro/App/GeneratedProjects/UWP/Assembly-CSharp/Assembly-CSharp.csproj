@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{18a8a640-167e-48a9-870e-c44d8e083d41}</ProjectGuid>
+    <ProjectGuid>{921f04ec-35b8-492e-8a2f-12627bd5fbb5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssemblyCSharpWSA</RootNamespace>
@@ -352,6 +352,12 @@
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\ShapeCommands.cs">
       <Link>Scripts\ShapeCommands.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\SpeechManager.cs">
+      <Link>Scripts\SpeechManager.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\TapToPlaceParent.cs">
+      <Link>Scripts\TapToPlaceParent.cs</Link>
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\WorldCursor.cs">
       <Link>Scripts\WorldCursor.cs</Link>

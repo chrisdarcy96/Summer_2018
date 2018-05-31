@@ -9,7 +9,7 @@
     <SolutionConfiguration>Release|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>afc1711b-571a-447f-b121-366fa9263b86</PackageIdentityName>
-    <PackageIdentityPublisher>CN=DefaultCompany</PackageIdentityPublisher>
+    <PackageIdentityPublisher>CN=Chris Darcy</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\MR Intro\obj\x86\Release\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>

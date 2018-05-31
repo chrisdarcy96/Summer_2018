@@ -12,10 +12,13 @@
     <UseEmulator>true</UseEmulator>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <DeviceId>4CE3B45E-0530-04A7-0B7F-F404E7D5D220</DeviceId>
-    <UseEmulator>true</UseEmulator>
-    <RemoteDebugMachine>10.54.34.152</RemoteDebugMachine>
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>false</UseEmulator>
+    <RemoteDebugMachine>10.54.32.120</RemoteDebugMachine>
     <AuthenticationMode>Universal</AuthenticationMode>
-    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+    <RemoteDebugEnabled>true</RemoteDebugEnabled>
+    <CreateCleanLayout>true</CreateCleanLayout>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <DeploymentType>CopyToDevice</DeploymentType>
   </PropertyGroup>
 </Project>

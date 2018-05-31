@@ -57,13 +57,6 @@ public class GazeGestureManager : MonoBehaviour {
             // start detecting new gestures again
             recognizer.CancelGestures();
             recognizer.StartCapturingGestures();
-
-            // call OffSelect function
-            if(oldFocusObject != null)
-            {
-                oldFocusObject.SendMessageUpwards("OffSelect", SendMessageOptions.DontRequireReceiver);
-            }
-            
         }
 
     }

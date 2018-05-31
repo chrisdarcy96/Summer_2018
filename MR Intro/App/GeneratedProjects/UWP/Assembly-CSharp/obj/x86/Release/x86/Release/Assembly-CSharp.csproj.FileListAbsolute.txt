@@ -1,7 +1,6 @@
 C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\bin\x86\Release\Assembly-CSharp.dll
 C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\bin\x86\Release\Assembly-CSharp.pdb
 C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\bin\x86\Release\Assembly-CSharp.pri
-C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\obj\x86\Release\x86\Release\Assembly-CSharp.csprojAssemblyReference.cache
 C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\obj\x86\Release\x86\Release\Assembly-CSharp.csproj.CoreCompileInputs.cache
 C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\obj\x86\Release\x86\Release\Assembly-CSharp.dll
 C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\obj\x86\Release\x86\Release\Assembly-CSharp.pdb
@@ -16,3 +15,4 @@ C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\As
 C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\obj\x86\Release\x86\Release\qualifiers.txt
 C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\obj\x86\Release\x86\Release\qualifiers.txt.intermediate
 C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\obj\x86\Release\x86\Release\MultipleQualifiersPerDimensionFound.txt
+C:\Users\cdarcy\Documents\Repo\Summer_2018\MR Intro\App\GeneratedProjects\UWP\Assembly-CSharp\obj\x86\Release\x86\Release\Assembly-CSharp.csprojAssemblyReference.cache
