@@ -1,0 +1,2 @@
+C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Dev 101\UWP\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Dev 101\UWP\HoloLens Dev 101\HoloLens Dev 101.csproj;x86

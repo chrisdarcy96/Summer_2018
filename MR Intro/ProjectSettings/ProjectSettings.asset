@@ -553,11 +553,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: MRIntro
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: Assets/WSATestCertificate.pfx
+  metroCertificatePath: 
   metroCertificatePassword: 
-  metroCertificateSubject: Chris Darcy
-  metroCertificateIssuer: Chris Darcy
-  metroCertificateNotAfter: 00c062ad0918d501
+  metroCertificateSubject: 
+  metroCertificateIssuer: 
+  metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: MR Intro
   wsaImages: {}
   metroTileShortName: MR Intro
