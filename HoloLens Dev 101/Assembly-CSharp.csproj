@@ -526,7 +526,10 @@
      <Compile Include="Assets\HoloToolkit\UX\Scripts\UICollection.cs" />
      <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityScaler.cs" />
      <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs" />
+     <Compile Include="Assets\Scripts\BoxDrawer.cs" />
      <Compile Include="Assets\Scripts\ObjectPlacer.cs" />
+     <Compile Include="Assets\Scripts\PlacementQuery.cs" />
+     <Compile Include="Assets\Scripts\PlacementResult.cs" />
      <Compile Include="Assets\Scripts\SpatialUnderstandingState.cs" />
      <None Include="Assets\HoloToolkit\Utilities\Scripts\GLTF\Shaders\GLTFConstant.cginc" />
      <None Include="Assets\HoloToolkit\Common\Shaders\Obsolete\UnlitConfigurable.shader" />

@@ -254,6 +254,7 @@ c4fd2ef7468c68e11d03e50c6e8b323d Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.A
 e70760ba1eb8a542b24c859e1cd037fe Assembly-CSharp.dll:.SpatialUnderstandingState
 a791e7387cb4113e3b29c2bbd8199b96 Assembly-CSharp.dll:HoloToolkit.Unity.UX.DistorterGravity
 af1b899928fa73a7824f1b26518097f6 Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.MeshButton
+ee682b2def6fcb710777b2618b139aab Assembly-CSharp.dll:.ObjectPlacer
 8186a0148b55fd4b5cdaa99b9937cf7d Assembly-CSharp.dll:HoloToolkit.Unity.Buttons.ButtonMeshProfile
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Unity.SpatialMapping.SpatialMappingSource
 bffc879e328df7088b4672067d06833b Assembly-CSharp.dll:HoloToolkit.Unity.UX.LineParticles
@@ -425,4 +426,3 @@ a9e1c36c671666e79706791e556d5100 Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehav
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
-4985888df4d80126700de52eaa90a6be Assembly-CSharp.dll:.ObjectPlacer

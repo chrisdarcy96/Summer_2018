@@ -717,6 +717,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2071893983}
   - {fileID: 1956973306}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -753,7 +754,7 @@ Transform:
   - {fileID: 498424810}
   - {fileID: 387069797}
   m_Father: {fileID: 1948992312}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1956973307
 MonoBehaviour:
@@ -849,7 +850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1760dd62ee88714793b25aa65e7ffa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpatialUnderstandingMesh: {fileID: 0}
+  DrawDebugBoxes: 1
+  SpatialUnderstandingMesh: {fileID: 1808468721}
+  WideBuildingSize: {x: 1, y: 0.5, z: 0.5}
+  SaloonBuildingPrefab: {fileID: 166268, guid: a279134aaee12e9438b491ed0c083ba3, type: 2}
 --- !u!4 &2071893983
 Transform:
   m_ObjectHideFlags: 0
@@ -860,6 +864,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1948992312}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

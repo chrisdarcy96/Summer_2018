@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{19860155-bbea-47a8-bdb9-d73441ce5e1b}</ProjectGuid>
+    <ProjectGuid>{3a9e9620-feae-44ea-b4d2-94eb27801e65}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssemblyCSharpWSA</RootNamespace>
@@ -1761,8 +1761,17 @@
     <Compile Include="$(UnityProjectDir)Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs">
       <Link>HoloToolkit\UX\Scripts\UsabilityUtilities.cs</Link>
     </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\BoxDrawer.cs">
+      <Link>Scripts\BoxDrawer.cs</Link>
+    </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\ObjectPlacer.cs">
       <Link>Scripts\ObjectPlacer.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\PlacementQuery.cs">
+      <Link>Scripts\PlacementQuery.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\PlacementResult.cs">
+      <Link>Scripts\PlacementResult.cs</Link>
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\SpatialUnderstandingState.cs">
       <Link>Scripts\SpatialUnderstandingState.cs</Link>
