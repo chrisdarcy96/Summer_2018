@@ -5,5 +5,5 @@ Chris Darcy (206) 715-3126 chrisdarcy96@gmail.com
 
 ## MixedRealityIntro
 <br>
-First Hololend development with Unity. Sets up camera and builds project with HoloLens specs. More detail to come.
-<\br>
+First Hololens development with Unity. Sets up camera and builds project with HoloLens specs. More detail to come.
+<br>

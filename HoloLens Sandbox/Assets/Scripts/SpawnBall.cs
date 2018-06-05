@@ -3,39 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.WSA.Input;
+using HoloToolkit.Unity.InputModule;
 
-public class SpawnBall : MonoBehaviour {
+public class SpawnBall : MonoBehaviour, IInputClickHandler {
 
-    GestureRecognizer recognizer;
     public GameObject ballPrefab;
 
 	// Initialize when script is loaded
-	void Awake () {
-
-        recognizer = new GestureRecognizer();
-        recognizer.Tapped += Recognizer_TappedEvent;
-
-        recognizer.StartCapturingGestures();
-	}
-
-    // https://docs.unity3d.com/Manual/SpatialMappingCollider.html for TappedEventArgs to Ray
-    private void Recognizer_TappedEvent(TappedEventArgs args)
-    {
-        Ray headRay = new Ray(args.headPose.position, args.headPose.forward);
-        CreateBouncingBall(headRay);
-        print("Tap");
-
-
+	void Start() {
+        // fallback input handler called when no object is focused to consume click
+        InputManager.Instance.PushFallbackInputHandler(gameObject);
     }
 
-    // https://docs.unity3d.com/ScriptReference/Object.Instantiate.html for object instantiate
-    private void CreateBouncingBall(Ray head)
+    public void OnInputClicked(InputClickedEventData eventData)
     {
-        Vector3 position = head.direction + head.origin * 5.0f; // 2 meters away
+        Debug.Log("Click");
+        Vector3 pos = Camera.main.transform.position;
+        Vector3 dir = Camera.main.transform.forward;
+        CreateBouncingBall(pos, dir);
+    }
+
+    private void CreateBouncingBall(Vector3 pos, Vector3 dir)
+    {
+        Vector3 position = new Vector3(pos.x + dir.x * 2.0f, 1.5f, pos.z + dir.z * 2.0f);
         Instantiate(ballPrefab, position, Quaternion.identity);
-
-       
+        Debug.Log("Ball placed at " + position);
     }
-
-
 }
