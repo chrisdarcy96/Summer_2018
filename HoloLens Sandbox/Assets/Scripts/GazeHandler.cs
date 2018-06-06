@@ -19,7 +19,7 @@ public class GazeHandler : MonoBehaviour, IFocusable
         info = GetComponentInChildren<TextMesh>();
         info.transform.position = this.gameObject.transform.position;
         info.gameObject.SetActive(false);
-        Debug.Log("Start");
+        
 
     }
     void Update()
@@ -38,7 +38,7 @@ public class GazeHandler : MonoBehaviour, IFocusable
 
         // display info
         info.gameObject.SetActive(true);
-        string examine = "Info: " + gameObject + "\nPosition: " + this.gameObject.transform.position + "\n";
+        string examine = "Tag: " + gameObject.tag + "\nPosition: " + this.gameObject.transform.position + "\n";
         info.text = examine;
 
         // ensure text is facing Camera always

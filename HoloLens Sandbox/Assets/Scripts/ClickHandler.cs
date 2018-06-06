@@ -37,9 +37,9 @@ public class ClickHandler : MonoBehaviour, IInputClickHandler
     {
         Vector3 position = pos + dir * 3.0f;
         // keep it above the ground
-        if (position.y >= 0.0f)
+        if (position.y < 0.0f)
         {
-            position.y = 0.25f;
+            position.y = 0.0f;
         }
         Instantiate(ballPrefab, position, Quaternion.identity);
     }
