@@ -9,15 +9,6 @@ public class ClickHandler : MonoBehaviour, IInputClickHandler
 {
 
     public GameObject ballPrefab;
-    [SerializeField] private float RotateSensitivity = 10.0f;
-    private bool isNavigationEnabled = true;
-    public bool IsNavigationEnabled
-    {
-        get { return isNavigationEnabled; }
-        set { isNavigationEnabled = value; }
-    }
-
-    private Vector3 manipulationOriginalPosition = Vector3.zero;
 
     // Initialize when script is loaded
     void Start()
