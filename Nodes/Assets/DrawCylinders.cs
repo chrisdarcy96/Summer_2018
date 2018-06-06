@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,27 +55,6 @@ public class DrawCylinders : MonoBehaviour {
             // Orient the cylinder.
             connectors[i].transform.rotation = Quaternion.FromToRotation(Vector3.up, end - start);
 
-            
-
-            // GameObject-Cylinder implementation
-            //print("Cylinder creation loop: " + i);
-            //this.connectors[i] = new GameObject(); // This is the parent object
-            //this.connectors[i].name = "Connector" + i;
-            //print("Created: " + this.connectors[i].name);
-            //this.connectors[i].transform.position = root.transform.position;
-            //this.connectors[i].transform.parent = this.gameObject.transform;
-            //// Currently, this cylinder will rotate about its center - which we want to turn into the cylinder rotating around the center of its base.
-            //// That's why it's a GameObject going into the array and not the primitive itself.
-            //GameObject actualCylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            //actualCylinder.transform.parent = this.connectors[i].transform;
-
-            //// Offset so we can rotate the cylinders from the bottom in the future.
-            //// TODO: Ensure this is relative to the main position
-            //actualCylinder.transform.localPosition = new Vector3(root.transform.position.x, 1f, root.transform.position.z);  // Make sure the cube is initially locked to the root!
-            //// Scale the radius
-            //actualCylinder.transform.localScale = new Vector3(radius, 1f, radius);
-            ////set the material of the cylinder
-            //actualCylinder.GetComponent<Renderer>().material = lineMaterial;
         }
 
     }
@@ -82,19 +62,32 @@ public class DrawCylinders : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        // Iterate through every point and have each cylinder object look at and transform to that point.
-        //for(i=0;i<nodes.Length;i++)
-        //{
-        //    target = nodes[i].transform;
-        //    // Orient for the connection
-        //    Transform currentConnector = this.connectors[i].transform;
-        //    currentConnector.LookAt(target, Vector3.up);
-        //    distance = Vector3.Distance(root.transform.position, target.position);
-
-        //    // Make the connection
-        //    currentConnector.localScale = new Vector3(currentConnector.localScale.x, distance, currentConnector.localScale.y);
-
-        //}
+        UpdatePositions(nodes, connectors);
 		
 	}
+
+    private void UpdatePositions(GameObject[] nodes, GameObject[] connectors)
+    {
+
+        // Update our start vector, in case the root has moved.
+        Vector3 updateStart = root.transform.position;
+        for (int j = 0; j < nodes.Length; j++)
+        {
+            Vector3 updateEnd = nodes[j].transform.position;
+            Vector3 updateMidpoint = (updateEnd - updateStart) * 0.5f + updateStart;
+            distance = Vector3.Distance(updateStart, updateEnd);
+
+            // Put it at the midpoint.
+            connectors[j].transform.position = updateMidpoint;
+
+            // TODO: See if we really need to re-do all these calcs each update or if we can store some positional data.
+
+            Vector3 scale = new Vector3(radius, distance / 2, radius);
+            connectors[j].transform.localScale = scale;
+
+            // Orient the cylinder.
+            connectors[j].transform.rotation = Quaternion.FromToRotation(Vector3.up, updateEnd - updateStart);
+        }
+        // TODO: Check and destroy any extra cylinders
+    }
 }
