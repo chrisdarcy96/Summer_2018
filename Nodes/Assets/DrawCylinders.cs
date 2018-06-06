@@ -13,6 +13,10 @@ public class DrawCylinders : MonoBehaviour {
     private float distance;
     private int i = 0;
 
+    // This counter helps tell me whether or not we need to generate additional cylinders
+    private int numCyl = 0;
+
+
 	// Use this for initialization
 	void Start () {
         connectors = new GameObject[nodes.Length];
@@ -57,14 +61,40 @@ public class DrawCylinders : MonoBehaviour {
 
         }
 
+
+        // Initialize our numCyl variable for future checks
+        numCyl = connectors.Length;
+
     }
 	
 	// Update is called once per frame
 	void Update () {
 
+        // Spawn or delete cylinders as neccessary
+        UpdateConnectors(nodes, connectors);
+
+
         UpdatePositions(nodes, connectors);
 		
 	}
+
+    private void UpdateConnectors(GameObject[] nodes, GameObject[] connectors)
+    {
+        int numNodes = nodes.Length;
+
+        if (numNodes > numCyl)
+        {
+            // If we have more nodes than cylinders, then we need to add more cylinders
+            // Note that when we add cylinders, we aren't doing the initial transform - that will happen when we hit 
+            while (nodes.Length != connectors.Length)
+            {
+
+            }
+        }
+
+
+
+    }
 
     private void UpdatePositions(GameObject[] nodes, GameObject[] connectors)
     {
