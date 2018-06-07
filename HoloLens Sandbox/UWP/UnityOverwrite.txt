@@ -11,7 +11,7 @@ GeneratedProjects\UWP\Assembly-CSharp\project.json: 4FCF72A4D5EDB37E24C206A7BCFE
 HoloLens Sandbox\App.cs: FB9075DBA55B83F2A98DAB4722B1E49B
 HoloLens Sandbox\HoloLens Sandbox.csproj: modified
 HoloLens Sandbox\HoloLens Sandbox.csproj.user: modified
-HoloLens Sandbox\Package.appxmanifest: 49B491E61E3068EA56FEF9DF5327F9BC
+HoloLens Sandbox\Package.appxmanifest: EB08079FE7AC0143E5320CD9A0CF96B4
 HoloLens Sandbox\project.json: 1D02BC64BAC0D041019673A1C4C51737
 HoloLens Sandbox\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
 HoloLens Sandbox\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
