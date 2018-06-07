@@ -23,7 +23,7 @@ ballSpanwer scene spawns balls based of inputClick with a cursor on either the g
 (NOTE: cursor must be on an object to execute onInputClicked()). Clicking on a specific ball destroys 
 that instance.
 
-NodeViewer connects multiple nodes using the drawCylinder.cs from (Nodes project by James Lynch)[https://github.com/chrisdarcy96/Summer_2018/tree/master/Nodes]
+NodeViewer connects multiple nodes using the drawCylinder.cs from [Nodes project by James Lynch](https://github.com/chrisdarcy96/Summer_2018/tree/master/Nodes "Nodes")
 . Upon gaze, executes a script that displays miniNodes and text.
 <br>
 
