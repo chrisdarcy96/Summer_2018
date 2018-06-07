@@ -13,7 +13,7 @@
     <IntermediateOutputPath>C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\obj\x86\Release\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
-    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\bin\x86\Release\AppX</LayoutDir>
