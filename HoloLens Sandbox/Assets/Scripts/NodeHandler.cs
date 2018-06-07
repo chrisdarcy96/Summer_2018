@@ -4,7 +4,7 @@ using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 using System;
 
-public class NodeGaze : MonoBehaviour, IFocusable, IInputClickHandler {
+public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
 
     public GameObject spawn;
     private ArrayList spawnsThisView;
@@ -15,7 +15,8 @@ public class NodeGaze : MonoBehaviour, IFocusable, IInputClickHandler {
     // Gaze spawns 3 small spheres at right angles to the focusedObject
     public void OnFocusEnter()
     {
-        isViewing = true;
+        isViewing = !isViewing;
+        textGUI.text = "Viewing: " + this.gameObject.tag + "_" + this.gameObject.GetInstanceID();
         viewHandler(this.gameObject);
     }
 
@@ -27,19 +28,19 @@ public class NodeGaze : MonoBehaviour, IFocusable, IInputClickHandler {
         GameObject newMiniNode = Instantiate(spawn); 
         spawnsThisView.Add(newMiniNode);
         // right top
-        newMiniNode.transform.position = new Vector3(parent.position.x - 4 * newMiniNode.GetComponent<Renderer>().bounds.size.x, parent.position.y 
+        newMiniNode.transform.position = new Vector3(parent.position.x + 4 * newMiniNode.GetComponent<Renderer>().bounds.size.x, parent.position.y 
                                                     + 4 * newMiniNode.GetComponent<Renderer>().bounds.size.y, parent.position.z);
 
         newMiniNode = Instantiate(spawn); // create new spawn
         spawnsThisView.Add(newMiniNode);
         // right middle
-        newMiniNode.transform.position = new Vector3(parent.position.x - 4 * newMiniNode.GetComponent<Renderer>().bounds.size.x, 
+        newMiniNode.transform.position = new Vector3(parent.position.x + 4 * newMiniNode.GetComponent<Renderer>().bounds.size.x, 
                                                     parent.position.y, parent.position.z);
 
         newMiniNode = Instantiate(spawn); // create new spawn
         spawnsThisView.Add(newMiniNode);
         //right bottom
-        newMiniNode.transform.position = new Vector3(parent.position.x - 4 * newMiniNode.GetComponent<Renderer>().bounds.size.x, 
+        newMiniNode.transform.position = new Vector3(parent.position.x + 4 * newMiniNode.GetComponent<Renderer>().bounds.size.x, 
                                                      parent.position.y - 4 * newMiniNode.GetComponent<Renderer>().bounds.size.y, parent.position.z);
     
     }
@@ -51,6 +52,7 @@ public class NodeGaze : MonoBehaviour, IFocusable, IInputClickHandler {
         // if no longer viewing
         if(isViewing == false)
         {
+            textGUI.text = "";
             framesViewed = 0;
             // clear array list of spawned objects
             for (int i = 0; i < spawnsThisView.Count; i++)
