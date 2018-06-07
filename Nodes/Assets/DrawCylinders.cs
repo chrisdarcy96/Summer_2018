@@ -85,7 +85,7 @@ public class DrawCylinders : MonoBehaviour
         // Wipe any nulls from the nodes list
         if (nodes.Contains(null))
         {
-            print("Trying to clean up nodes list");
+            print("Trying to clean up nodes list...");
             nodes.RemoveAll(item => item == null); // new lambda syntax. Neat!
         }
         
