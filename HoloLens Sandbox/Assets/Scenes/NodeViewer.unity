@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 191081029}
   m_Layer: 0
   m_Name: trans_wall (1)
-  m_TagString: Untagged
+  m_TagString: environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 751469816}
   m_Layer: 0
   m_Name: trans_wall (5)
-  m_TagString: Untagged
+  m_TagString: environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 1239487738}
   m_Layer: 0
   m_Name: trans_wall (4)
-  m_TagString: Untagged
+  m_TagString: environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 1248078085}
   m_Layer: 0
   m_Name: trans_wall
-  m_TagString: Untagged
+  m_TagString: environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 1418579285}
   m_Layer: 0
   m_Name: trans_wall (3)
-  m_TagString: Untagged
+  m_TagString: environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,6 +708,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1973f2019cc067d4198e2fdeab581050, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1577075103
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4720006062553864, guid: 1e3149003e3f19f4e8df957f58a5434e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720006062553864, guid: 1e3149003e3f19f4e8df957f58a5434e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720006062553864, guid: 1e3149003e3f19f4e8df957f58a5434e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720006062553864, guid: 1e3149003e3f19f4e8df957f58a5434e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720006062553864, guid: 1e3149003e3f19f4e8df957f58a5434e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720006062553864, guid: 1e3149003e3f19f4e8df957f58a5434e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720006062553864, guid: 1e3149003e3f19f4e8df957f58a5434e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720006062553864, guid: 1e3149003e3f19f4e8df957f58a5434e, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1e3149003e3f19f4e8df957f58a5434e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1643378273
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +876,7 @@ GameObject:
   - component: {fileID: 1945529857}
   m_Layer: 0
   m_Name: trans_wall (2)
-  m_TagString: Untagged
+  m_TagString: environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
