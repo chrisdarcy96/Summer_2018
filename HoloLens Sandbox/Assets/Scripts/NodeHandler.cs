@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
 using System;
+using HoloToolkit.Unity.SpatialMapping;
 
 public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
 
@@ -74,6 +76,15 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
         textGUI.text = "Working...";
 
         spawnsThisView = new ArrayList();
+
+        // kill the TapToPlace component
+        this.gameObject.GetComponent<TapToPlace>().enabled = false;
+
+        // place in front of mesh
+        RaycastHit hitInfo;
+        Physics.Raycast(GazeManager.Instance.GazeOrigin, GazeManager.Instance.GazeNormal, out hitInfo);
+        this.transform.position = hitInfo.point;
+        this.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
 	}
 	
 	// Update is called once per frame
@@ -89,6 +100,7 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
     {
         // toggle isViewing so to toggle onViewExit behavior
         isViewing = !isViewing;
+        this.GetComponent<TapToPlace>().enabled = !this.GetComponent<TapToPlace>().enabled;
 
         print("Click!!!");
     }
