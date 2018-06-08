@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\bin\x86\Release\AppX</LayoutDir>
-    <RegisteredManifestChecksum>27D7DCF584EB9B1BD51C79BD5B56EE822C02CB5456ABC934CF1054E2056712EB</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>D77CF4A60669C0616CD5F47D7EE8A34B0919B3C97F8B1EB8E0D23D47FADB303F</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>HoloLensSandbox_1.0.0.0_x86__pzq3xp76mxafg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>HoloLensSandbox_pzq3xp76mxafg!App</RegisteredUserModeAppID>
     <RegisteredPackageID>HoloLensSandbox</RegisteredPackageID>
@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\bin\x86\Release\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-05T22:33:16.796</Modified>
+      <Modified>2018-06-08T17:05:43.454</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\bin\x86\Release\HoloLens Sandbox.exe">
       <PackagePath>entrypoint\HoloLens Sandbox.exe</PackagePath>
-      <Modified>2018-06-05T22:32:57.616</Modified>
+      <Modified>2018-06-08T17:05:25.505</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\.nuget\packages\microsoft.applicationinsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -501,7 +501,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Resource.res">
       <PackagePath>Resource.res</PackagePath>
-      <Modified>2018-06-05T22:30:46.889</Modified>
+      <Modified>2018-06-08T17:04:22.234</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -559,15 +559,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\boot.config">
       <PackagePath>Data\boot.config</PackagePath>
-      <Modified>2018-06-05T22:29:33.578</Modified>
+      <Modified>2018-06-08T17:03:13.412</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\globalgamemanagers">
       <PackagePath>Data\globalgamemanagers</PackagePath>
-      <Modified>2018-06-05T22:29:31.087</Modified>
+      <Modified>2018-06-08T17:03:11.143</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\level0">
       <PackagePath>Data\level0</PackagePath>
-      <Modified>2018-06-05T22:29:28.509</Modified>
+      <Modified>2018-06-08T17:03:08.811</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\Resources\unity default resources">
       <PackagePath>Data\Resources\unity default resources</PackagePath>
@@ -575,39 +575,31 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\Resources\unity_builtin_extra">
       <PackagePath>Data\Resources\unity_builtin_extra</PackagePath>
-      <Modified>2018-06-05T22:29:33.573</Modified>
+      <Modified>2018-06-08T17:03:13.412</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\globalgamemanagers.assets">
       <PackagePath>Data\globalgamemanagers.assets</PackagePath>
-      <Modified>2018-06-05T22:29:31.544</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\resources.assets">
-      <PackagePath>Data\resources.assets</PackagePath>
-      <Modified>2018-06-05T22:29:32.242</Modified>
+      <Modified>2018-06-08T17:03:11.531</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\sharedassets0.assets">
       <PackagePath>Data\sharedassets0.assets</PackagePath>
-      <Modified>2018-06-05T22:29:32.658</Modified>
+      <Modified>2018-06-08T17:03:12.592</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\level0.resS">
       <PackagePath>Data\level0.resS</PackagePath>
-      <Modified>2018-06-05T22:29:28.507</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\resources.assets.resS">
-      <PackagePath>Data\resources.assets.resS</PackagePath>
-      <Modified>2018-06-05T22:29:32.241</Modified>
+      <Modified>2018-06-08T17:03:08.809</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\sharedassets0.assets.resS">
       <PackagePath>Data\sharedassets0.assets.resS</PackagePath>
-      <Modified>2018-06-05T22:29:32.657</Modified>
+      <Modified>2018-06-08T17:03:12.592</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\managedAssemblies.txt">
       <PackagePath>Data\managedAssemblies.txt</PackagePath>
-      <Modified>2018-06-05T22:30:46.800</Modified>
+      <Modified>2018-06-08T17:04:22.125</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Data\nativePlugins.txt">
       <PackagePath>Data\nativePlugins.txt</PackagePath>
-      <Modified>2018-06-05T22:30:46.803</Modified>
+      <Modified>2018-06-08T17:04:22.125</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -616,211 +608,211 @@
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-05T22:32:58.967</Modified>
+      <Modified>2018-06-08T17:05:26.666</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.TilemapModule.dll">
       <PackagePath>UnityEngine.TilemapModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.154</Modified>
+      <Modified>2018-06-08T17:05:42.034</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.TextRenderingModule.dll">
       <PackagePath>UnityEngine.TextRenderingModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.160</Modified>
+      <Modified>2018-06-08T17:05:42.039</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UIModule.dll">
       <PackagePath>UnityEngine.UIModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.169</Modified>
+      <Modified>2018-06-08T17:05:42.045</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UIElementsModule.dll">
       <PackagePath>UnityEngine.UIElementsModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.201</Modified>
+      <Modified>2018-06-08T17:05:42.088</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.SpriteMaskModule.dll">
       <PackagePath>UnityEngine.SpriteMaskModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.234</Modified>
+      <Modified>2018-06-08T17:05:42.092</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.ScreenCaptureModule.dll">
       <PackagePath>UnityEngine.ScreenCaptureModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.240</Modified>
+      <Modified>2018-06-08T17:05:42.096</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.PhysicsModule.dll">
       <PackagePath>UnityEngine.PhysicsModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.254</Modified>
+      <Modified>2018-06-08T17:05:42.108</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.TerrainPhysicsModule.dll">
       <PackagePath>UnityEngine.TerrainPhysicsModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.259</Modified>
+      <Modified>2018-06-08T17:05:42.111</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.TerrainModule.dll">
       <PackagePath>UnityEngine.TerrainModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.268</Modified>
+      <Modified>2018-06-08T17:05:42.118</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.StyleSheetsModule.dll">
       <PackagePath>UnityEngine.StyleSheetsModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.275</Modified>
+      <Modified>2018-06-08T17:05:42.125</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UNETModule.dll">
       <PackagePath>UnityEngine.UNETModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.290</Modified>
+      <Modified>2018-06-08T17:05:42.137</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.VRModule.dll">
       <PackagePath>UnityEngine.VRModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.303</Modified>
+      <Modified>2018-06-08T17:05:42.154</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.VideoModule.dll">
       <PackagePath>UnityEngine.VideoModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.309</Modified>
+      <Modified>2018-06-08T17:05:42.161</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.VehiclesModule.dll">
       <PackagePath>UnityEngine.VehiclesModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.314</Modified>
+      <Modified>2018-06-08T17:05:42.166</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.WindModule.dll">
       <PackagePath>UnityEngine.WindModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.319</Modified>
+      <Modified>2018-06-08T17:05:42.170</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.WebModule.dll">
       <PackagePath>UnityEngine.WebModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.326</Modified>
+      <Modified>2018-06-08T17:05:42.178</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UnityWebRequestAudioModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestAudioModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.330</Modified>
+      <Modified>2018-06-08T17:05:42.183</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UnityConnectModule.dll">
       <PackagePath>UnityEngine.UnityConnectModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.335</Modified>
+      <Modified>2018-06-08T17:05:42.188</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UnityAnalyticsModule.dll">
       <PackagePath>UnityEngine.UnityAnalyticsModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.340</Modified>
+      <Modified>2018-06-08T17:05:42.194</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UnityWebRequestWWWModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestWWWModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.345</Modified>
+      <Modified>2018-06-08T17:05:42.198</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UnityWebRequestTextureModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestTextureModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.350</Modified>
+      <Modified>2018-06-08T17:05:42.205</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UnityWebRequestModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.358</Modified>
+      <Modified>2018-06-08T17:05:42.212</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.Physics2DModule.dll">
       <PackagePath>UnityEngine.Physics2DModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.374</Modified>
+      <Modified>2018-06-08T17:05:42.225</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.AudioModule.dll">
       <PackagePath>UnityEngine.AudioModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.384</Modified>
+      <Modified>2018-06-08T17:05:42.234</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.ARModule.dll">
       <PackagePath>UnityEngine.ARModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.392</Modified>
+      <Modified>2018-06-08T17:05:42.240</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.AnimationModule.dll">
       <PackagePath>UnityEngine.AnimationModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.410</Modified>
+      <Modified>2018-06-08T17:05:42.254</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.CrashReportingModule.dll">
       <PackagePath>UnityEngine.CrashReportingModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.414</Modified>
+      <Modified>2018-06-08T17:05:42.258</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.CoreModule.dll">
       <PackagePath>UnityEngine.CoreModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.674</Modified>
+      <Modified>2018-06-08T17:05:42.490</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.ClothModule.dll">
       <PackagePath>UnityEngine.ClothModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.680</Modified>
+      <Modified>2018-06-08T17:05:42.495</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.AIModule.dll">
       <PackagePath>UnityEngine.AIModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.687</Modified>
+      <Modified>2018-06-08T17:05:42.502</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.AccessibilityModule.dll">
       <PackagePath>UnityEngine.AccessibilityModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.692</Modified>
+      <Modified>2018-06-08T17:05:42.507</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.DirectorModule.dll">
       <PackagePath>UnityEngine.DirectorModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.696</Modified>
+      <Modified>2018-06-08T17:05:42.512</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.JSONSerializeModule.dll">
       <PackagePath>UnityEngine.JSONSerializeModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.701</Modified>
+      <Modified>2018-06-08T17:05:42.516</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.InputModule.dll">
       <PackagePath>UnityEngine.InputModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.708</Modified>
+      <Modified>2018-06-08T17:05:42.520</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.PerformanceReportingModule.dll">
       <PackagePath>UnityEngine.PerformanceReportingModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.712</Modified>
+      <Modified>2018-06-08T17:05:42.525</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.ParticleSystemModule.dll">
       <PackagePath>UnityEngine.ParticleSystemModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.727</Modified>
+      <Modified>2018-06-08T17:05:42.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.ParticlesLegacyModule.dll">
       <PackagePath>UnityEngine.ParticlesLegacyModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.732</Modified>
+      <Modified>2018-06-08T17:05:42.552</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.GridModule.dll">
       <PackagePath>UnityEngine.GridModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.737</Modified>
+      <Modified>2018-06-08T17:05:42.556</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.GameCenterModule.dll">
       <PackagePath>UnityEngine.GameCenterModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.744</Modified>
+      <Modified>2018-06-08T17:05:42.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.dll">
       <PackagePath>UnityEngine.dll</PackagePath>
-      <Modified>2018-06-05T22:30:13.593</Modified>
+      <Modified>2018-06-08T17:03:50.481</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.IMGUIModule.dll">
       <PackagePath>UnityEngine.IMGUIModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.762</Modified>
+      <Modified>2018-06-08T17:05:42.580</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.ImageConversionModule.dll">
       <PackagePath>UnityEngine.ImageConversionModule.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.766</Modified>
+      <Modified>2018-06-08T17:05:42.584</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.830</Modified>
+      <Modified>2018-06-08T17:05:42.632</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.Timeline.dll">
       <PackagePath>UnityEngine.Timeline.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.862</Modified>
+      <Modified>2018-06-08T17:05:42.665</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\nunit.framework.dll">
       <PackagePath>nunit.framework.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.902</Modified>
+      <Modified>2018-06-08T17:05:42.704</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.UI.dll">
       <PackagePath>UnityEngine.UI.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.986</Modified>
+      <Modified>2018-06-08T17:05:42.783</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.HoloLens.dll">
       <PackagePath>UnityEngine.HoloLens.dll</PackagePath>
-      <Modified>2018-06-05T22:33:16.004</Modified>
+      <Modified>2018-06-08T17:05:42.795</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\UnityEngine.Networking.dll">
       <PackagePath>UnityEngine.Networking.dll</PackagePath>
-      <Modified>2018-06-05T22:33:16.066</Modified>
+      <Modified>2018-06-08T17:05:42.851</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\GLTFSerializationUWP.dll">
       <PackagePath>GLTFSerializationUWP.dll</PackagePath>
-      <Modified>2018-06-05T22:33:16.093</Modified>
+      <Modified>2018-06-08T17:05:42.870</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\Assembly-CSharp.dll">
       <PackagePath>Assembly-CSharp.dll</PackagePath>
-      <Modified>2018-06-05T22:33:15.145</Modified>
+      <Modified>2018-06-08T17:05:42.028</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\HoloLens Sandbox\UWP\HoloLens Sandbox\bin\x86\Release\Core\HoloLens Sandbox.exe">
       <PackagePath>HoloLens Sandbox.exe</PackagePath>
-      <Modified>2018-06-05T22:33:16.789</Modified>
+      <Modified>2018-06-08T17:05:43.449</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
