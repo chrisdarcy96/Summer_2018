@@ -79,12 +79,7 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
 
         // kill the TapToPlace component
         this.gameObject.GetComponent<TapToPlace>().enabled = false;
-
-        // place in front of mesh
-        RaycastHit hitInfo;
-        Physics.Raycast(GazeManager.Instance.GazeOrigin, GazeManager.Instance.GazeNormal, out hitInfo);
-        this.transform.position = hitInfo.point;
-        this.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+        
 	}
 	
 	// Update is called once per frame
