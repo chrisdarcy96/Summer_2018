@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
+// Many thanks to https://github.com/tikonen/blog/blob/master/csvreader/CSVReader.cs for the code.
+
+
 public class CSVReader
 {
     static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
@@ -12,8 +15,11 @@ public class CSVReader
 
     public static List<Dictionary<string, object>> Read(string file)
     {
+
         var list = new List<Dictionary<string, object>>();
         TextAsset data = Resources.Load(file) as TextAsset;
+
+        //Debug.Log(data == null);
 
         var lines = Regex.Split(data.text, LINE_SPLIT_RE);
 
