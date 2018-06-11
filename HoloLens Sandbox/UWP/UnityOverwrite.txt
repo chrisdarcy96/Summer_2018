@@ -13,13 +13,13 @@ HoloLens Sandbox\HoloLens Sandbox.csproj: modified
 HoloLens Sandbox\HoloLens Sandbox.csproj.user: modified
 HoloLens Sandbox\Package.appxmanifest: EB08079FE7AC0143E5320CD9A0CF96B4
 HoloLens Sandbox\project.json: 1D02BC64BAC0D041019673A1C4C51737
-HoloLens Sandbox\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
+HoloLens Sandbox\Assets\SplashScreen.scale-200.png: A85C1D7624B6902CF8CEBD6F0200A826
 HoloLens Sandbox\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
 HoloLens Sandbox\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
 HoloLens Sandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
 HoloLens Sandbox\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
 HoloLens Sandbox\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
-HoloLens Sandbox\bin\x86\Release\AppX\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
+HoloLens Sandbox\bin\x86\Release\AppX\Assets\SplashScreen.scale-200.png: modified
 HoloLens Sandbox\bin\x86\Release\AppX\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
 HoloLens Sandbox\bin\x86\Release\AppX\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
 HoloLens Sandbox\bin\x86\Release\AppX\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D

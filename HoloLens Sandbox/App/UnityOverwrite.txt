@@ -5,18 +5,19 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-HoloLens Sandbox.sln: 24276CA5E2AB1822D03A381034BEFF92
+HoloLens Sandbox.sln: modified
 GeneratedProjects\UWP\Assembly-CSharp\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
 HoloLens Sandbox\App.cs: FB9075DBA55B83F2A98DAB4722B1E49B
-HoloLens Sandbox\HoloLens Sandbox.csproj: 483939A5EC22A825B6E9997C0883765C
-HoloLens Sandbox\HoloLens Sandbox.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
-HoloLens Sandbox\Package.appxmanifest: 49B491E61E3068EA56FEF9DF5327F9BC
+HoloLens Sandbox\HoloLens Sandbox.csproj: B003C86E403CDF79A321BAA806A54D34
+HoloLens Sandbox\HoloLens Sandbox.csproj.user: modified
+HoloLens Sandbox\Package.appxmanifest: EB08079FE7AC0143E5320CD9A0CF96B4
 HoloLens Sandbox\project.json: 1D02BC64BAC0D041019673A1C4C51737
-HoloLens Sandbox\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
+HoloLens Sandbox\Assets\SplashScreen.scale-200.png: A85C1D7624B6902CF8CEBD6F0200A826
 HoloLens Sandbox\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
 HoloLens Sandbox\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
 HoloLens Sandbox\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
 HoloLens Sandbox\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
 HoloLens Sandbox\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
+HoloLens Sandbox\obj\x86\Release\HoloLens Sandbox.csproj.CopyComplete: D41D8CD98F00B204E9800998ECF8427E
 HoloLens Sandbox\Properties\AssemblyInfo.cs: E8F5301493366560D82721E37F4F5CDC
 HoloLens Sandbox\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
