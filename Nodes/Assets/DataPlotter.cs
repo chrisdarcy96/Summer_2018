@@ -24,9 +24,19 @@ public class DataPlotter : MonoBehaviour {
     public string yName;
     public string zName;
 
-
     // Use this for initialization
     void Start () {
+
+        // Pull in the Nexus from DrawCylinder and then the nodes list from the Nexus
+        GameObject nexus = GameObject.Find("LineNexus");
+        List<GameObject> nodes = nexus.GetComponent<DrawCylinders>().nodes;
+
+        // Debug checks and heartbeat.
+        if (nexus == null)
+        {
+            print("Nexus not found!");
+        }
+
         print("Hello, Nodes! I'm the DataPlotter Script!");
 
         // References CSVReader.cs, which returns a list compatible with our points variable.
@@ -50,6 +60,22 @@ public class DataPlotter : MonoBehaviour {
         yName = columnList[columnY];
         zName = columnList[columnZ];
 
+        // Loop through the points and plot the graph
+        // Offset the Z +2 because the HoloLense camera is at the true origin.
+
+        for (int i = 0; i < points.Count; i++)
+        {
+            // Find each representative value
+            float x = System.Convert.ToSingle(points[i][xName]); // System.Convert.ToSingle just ensures that what we're using is a float
+            float y = System.Convert.ToSingle(points[i][yName]);
+            float z = System.Convert.ToSingle(points[i][zName]) + 2.0f;
+
+            GameObject temp = Instantiate(ptprefab, new Vector3(x, y, z), Quaternion.identity);
+            temp.name = "PlotData" + i;
+            temp.transform.parent = nexus.transform;
+            // Try to tack these clones into the Nexus
+            nodes.Add(temp);
+        }
 
     }
 	

@@ -52,3 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filename: iris
+  ptprefab: {fileID: 1338073754193012, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+  columnX: 1
+  columnY: 2
+  columnZ: 3
+  xName: 
+  yName: 
+  zName: 
