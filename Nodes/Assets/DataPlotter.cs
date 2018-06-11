@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 // Props to the awesome people from Penn State at https://sites.psu.edu/bdssblog/2017/04/06/basic-data-visualization-in-unity-scatterplot-creation/
 
-public class DataPlotter : MonoBehaviour {
+public class DataPlotter : MonoBehaviour
+{
 
     // inputfile does NOT require .csv file extension
     [Tooltip("The name of the input file without the '.csv' extension.")]
@@ -13,7 +15,7 @@ public class DataPlotter : MonoBehaviour {
     public GameObject ptprefab;
 
     private List<Dictionary<string, object>> points;
-    
+
     // Indices for columns to be assigned
     public int columnX = 0; // No name will populate in xName by default because in the .csv is the input column.
     public int columnY = 1;
@@ -25,7 +27,8 @@ public class DataPlotter : MonoBehaviour {
     public string zName;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         // Pull in the Nexus from DrawCylinder and then the nodes list from the Nexus
         GameObject nexus = GameObject.Find("LineNexus");
@@ -53,7 +56,7 @@ public class DataPlotter : MonoBehaviour {
         print("There are " + columnList.Count + " columns in CSV");
 
         foreach (string key in columnList)
-        print("Column name is " + key);
+            print("Column name is " + key);
 
         // Assign column name from columnList to Name variables
         xName = columnList[columnX];
@@ -66,9 +69,9 @@ public class DataPlotter : MonoBehaviour {
         for (int i = 0; i < points.Count; i++)
         {
             // Find each representative value
-            float x = System.Convert.ToSingle(points[i][xName]); // System.Convert.ToSingle just ensures that what we're using is a float
-            float y = System.Convert.ToSingle(points[i][yName]);
-            float z = System.Convert.ToSingle(points[i][zName]) + 2.0f;
+            float x = Convert.ToSingle(points[i][xName]); // System.Convert.ToSingle just ensures that what we're using is a float
+            float y = Convert.ToSingle(points[i][yName]);
+            float z = Convert.ToSingle(points[i][zName]) + 2.0f;
 
             GameObject temp = Instantiate(ptprefab, new Vector3(x, y, z), Quaternion.identity);
             temp.name = "PlotData" + i;
@@ -78,5 +81,29 @@ public class DataPlotter : MonoBehaviour {
         }
 
     }
-	
+
+    private float FindMaxValue(string columnName)
+    {
+        ///<summary>
+        /// A Function that takes a columnName as an argument and returns the maximum value in that column.
+        /// Only compatible with the points List format - specifically, the one from  the Penn State reference above.
+        /// </summary>
+        /// <param name="columnName">
+        /// A string that matches with a column in the points list of dictionaries.
+        /// </param>
+
+        // Whatever is first will be our max by default
+        float max = Convert.ToSingle(points[0][columnName]);
+
+        // Loop through and bump the max anytime we find a superior candidate
+        for (int j = 0; j < points.Count; j++)
+        {
+            if (max < Convert.ToSingle(points[j][columnName]))
+            {
+                max = Convert.ToSingle(points[j][columnName]);
+            }
+        }
+        return max;
+    }
+
 }
