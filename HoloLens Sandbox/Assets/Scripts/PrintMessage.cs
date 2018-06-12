@@ -2,10 +2,12 @@
 using System.Collections;
 using UnityEngine.Networking;
 using System.Collections.Generic;
+using System;
 
 public class PrintMessage : MonoBehaviour
 {
-    public string address = "127.0.0.1";
+    public GameObject prefab;
+    public string address = "www.google.com";       // test domain
     private UnityWebRequest www;
 
     void Start()
@@ -15,8 +17,7 @@ public class PrintMessage : MonoBehaviour
 
     private IEnumerator GetText()
     {
-        // https://docs.unity3d.com/ScriptReference/WWW.html
-
+        // https://docs.unity3d.com/ScriptReference/WWW.html 
         www = UnityWebRequest.Get(address);
 
 
@@ -28,14 +29,22 @@ public class PrintMessage : MonoBehaviour
         }
         else
         {
-            print(www.downloadHandler.data);
             print(www.downloadHandler.text);
+            ConnectionSuccessful();
         }
 
     }
+
+    private void ConnectionSuccessful()
+    {
+        prefab = Instantiate(prefab);
+    }
+
     void Update()
     {
-        print(www.downloadProgress);
+        Vector3 pos = 5 * UnityEngine.Random.insideUnitSphere;
+        print("Object now at : " + pos);
+        prefab.transform.position = pos;
     }
 
 }
