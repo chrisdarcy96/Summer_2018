@@ -34,6 +34,12 @@ public class DataPlotter : MonoBehaviour
     void Start()
     {
 
+        // Return immediately if plot is false
+        if (!plot)
+        {
+            return;
+        }
+
         // Pull in the Nexus from DrawCylinder and then the nodes list from the Nexus
         GameObject nexus = GameObject.Find("LineNexus");
         List<GameObject> nodes = nexus.GetComponent<DrawCylinders>().nodes;
