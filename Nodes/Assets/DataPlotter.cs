@@ -13,6 +13,8 @@ public class DataPlotter : MonoBehaviour
     public string filename;
     [Tooltip("A Prefab of the object we will populate the graph with.")]
     public GameObject ptprefab;
+    [Range(1, 20)]
+    public float plotScale = 10f;
 
     private List<Dictionary<string, object>> points;
 
@@ -80,9 +82,13 @@ public class DataPlotter : MonoBehaviour
             float y = (Convert.ToSingle(points[i][yName]) - yMin) / (yMax - yMin);
             float z = (Convert.ToSingle(points[i][zName]) - zMin) / (yMax - yMin) + 2.0f; // Offset the Z +2 because the HoloLense camera is at the true origin.
 
-            GameObject temp = Instantiate(ptprefab, new Vector3(x, y, z), Quaternion.identity);
+            GameObject temp = Instantiate(ptprefab, new Vector3(x, y, z) * plotScale, Quaternion.identity);
             temp.name = "PlotData" + i;
             temp.transform.parent = nexus.transform;
+
+            // Gets material color and sets it to a new RGBA color we define
+            temp.GetComponent<Renderer>().material.color = new Color(x, y, z, 1.0f);
+
             // Try to tack these clones into the Nexus
             nodes.Add(temp);
         }
