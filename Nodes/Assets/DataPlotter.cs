@@ -15,6 +15,8 @@ public class DataPlotter : MonoBehaviour
     public GameObject ptprefab;
     [Range(1, 20)]
     public float plotScale = 10f;
+    [Tooltip("Toggle that sets whether or not to add the data on play.")]
+    public bool plot = true;
 
     private List<Dictionary<string, object>> points;
 
