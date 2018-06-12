@@ -78,7 +78,7 @@ public class DataPlotter : MonoBehaviour
         for (int i = 0; i < points.Count; i++)
         {
             // Find each representative value
-            float x = (Convert.ToSingle(points[i][xName]) - xMin) / (xMax-xMin); // System.Convert.ToSingle just ensures that what we're using is a float
+            float x = (Convert.ToSingle(points[i][xName]) - xMin) / (xMax - xMin); // System.Convert.ToSingle just ensures that what we're using is a float
             float y = (Convert.ToSingle(points[i][yName]) - yMin) / (yMax - yMin);
             float z = (Convert.ToSingle(points[i][zName]) - zMin) / (yMax - yMin) + 2.0f; // Offset the Z +2 because the HoloLense camera is at the true origin.
 
