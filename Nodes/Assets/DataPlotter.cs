@@ -63,15 +63,22 @@ public class DataPlotter : MonoBehaviour
         yName = columnList[columnY];
         zName = columnList[columnZ];
 
+        //Find the maxes and mins for normalization
+        float xMax = FindMaxValue(xName);
+        float yMax = FindMaxValue(yName);
+        float zMax = FindMaxValue(zName);
+
+        float xMin = FindMinValue(xName);
+        float yMin = FindMinValue(yName);
+        float zMin = FindMinValue(zName);
         // Loop through the points and plot the graph
-        // Offset the Z +2 because the HoloLense camera is at the true origin.
 
         for (int i = 0; i < points.Count; i++)
         {
             // Find each representative value
-            float x = Convert.ToSingle(points[i][xName]); // System.Convert.ToSingle just ensures that what we're using is a float
-            float y = Convert.ToSingle(points[i][yName]);
-            float z = Convert.ToSingle(points[i][zName]) + 2.0f;
+            float x = (Convert.ToSingle(points[i][xName]) - xMin) / (xMax-xMin); // System.Convert.ToSingle just ensures that what we're using is a float
+            float y = (Convert.ToSingle(points[i][yName]) - yMin) / (yMax - yMin);
+            float z = (Convert.ToSingle(points[i][zName]) - zMin) / (yMax - yMin) + 2.0f; // Offset the Z +2 because the HoloLense camera is at the true origin.
 
             GameObject temp = Instantiate(ptprefab, new Vector3(x, y, z), Quaternion.identity);
             temp.name = "PlotData" + i;
@@ -104,6 +111,14 @@ public class DataPlotter : MonoBehaviour
             }
         }
         return max;
+    }
+
+    private float FindMinValue(string columnName)
+    {
+
+
+
+        return min;
     }
 
 }
