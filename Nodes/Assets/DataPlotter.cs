@@ -115,9 +115,25 @@ public class DataPlotter : MonoBehaviour
 
     private float FindMinValue(string columnName)
     {
+        ///<summary>
+        /// A Function that takes a columnName as an argument and returns the minimum value in that column.
+        /// Only compatible with the points List format - specifically, the one from  the Penn State reference above.
+        /// </summary>
+        /// <param name="columnName">
+        /// A string that matches with a column in the points list of dictionaries.
+        /// </param>
 
+        // Whatever is first will be our max by default
+        float min = Convert.ToSingle(points[0][columnName]);
 
-
+        // Loop through and bump the max anytime we find a superior candidate
+        for (int j = 0; j < points.Count; j++)
+        {
+            if (min > Convert.ToSingle(points[j][columnName]))
+            {
+                min = Convert.ToSingle(points[j][columnName]);
+            }
+        }
         return min;
     }
 
