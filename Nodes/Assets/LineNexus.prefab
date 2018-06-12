@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4211027100236778}
   - component: {fileID: 114371292368558604}
+  - component: {fileID: 114715587727800388}
   m_Layer: 0
   m_Name: LineNexus
   m_TagString: Untagged
@@ -52,7 +53,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineMaterial: {fileID: 2100000, guid: a85c7b8ec78e35045ad7d9bd40c516d5, type: 2}
-  radius: 0.05
+  radius: 0.025
   root: {fileID: 0}
   nodes:
   - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &114715587727800388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893069223834312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394fe2741b0ec064cb8868b15f599a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
