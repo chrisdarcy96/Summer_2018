@@ -48,6 +48,9 @@ public class DrawCylinders : MonoBehaviour
             //Create a cylinder
             connectors.Add(GameObject.CreatePrimitive(PrimitiveType.Cylinder));
 
+            // Remove its collider
+            Destroy(connectors[connectors.Count - 1].GetComponent<Collider>());
+
             // Name and assign the cylinder
             connectors[connectors.Count - 1].name = "Connector" + (connectors.Count - 1);
             connectors[connectors.Count - 1].transform.parent = this.gameObject.transform;
@@ -103,6 +106,9 @@ public class DrawCylinders : MonoBehaviour
                 // Name and assign the cylinder
                 connectors[connectors.Count - 1].name = "Connector" + (connectors.Count - 1);
                 connectors[connectors.Count - 1].transform.parent = this.gameObject.transform;
+
+                // Remove its collider
+                Destroy(connectors[connectors.Count - 1].GetComponent<Collider>());
             }
         }
         else if (connectors.Count > nodes.Count)
