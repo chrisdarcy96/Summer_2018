@@ -10,6 +10,7 @@ using System;
 
 public class SphereRepulsion : MonoBehaviour
 {
+    private const double Y = 2.0;
 
     // Public variable
     public GameObject SphereCentral; // The attached central sphere
@@ -26,6 +27,7 @@ public class SphereRepulsion : MonoBehaviour
     private bool isTargetReached = true;
     private bool influenced = false; // True when we are in the repulsion zone
     private List<GameObject> influencers = new List<GameObject>();
+    private double k = 8.99e9;
 
 
     // Use this for initialization
@@ -53,9 +55,37 @@ public class SphereRepulsion : MonoBehaviour
 
     private void calcForce(List<GameObject> influencers)
     {
+
+        float otherCharge = 1;
+        Vector3 netForce = new Vector3(); 
+
         // Create a net charge force in 3d based off of the influence of multiple other gameObjects
         foreach(GameObject influencer in influencers)
         {
+            // find a vector force inversely proportional to distance
+            Vector3 compForce = new Vector3();
+            double distance = Vector3.Distance(this.transform.position, influencer.transform.position);
+            compForce = (this.transform.position - influencer.transform.position).normalized; // start with a unit vector pointing from one to another.
+            
+            // Use the nexusCharge if the other object is the nexus; otherwise we have the charge
+            if(influencer.name == "LineNexus")
+            {
+                otherCharge = nexusCharge;
+            }
+            else
+            {
+                otherCharge = this.hostCharge;
+            }
+
+            double scalarForce = (this.hostCharge * otherCharge * k) / Math.Pow(distance, 2);
+            // TODO: Figure out a nicer way to do this than grind a double down to a float
+            compForce *= (float)scalarForce;
+
+            print("Force magnitude is " + scalarForce);
+            netForce += (compForce);
+
+
+            
 
         }
     }
