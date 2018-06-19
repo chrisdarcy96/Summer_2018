@@ -2,8 +2,8 @@
 using System.Collections;
 
 /// <summary>
-/// Script that makes spheres repel from a central sphere.
-/// Script based off awesome work at https://github.com/kursion/learning-unity/tree/master/unity-repulsion-spheres
+/// Script that makes spheres repel from a central sphere. Based off of Coulomb's Law - with simplifications.
+/// Script based off work at https://github.com/kursion/learning-unity/tree/master/unity-repulsion-spheres
 /// </summary>
 
 public class SphereRepulsion : MonoBehaviour
@@ -11,8 +11,11 @@ public class SphereRepulsion : MonoBehaviour
 
     // Public variable
     public GameObject SphereCentral; // The attached central sphere
-    public float sphereCentralDistance = 1;
-    public float sphereSpeed = 0.7F;
+    public float maxRange = 10; // The MAX distance we want any host to move
+    [Tooltip("Make sure to only edit this on the prefab - otherwise you may experience unpredictable node behavior"),Range(-10, 10)]
+    public float nexusCharge = 2.0F;
+    [Tooltip("It is advised that you only edit this on the prefab to avoid unpredictable node behavior"), Range(-10, 10)]
+    public float hostCharge = 1.0F;
     public float fixedY = 1;
     public float currentDistance; // PUBLIC TO DEBUG
 
@@ -31,13 +34,12 @@ public class SphereRepulsion : MonoBehaviour
     {
         if (this.SphereCentral == null) { return; }
 
+        // If we have attained the distance we desire, cut the force.
         this.currentDistance = Vector3.Distance(this.transform.position, this.SphereCentral.transform.position);
+        
+        if (this.currentDistance <= )
 
 
-        if (this.currentDistance != this.sphereCentralDistance - 0.01F)
-        {
-            this.isTargetReached = false;
-        }
     }
 
     void OnTriggerEnter(Collider other)
