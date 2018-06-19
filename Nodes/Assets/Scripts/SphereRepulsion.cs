@@ -17,7 +17,7 @@ public class SphereRepulsion : MonoBehaviour
     [Tooltip("It is advised that you only edit this on the prefab to avoid unpredictable node behavior"), Range(-10, 10)]
     public float hostCharge = 1.0F;
     public float fixedY = 1;
-    public float currentDistance; // PUBLIC TO DEBUG
+    public float currentDistance; // PUBLIC FOR DEBUGGING
 
     // Private variables
     private bool isTargetReached = true;
@@ -27,6 +27,7 @@ public class SphereRepulsion : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Adjust the size of the collider based on the given charge value
     }
 
     // Update is called once per frame
@@ -36,8 +37,7 @@ public class SphereRepulsion : MonoBehaviour
 
         // If we have attained the distance we desire, cut the force.
         this.currentDistance = Vector3.Distance(this.transform.position, this.SphereCentral.transform.position);
-        
-        if (this.currentDistance <= )
+
 
 
     }
