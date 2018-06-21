@@ -188,7 +188,7 @@ public class SphereRepulsion : MonoBehaviour
         if (other.gameObject == sphereCentral)
         {
             Debug.LogWarning("Turning on gravity...");
-            settings.gravity = settings.nexusCharge;
+            settings.gravity =  -settings.nexusCharge;
         }
 
     }
