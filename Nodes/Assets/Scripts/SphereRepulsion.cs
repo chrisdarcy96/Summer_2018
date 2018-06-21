@@ -87,6 +87,7 @@ public class SphereRepulsion : MonoBehaviour
             // find a vector force inversely proportional to distance
             // TODO: scrub these doubles down to floats
             Vector3 compForce = new Vector3();
+            float scalarForce;
             float distance = Vector3.Distance(this.transform.position, influencer.transform.position);
             compForce = (this.transform.position - influencer.transform.position).normalized; // start with a unit vector pointing from one to another.
 
@@ -101,13 +102,15 @@ public class SphereRepulsion : MonoBehaviour
             {
                 Debug.LogWarning("sphereCentral is exerting a force on this.");
                 otherCharge = nexusCharge;
+                scalarForce = (this.hostCharge * otherCharge * scale) / (distance * distance);
             }
             else
             {
                 otherCharge = hostCharge;
+                scalarForce = (this.hostCharge * otherCharge * scale) / (distance * distance);
             }
 
-            float scalarForce = (this.hostCharge * otherCharge * scale) / (distance * distance); // Apparently there's a recorded performance penalty for Pow: https://stackoverflow.com/questions/936541/math-pow-vs-multiply-operator-performance#936909
+            scalarForce = (this.hostCharge * otherCharge * scale) / (distance * distance); // Apparently there's a recorded performance penalty for Pow: https://stackoverflow.com/questions/936541/math-pow-vs-multiply-operator-performance#936909
             // TODO: Figure out a nicer way to do this than grind a double down to a float
             compForce *= (float)scalarForce;
 
@@ -152,12 +155,12 @@ public class SphereRepulsion : MonoBehaviour
 
         }
 
-        // As we enter the radius of the central sphere, turn gravity off.
-        if(other.gameObject == sphereCentral)
-        {
-            Debug.LogWarning("Turning off gravity...");
-            settings.gravity = 0;
-        }
+        //// As we enter the radius of the central sphere, turn gravity off.
+        //if(other.gameObject == sphereCentral)
+        //{
+        //    Debug.LogWarning("Turning off gravity...");
+        //    settings.gravity = 0;
+        //}
 
     }
 
@@ -184,12 +187,12 @@ public class SphereRepulsion : MonoBehaviour
 
         }
 
-        // As we enter the radius of the central sphere, turn gravity off.
-        if (other.gameObject == sphereCentral)
-        {
-            Debug.LogWarning("Turning on gravity...");
-            settings.gravity =  -settings.nexusCharge;
-        }
+        //// As we enter the radius of the central sphere, turn gravity off.
+        //if (other.gameObject == sphereCentral)
+        //{
+        //    Debug.LogWarning("Turning on gravity...");
+        //    settings.gravity =  -settings.nexusCharge;
+        //}
 
     }
 }
