@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/NodeViewer.unity
-    guid: 93489c89e5d67a74da8e9537733d7ad1
+    path: Assets/Scenes/FileReadSandbox.unity
+    guid: f61bbc7c17043574bb71d61b01c1411b

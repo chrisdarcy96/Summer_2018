@@ -37,7 +37,7 @@
     </Application>
   </Applications>
   <Capabilities>
-    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
     <uap2:Capability Name="spatialPerception" />
     <DeviceCapability Name="microphone" />
   </Capabilities>
