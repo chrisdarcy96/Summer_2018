@@ -12,22 +12,16 @@ public class SphereRepulsion : MonoBehaviour
 {
     private const double Y = 2.0;
 
-    // Public variable
-    public GameObject sphereCentral; // The attached central sphere
-    public GameObject settingsParent; 
-    float currentDistance; // PUBLIC FOR DEBUGGING
-
-
-    // A parent object with RepulsionSettings needs 
-
-
-
+    // Public variables
+    public float currentDistance; // PUBLIC FOR DEBUGGING
 
     // Private fields
+    private GameObject settingsParent;
     private bool isTargetReached = true;
     private bool influenced = false; // True when we are in the repulsion zone
     private List<GameObject> influencers = new List<GameObject>();
     private float maxRange, hostCharge, nexusCharge, scale;
+    private GameObject sphereCentral;
 
     private Rigidbody rb;
 
@@ -41,7 +35,8 @@ public class SphereRepulsion : MonoBehaviour
         nexusCharge = settings.nexusCharge;
         hostCharge = settings.hostCharge;
         maxRange = settings.maxRange;
-        float scale = settings.scale;
+        scale = settings.scale;
+        sphereCentral = settings.sphereCentral;
 }
 
     // Update is called once per frame

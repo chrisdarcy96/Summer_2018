@@ -17,6 +17,7 @@ public class RepulsionSettings : MonoBehaviour {
     public float scale = 1.0f;
     [Tooltip("This defines the max distance between a host and the central object before SphereRepulsion.cs stops the hosta")]
     public float maxRange = 2.5f;
+    public GameObject sphereCentral; // The attached central sphere
 
     // Use this for initialization
     void Start () {
