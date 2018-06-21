@@ -50,9 +50,11 @@ public class SphereRepulsion : MonoBehaviour
 
         // If we have attained the distance we desire, cut the force.
         this.currentDistance = Vector3.Distance(this.transform.position, this.SphereCentral.transform.position);
+        print("Current distance is: " + this.currentDistance + " and the max Range is: " + maxRange);
         if (this.currentDistance >= maxRange)
         {
-            forceHalt(this);
+            Debug.LogWarning("Entering halt function for " + this.gameObject.name);
+            forceHalt(this.gameObject);
         }
         //Otherwise, we want to calculate the estimated force based off of all units within our collider.
         // ... but only if there's any influencers 
@@ -101,9 +103,14 @@ public class SphereRepulsion : MonoBehaviour
 
     }
 
-    private void forceHalt(SphereRepulsion sphereRepulsion)
+    private void forceHalt(GameObject obj)
     {
-        throw new NotImplementedException();
+        ///<summary>
+        ///Simply stops a gameobject
+        /// </summary>
+        /// 
+        print("Halting " + obj.name);
+        obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     void OnTriggerEnter(Collider other)
