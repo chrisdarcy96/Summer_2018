@@ -21,13 +21,14 @@ public class SphereRepulsion : MonoBehaviour
     public float hostCharge = 1.0F;
     public float fixedY = 1;
     public float currentDistance; // PUBLIC FOR DEBUGGING
-
+    [Tooltip("Use to magnify or decrease the power of all forces")]
+    private double scale = 1;
 
     // Private variables
     private bool isTargetReached = true;
     private bool influenced = false; // True when we are in the repulsion zone
     private List<GameObject> influencers = new List<GameObject>();
-    private double k = 8.99e9;
+    
     private Rigidbody rb;
 
     // Use this for initialization
@@ -80,7 +81,7 @@ public class SphereRepulsion : MonoBehaviour
                 otherCharge = this.hostCharge;
             }
 
-            double scalarForce = (this.hostCharge * otherCharge * k) / Math.Pow(distance, 2);
+            double scalarForce = (this.hostCharge * otherCharge * scale) / Math.Pow(distance, 2);
             // TODO: Figure out a nicer way to do this than grind a double down to a float
             compForce *= (float)scalarForce;
 
@@ -103,7 +104,7 @@ public class SphereRepulsion : MonoBehaviour
     {
         // TODO: CHECK TAG FOR CENTRAL SPHERE
         Debug.LogWarning("Trigger Entered between " + this.name+ "and " + other.name);
-        if (!IsNexus(other, SphereCentral.name)) { return; }
+        //if (!IsNexus(other, SphereCentral.name)) { return; }
 
         
         this.SphereCentral = other.gameObject; // Linking the central sphere gameObject
@@ -126,14 +127,14 @@ public class SphereRepulsion : MonoBehaviour
 
     }
 
-    private static bool IsNexus(Collider other, string name)
-    {
-        if (other.name == null || name == null)
-        {
-            return false;
-        }
-        return other.transform.parent.gameObject.name == name;
-    }
+    //private static bool IsNexus(Collider other, string name)
+    //{
+    //    if (other.name == null || name == null)
+    //    {
+    //        return false;
+    //    }
+    //    return other.transform.parent.gameObject.name == name;
+    //}
 
     void OnTriggerExit(Collider other)
     {
