@@ -13,43 +13,46 @@ public class SphereRepulsion : MonoBehaviour
     private const double Y = 2.0;
 
     // Public variable
-    public GameObject SphereCentral; // The attached central sphere
-    public float maxRange = 10; // The MAX distance we want any host to move
+    public GameObject sphereCentral; // The attached central sphere
+    public GameObject settingsParent; 
+    float currentDistance; // PUBLIC FOR DEBUGGING
 
-    // TODO: These prefab - level variables are a good opportunity for a 
 
-    [Tooltip("Make sure to only edit this on the prefab - otherwise you may experience unpredictable node behavior"), Range(-10, 10)]
-    public float nexusCharge = 2.0F;
-    [Tooltip("It is advised that you only edit this on the prefab to avoid unpredictable node behavior"), Range(-10, 10)]
-    public float hostCharge = 1.0F;
-    public float fixedY = 1;
-    public float currentDistance; // PUBLIC FOR DEBUGGING
-    [Tooltip("Use to magnify or decrease the power of all forces")]
-    private double scale = 1;
+    // A parent object with RepulsionSettings needs 
 
-    // Private variables
+
+
+
+    // Private fields
     private bool isTargetReached = true;
     private bool influenced = false; // True when we are in the repulsion zone
     private List<GameObject> influencers = new List<GameObject>();
+    private float maxRange, hostCharge, nexusCharge, scale;
 
     private Rigidbody rb;
 
     // Use this for initialization
     void Start()
     {
+        // Select our parent settings object (which has RepulsionSettings.cs as a component)
+        RepulsionSettings settings = this.GetComponentInParent<RepulsionSettings>();
         // TODO: Adjust the size of the collider based on the given charge value
         rb = GetComponent<Rigidbody>();
-    }
+        nexusCharge = settings.nexusCharge;
+        hostCharge = settings.hostCharge;
+        maxRange = settings.maxRange;
+        float scale = settings.scale;
+}
 
     // Update is called once per frame
     void Update()
 
 
     {
-        if (this.SphereCentral == null) { return; }
+        if (this.sphereCentral == null) { return; }
 
         // If we have attained the distance we desire, cut the force.
-        this.currentDistance = Vector3.Distance(this.transform.position, this.SphereCentral.transform.position);
+        this.currentDistance = Vector3.Distance(this.transform.position, this.sphereCentral.transform.position);
         print("Current distance is: " + this.currentDistance + " and the max Range is: " + maxRange);
         if (this.currentDistance >= maxRange)
         {
@@ -109,7 +112,7 @@ public class SphereRepulsion : MonoBehaviour
         ///Simply stops a gameobject
         /// </summary>
         /// 
-        print("Halting " + obj.name);
+        Debug.LogWarning("Halting " + obj.name);
         obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
         obj.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
@@ -121,13 +124,13 @@ public class SphereRepulsion : MonoBehaviour
         //if (!IsNexus(other, SphereCentral.name)) { return; }
 
 
-        this.SphereCentral = other.gameObject; // Linking the central sphere gameObject
+        this.sphereCentral = other.gameObject; // Linking the central sphere gameObject
         this.influenced = true;
         this.isTargetReached = false;
 
         // Compute new position
         Vector3 position = this.transform.position;
-        Vector3 positionSphereCentral = this.SphereCentral.transform.position;
+        Vector3 positionSphereCentral = this.sphereCentral.transform.position;
         Vector3 direction = positionSphereCentral - position;
         Vector3 normalized = Vector3.Normalize(direction) * -1; // -1 because we want to repulse to the opposite side
 
