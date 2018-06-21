@@ -15,7 +15,10 @@ public class SphereRepulsion : MonoBehaviour
     // Public variable
     public GameObject SphereCentral; // The attached central sphere
     public float maxRange = 10; // The MAX distance we want any host to move
-    [Tooltip("Make sure to only edit this on the prefab - otherwise you may experience unpredictable node behavior"),Range(-10, 10)]
+
+    // TODO: These prefab - level variables are a good opportunity for a 
+
+    [Tooltip("Make sure to only edit this on the prefab - otherwise you may experience unpredictable node behavior"), Range(-10, 10)]
     public float nexusCharge = 2.0F;
     [Tooltip("It is advised that you only edit this on the prefab to avoid unpredictable node behavior"), Range(-10, 10)]
     public float hostCharge = 1.0F;
@@ -28,7 +31,7 @@ public class SphereRepulsion : MonoBehaviour
     private bool isTargetReached = true;
     private bool influenced = false; // True when we are in the repulsion zone
     private List<GameObject> influencers = new List<GameObject>();
-    
+
     private Rigidbody rb;
 
     // Use this for initialization
@@ -40,19 +43,22 @@ public class SphereRepulsion : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    
+
 
     {
         if (this.SphereCentral == null) { return; }
 
         // If we have attained the distance we desire, cut the force.
         this.currentDistance = Vector3.Distance(this.transform.position, this.SphereCentral.transform.position);
-        if(this.currentDistance >= maxRange)
+        if (this.currentDistance >= maxRange)
         {
             forceHalt(this);
         }
         //Otherwise, we want to calculate the estimated force based off of all units within our collider.
-        calcForce(influencers);
+        // ... but only if there's any influencers 
+
+        if (influencers.Count > 0) { calcForce(influencers); }
+
 
 
     }
@@ -61,18 +67,18 @@ public class SphereRepulsion : MonoBehaviour
     {
 
         float otherCharge = 1;
-        Vector3 netForce = new Vector3(); 
+        Vector3 netForce = new Vector3();
 
         // Create a net charge force in 3d based off of the influence of multiple other gameObjects
-        foreach(GameObject influencer in influencers)
+        foreach (GameObject influencer in influencers)
         {
             // find a vector force inversely proportional to distance
             Vector3 compForce = new Vector3();
             double distance = Vector3.Distance(this.transform.position, influencer.transform.position);
             compForce = (this.transform.position - influencer.transform.position).normalized; // start with a unit vector pointing from one to another.
-            
+
             // Use the nexusCharge if the other object is the nexus; otherwise we have the charge
-            if(influencer.name == "LineNexus")
+            if (influencer.name == "LineNexus")
             {
                 otherCharge = nexusCharge;
             }
@@ -87,7 +93,7 @@ public class SphereRepulsion : MonoBehaviour
 
             print("Force magnitude is " + scalarForce);
             netForce += (compForce);
-            
+
         }
 
         print("Force calculated successfully: " + netForce.x + "/" + netForce.y + "/" + netForce.z);
@@ -103,10 +109,10 @@ public class SphereRepulsion : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // TODO: CHECK TAG FOR CENTRAL SPHERE
-        Debug.LogWarning("Trigger Entered between " + this.name+ "and " + other.name);
+        Debug.LogWarning("Trigger Entered between " + this.name + "and " + other.name);
         //if (!IsNexus(other, SphereCentral.name)) { return; }
 
-        
+
         this.SphereCentral = other.gameObject; // Linking the central sphere gameObject
         this.influenced = true;
         this.isTargetReached = false;
