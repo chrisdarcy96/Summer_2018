@@ -28,16 +28,19 @@ public class SphereRepulsion : MonoBehaviour
     private bool influenced = false; // True when we are in the repulsion zone
     private List<GameObject> influencers = new List<GameObject>();
     private double k = 8.99e9;
-
+    private Rigidbody rb;
 
     // Use this for initialization
     void Start()
     {
-        // Adjust the size of the collider based on the given charge value
+        // TODO: Adjust the size of the collider based on the given charge value
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
+    
+
     {
         if (this.SphereCentral == null) { return; }
 
@@ -83,11 +86,12 @@ public class SphereRepulsion : MonoBehaviour
 
             print("Force magnitude is " + scalarForce);
             netForce += (compForce);
-
-
             
-
         }
+
+        print("Force calculated successfully: " + netForce.x + "/" + netForce.y + "/" + netForce.z);
+        rb.AddForce(netForce);
+
     }
 
     private void forceHalt(SphereRepulsion sphereRepulsion)
