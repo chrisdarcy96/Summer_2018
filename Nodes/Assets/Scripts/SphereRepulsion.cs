@@ -37,6 +37,7 @@ public class SphereRepulsion : MonoBehaviour
         maxRange = settings.maxRange;
         scale = settings.scale;
         sphereCentral = settings.sphereCentral;
+        gravity = settings.gravity;
         // TODO: Clear this off when you're sure this is how the two central colliders should work.
         boundary = settings.boundary;
 }
@@ -61,8 +62,6 @@ public class SphereRepulsion : MonoBehaviour
 
         if (influencers.Count > 0) { calcForce(influencers); }
 
-
-
     }
 
     private void calcForce(List<GameObject> influencers)
@@ -75,6 +74,7 @@ public class SphereRepulsion : MonoBehaviour
         foreach (GameObject influencer in influencers)
         {
             // find a vector force inversely proportional to distance
+            // TODO: scrub these doubles down to floats
             Vector3 compForce = new Vector3();
             double distance = Vector3.Distance(this.transform.position, influencer.transform.position);
             compForce = (this.transform.position - influencer.transform.position).normalized; // start with a unit vector pointing from one to another.
@@ -82,7 +82,13 @@ public class SphereRepulsion : MonoBehaviour
             // Use the nexusCharge if the other object is the nexus; otherwise we have the charge
             if (influencer.name == "LineNexus")
             {
+                
                 otherCharge = gravity;
+                print("Gravity force is " + otherCharge);
+            }
+            else if(influencer.name == sphereCentral.name)
+            {
+                otherCharge = nexusCharge;
             }
             else
             {
@@ -112,6 +118,8 @@ public class SphereRepulsion : MonoBehaviour
         Debug.LogWarning("Halting " + obj.name);
         obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
         obj.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -135,7 +143,7 @@ public class SphereRepulsion : MonoBehaviour
         if (!influencers.Contains(other.gameObject))
         {
             influencers.Add(other.gameObject);
-            Debug.LogWarning("Influencer added to " + this.name + ":  " + other.name);
+            print("Influencer added to " + this.name + ":  " + other.name);
 
         }
 
@@ -153,14 +161,14 @@ public class SphereRepulsion : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         // Snap the position to the exact value
-        Debug.LogWarning("EXITING TRIGGER ZONE");
+        Debug.Log("EXITING TRIGGER ZONE");
         this.influenced = false;
 
         // Remove the influencer if it's in the influencers list
         if (influencers.Contains(other.gameObject))
         {
-            influencers.Add(other.gameObject);
-            Debug.LogWarning("Influencer removed from " + this.name + ":  " + other.name);
+            influencers.Remove(other.gameObject);
+            Debug.Log("Influencer removed from " + this.name + ":  " + other.name);
 
         }
 
