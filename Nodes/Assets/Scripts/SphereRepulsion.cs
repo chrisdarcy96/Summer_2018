@@ -111,6 +111,7 @@ public class SphereRepulsion : MonoBehaviour
         /// 
         print("Halting " + obj.name);
         obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        obj.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
     void OnTriggerEnter(Collider other)
