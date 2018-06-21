@@ -9,6 +9,7 @@ using HoloToolkit.Unity.SpatialMapping;
 public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
 
     public GameObject spawn;
+    public Shader shadeOnView;
     private ArrayList spawnsThisView;
     private int framesViewed = 0;
     private bool isViewing = false;
@@ -17,6 +18,8 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
     // Gaze spawns 3 small spheres at right angles to the focusedObject
     public void OnFocusEnter()
     {
+        // change shader
+        GetComponent<Renderer>().material.shader = shadeOnView;
         isViewing = !isViewing;
         textGUI.text = "Viewing: " + this.gameObject.tag + "_" + this.gameObject.GetInstanceID();
         viewHandler(this.gameObject);
@@ -50,6 +53,8 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
     public void OnFocusExit()
     {
         isViewing = !isViewing; // toggle isViewing
+
+        GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
 
         // if no longer viewing
         if(isViewing == false)

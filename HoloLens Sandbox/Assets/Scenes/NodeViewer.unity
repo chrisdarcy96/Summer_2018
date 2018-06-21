@@ -385,7 +385,12 @@ Prefab:
         type: 2}
       propertyPath: ParentGameObjectToPlace
       value: 
-      objectReference: {fileID: 623358687}
+      objectReference: {fileID: 1979156963}
+    - target: {fileID: 114748157827655858, guid: 1973f2019cc067d4198e2fdeab581050,
+        type: 2}
+      propertyPath: shadeOnView
+      value: 
+      objectReference: {fileID: 4800000, guid: 27b114683a6621c4abac2a72dd4c5a2b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1973f2019cc067d4198e2fdeab581050, type: 2}
   m_IsPrefabParent: 0
@@ -443,6 +448,11 @@ Prefab:
       propertyPath: ParentGameObjectToPlace
       value: 
       objectReference: {fileID: 1979156963}
+    - target: {fileID: 114748157827655858, guid: 1973f2019cc067d4198e2fdeab581050,
+        type: 2}
+      propertyPath: shadeOnView
+      value: 
+      objectReference: {fileID: 4800000, guid: 27b114683a6621c4abac2a72dd4c5a2b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1973f2019cc067d4198e2fdeab581050, type: 2}
   m_IsPrefabParent: 0
@@ -828,15 +838,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1872677121663018, guid: 1973f2019cc067d4198e2fdeab581050, type: 2}
-      propertyPath: m_Name
-      value: RootNode
-      objectReference: {fileID: 0}
     - target: {fileID: 114183403080929230, guid: 1973f2019cc067d4198e2fdeab581050,
         type: 2}
       propertyPath: ParentGameObjectToPlace
       value: 
       objectReference: {fileID: 1979156963}
+    - target: {fileID: 1872677121663018, guid: 1973f2019cc067d4198e2fdeab581050, type: 2}
+      propertyPath: m_Name
+      value: RootNode
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1973f2019cc067d4198e2fdeab581050, type: 2}
   m_IsPrefabParent: 0
