@@ -246,6 +246,11 @@ Prefab:
       propertyPath: maxRange
       value: 2.38
       objectReference: {fileID: 0}
+    - target: {fileID: 54615080200007204, guid: f0d6cef9089c3934fbacd865aa3b8a1d,
+        type: 2}
+      propertyPath: m_Mass
+      value: 0.88
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
   m_IsPrefabParent: 0
@@ -277,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nexusCharge: 2
+  gravity: -1
   hostCharge: 1
   scale: 1
   maxRange: 2.5
@@ -344,6 +350,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4126437322005020, guid: afcb294c2cc96e14ab3435d6fc542682, type: 2}
       propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 135228937163875430, guid: afcb294c2cc96e14ab3435d6fc542682,
+        type: 2}
+      propertyPath: m_Radius
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
