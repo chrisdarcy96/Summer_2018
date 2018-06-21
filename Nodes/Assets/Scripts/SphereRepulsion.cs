@@ -116,6 +116,8 @@ public class SphereRepulsion : MonoBehaviour
         if (!influencers.Contains(other.gameObject))
         {
             influencers.Add(other.gameObject);
+            Debug.LogWarning("Influencer added to " + this.name + ":  " + other.name);
+
         }
 
     }
@@ -139,6 +141,8 @@ public class SphereRepulsion : MonoBehaviour
         if (influencers.Contains(other.gameObject))
         {
             influencers.Add(other.gameObject);
+            Debug.LogWarning("Influencer removed from " + this.name + ":  " + other.name);
+
         }
 
     }
