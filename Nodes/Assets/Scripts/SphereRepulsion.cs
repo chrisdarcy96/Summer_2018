@@ -20,8 +20,8 @@ public class SphereRepulsion : MonoBehaviour
     private bool isTargetReached = true;
     private bool influenced = false; // True when we are in the repulsion zone
     private List<GameObject> influencers = new List<GameObject>();
-    private float maxRange, hostCharge, nexusCharge, scale;
-    private GameObject sphereCentral;
+    private float maxRange, hostCharge, nexusCharge, gravity, scale;
+    private GameObject sphereCentral, boundary;
 
     private Rigidbody rb;
 
@@ -37,6 +37,8 @@ public class SphereRepulsion : MonoBehaviour
         maxRange = settings.maxRange;
         scale = settings.scale;
         sphereCentral = settings.sphereCentral;
+        // TODO: Clear this off when you're sure this is how the two central colliders should work.
+        boundary = settings.boundary;
 }
 
     // Update is called once per frame
@@ -80,11 +82,11 @@ public class SphereRepulsion : MonoBehaviour
             // Use the nexusCharge if the other object is the nexus; otherwise we have the charge
             if (influencer.name == "LineNexus")
             {
-                otherCharge = nexusCharge;
+                otherCharge = gravity;
             }
             else
             {
-                otherCharge = this.hostCharge;
+                otherCharge = hostCharge;
             }
 
             double scalarForce = (this.hostCharge * otherCharge * scale) / Math.Pow(distance, 2);
