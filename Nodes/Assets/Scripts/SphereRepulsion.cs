@@ -24,12 +24,13 @@ public class SphereRepulsion : MonoBehaviour
     private GameObject sphereCentral, boundary;
 
     private Rigidbody rb;
+    private RepulsionSettings settings;
 
     // Use this for initialization
     void Start()
     {
         // Select our parent settings object (which has RepulsionSettings.cs as a component)
-        RepulsionSettings settings = this.GetComponentInParent<RepulsionSettings>();
+        settings = this.GetComponentInParent<RepulsionSettings>();
         // TODO: Adjust the size of the collider based on the given charge value
         rb = GetComponent<Rigidbody>();
         nexusCharge = settings.nexusCharge;
@@ -40,13 +41,20 @@ public class SphereRepulsion : MonoBehaviour
         gravity = settings.gravity;
         // TODO: Clear this off when you're sure this is how the two central colliders should work.
         boundary = settings.boundary;
-}
+
+        Debug.LogWarning("sphereCentral name is: " + sphereCentral.name);
+    }
 
     // Update is called once per frame
     void Update()
 
 
     {
+        nexusCharge = settings.nexusCharge;
+        hostCharge = settings.hostCharge;
+        maxRange = settings.maxRange;
+        scale = settings.scale;
+        gravity = settings.gravity;
         if (this.sphereCentral == null) { return; }
 
         // If we have attained the distance we desire, cut the force.
@@ -67,27 +75,31 @@ public class SphereRepulsion : MonoBehaviour
     private void calcForce(List<GameObject> influencers)
     {
 
+
         float otherCharge = 1;
         Vector3 netForce = new Vector3();
 
         // Create a net charge force in 3d based off of the influence of multiple other gameObjects
+        Debug.LogWarning(influencers.Count);
         foreach (GameObject influencer in influencers)
         {
+            Debug.LogWarning("Considering influence from: " + influencer.name);
             // find a vector force inversely proportional to distance
             // TODO: scrub these doubles down to floats
             Vector3 compForce = new Vector3();
-            double distance = Vector3.Distance(this.transform.position, influencer.transform.position);
+            float distance = Vector3.Distance(this.transform.position, influencer.transform.position);
             compForce = (this.transform.position - influencer.transform.position).normalized; // start with a unit vector pointing from one to another.
 
             // Use the nexusCharge if the other object is the nexus; otherwise we have the charge
             if (influencer.name == "LineNexus")
             {
-                
+
                 otherCharge = gravity;
                 print("Gravity force is " + otherCharge);
             }
-            else if(influencer.name == sphereCentral.name)
+            else if (influencer == sphereCentral)
             {
+                Debug.LogWarning("sphereCentral is exerting a force on this.");
                 otherCharge = nexusCharge;
             }
             else
@@ -95,7 +107,7 @@ public class SphereRepulsion : MonoBehaviour
                 otherCharge = hostCharge;
             }
 
-            double scalarForce = (this.hostCharge * otherCharge * scale) / Math.Pow(distance, 2);
+            float scalarForce = (this.hostCharge * otherCharge * scale) / (distance * distance); // Apparently there's a recorded performance penalty for Pow: https://stackoverflow.com/questions/936541/math-pow-vs-multiply-operator-performance#936909
             // TODO: Figure out a nicer way to do this than grind a double down to a float
             compForce *= (float)scalarForce;
 
@@ -125,25 +137,18 @@ public class SphereRepulsion : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // TODO: CHECK TAG FOR CENTRAL SPHERE
-        Debug.LogWarning("Trigger Entered between " + this.name + "and " + other.name);
+        Debug.LogWarning("Trigger Entered between " + this.name + " and " + other.name);
         //if (!IsNexus(other, SphereCentral.name)) { return; }
 
-
-        this.sphereCentral = other.gameObject; // Linking the central sphere gameObject
         this.influenced = true;
         this.isTargetReached = false;
 
-        // Compute new position
-        Vector3 position = this.transform.position;
-        Vector3 positionSphereCentral = this.sphereCentral.transform.position;
-        Vector3 direction = positionSphereCentral - position;
-        Vector3 normalized = Vector3.Normalize(direction) * -1; // -1 because we want to repulse to the opposite side
 
         // Throw the new collider into the list of objects that this cares about
         if (!influencers.Contains(other.gameObject))
         {
             influencers.Add(other.gameObject);
-            print("Influencer added to " + this.name + ":  " + other.name);
+            Debug.LogWarning("Influencer added to " + this.name + ": " + other.name);
 
         }
 
