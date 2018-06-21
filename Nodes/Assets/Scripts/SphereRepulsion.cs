@@ -90,7 +90,7 @@ public class SphereRepulsion : MonoBehaviour
             float distance = Vector3.Distance(this.transform.position, influencer.transform.position);
             compForce = (this.transform.position - influencer.transform.position).normalized; // start with a unit vector pointing from one to another.
 
-            // Use the nexusCharge if the other object is the nexus; otherwise we have the charge
+            // Use the nexusCharge if the other object is the nexus and gravity if the other charge; otherwise we have the charge
             if (influencer.name == "LineNexus")
             {
 
@@ -152,6 +152,13 @@ public class SphereRepulsion : MonoBehaviour
 
         }
 
+        // As we enter the radius of the central sphere, turn gravity off.
+        if(other.gameObject == sphereCentral)
+        {
+            Debug.LogWarning("Turning off gravity...");
+            settings.gravity = 0;
+        }
+
     }
 
     //private static bool IsNexus(Collider other, string name)
@@ -175,6 +182,13 @@ public class SphereRepulsion : MonoBehaviour
             influencers.Remove(other.gameObject);
             Debug.Log("Influencer removed from " + this.name + ":  " + other.name);
 
+        }
+
+        // As we enter the radius of the central sphere, turn gravity off.
+        if (other.gameObject == sphereCentral)
+        {
+            Debug.LogWarning("Turning on gravity...");
+            settings.gravity = settings.nexusCharge;
         }
 
     }

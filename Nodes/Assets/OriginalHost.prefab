@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4126437322005020}
   - component: {fileID: 33631452403031598}
-  - component: {fileID: 135353022097444304}
   - component: {fileID: 23884354511536344}
   - component: {fileID: 54706788862465816}
   - component: {fileID: 135228937163875430}
@@ -107,20 +106,8 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1917881429158956}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135353022097444304
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1917881429158956}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
