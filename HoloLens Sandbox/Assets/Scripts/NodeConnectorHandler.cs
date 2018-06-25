@@ -14,20 +14,17 @@ public class NodeConnectorHandler : MonoBehaviour
     public Material lineMaterial;
     public float radius = 0.05f;
     public GameObject root;
+    public GameObject[] nodes;
 
-    // These are lists in lieu of arrays so they can be dynamic at runtime.
-    public GameObject[] nodes = TextToView.Nodes;
     private List<GameObject> connectors = new List<GameObject>();
-
-    private Transform target;
     private float distance;
-    private int i = 0;
 
 
 
     // Use this for initialization
     void Start()
     {
+        nodes = TextToView.Nodes;
 
         // Line up the nexus and the root
         this.gameObject.transform.position = root.transform.position;
@@ -38,12 +35,9 @@ public class NodeConnectorHandler : MonoBehaviour
         // print("Start vector at " + start);
 
         // Create a cylinder for each connection
-        foreach (GameObject node in nodes)
+        for(int i=0; i<nodes.Length; i++)
         {
-            // Calculate the half-distance for each pair of points and put a cylinder at each place
-
-            // print("Creating a cylinder in Start()");
-
+            // calculate midpoints
             Vector3 end = nodes[i].transform.position;
             //print("End vector at " + end);
             Vector3 midpoint = (end - start) * 0.5f + start;
@@ -76,24 +70,20 @@ public class NodeConnectorHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // Check whether or not we need to add or remove cylinders
         UpdateCylinders(nodes, connectors);
-
-
         UpdatePositions(nodes, connectors);
-
     }
 
     private void UpdateCylinders(GameObject[] nodes, List<GameObject> connectors)
     {
 
         //// Wipe any nulls from the nodes list
-        //if (nodes.Contains(null))
-        //{
+        if (nodes.Contains(null))
+        {
         //    print("Trying to clean up nodes list...");
-        //    nodes.RemoveAll(item => item == null); // new lambda syntax. Neat!
-        //}
+            //nodes.RemoveAll(item => item == null); // new lambda syntax. Neat!
+        }
 
         if (connectors.Count < nodes.Length)
         {
@@ -155,10 +145,4 @@ public class NodeConnectorHandler : MonoBehaviour
         // TODO: Check and destroy any extra cylinders
     }
 
-    private GameObject Pop(List<GameObject> list)
-    {
-        GameObject ret = list[list.Count - 1];
-        list.RemoveAt(list.Count - 1);
-        return ret;
-    }
 }

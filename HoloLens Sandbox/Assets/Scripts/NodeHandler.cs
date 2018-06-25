@@ -75,7 +75,14 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
     // Use this for initialization
     void Start () {
         // Find Object named "Hinter" and get its text mesh
-        textGUI = GameObject.Find("Hinter").GetComponent<TextMesh>();
+        try
+        {
+            textGUI = GameObject.Find("Hinter").GetComponent<TextMesh>();
+        }
+        catch
+        {
+            throw new Exception("GameObject Hinter does not exist in this scene.");
+        }
 
         // so we know its working
         textGUI.text = "Working...";
