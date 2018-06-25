@@ -9,7 +9,7 @@ using System.Text;
 public class TextToView : MonoBehaviour {
 
     public string path = "Assets/httplistener.json";
-<<<<<<< HEAD
+
     public GameObject Node_Prefab;
     public GameObject Parent_Object;
 
@@ -20,42 +20,28 @@ public class TextToView : MonoBehaviour {
     public static GameObject[] Nodes { get { return nodes; } }
 
 
-    // Use this for initialization
-    void Start() {
-=======
-    public List<Dictionary<string, string>> Connections;
-    public GameObject Node_Prefab;
-
-
 	// Use this for initialization
 	void Start() {
->>>>>>> a3d8c054daaa4a4a7e6e9ab9d34575b2577c17ee
         Connections = new List<Dictionary<string, string>>();
-        
 
         // read JSON file on connections
         ReadJSON();
         print(PrettyPrint(Connections));
 
         // create game Objects
-<<<<<<< HEAD
         nodes = CreateNodes();
-=======
-        GameObject[] nodes = CreateNodes();
->>>>>>> a3d8c054daaa4a4a7e6e9ab9d34575b2577c17ee
 	}
 
 
 	
     private GameObject[] CreateNodes()
     {
-        GameObject[] nodes = new GameObject[Connections.Count];
+        GameObject[] node = new GameObject[Connections.Count];
         int i = 0;
         foreach(Dictionary<string, string> pair in Connections)
         {   
             // more can be done here with data provide in Dictionary pairs
             GameObject newNode = Instantiate(Node_Prefab);
-<<<<<<< HEAD
 
             // make new nodes children of ParentObject (should be NodeManager game object)
             newNode.transform.parent = Parent_Object.transform;
@@ -63,12 +49,10 @@ public class TextToView : MonoBehaviour {
 
             // hide this node from view
             newNode.SetActive(false);
-=======
->>>>>>> a3d8c054daaa4a4a7e6e9ab9d34575b2577c17ee
-            nodes[i++] = newNode;
-        }
 
-        return nodes;
+            node[i++] = newNode;
+        }
+        return node;
     }
 
     private void ReadJSON()
@@ -98,11 +82,10 @@ public class TextToView : MonoBehaviour {
                 foreach(JToken child in childs)
                 {
                     string[] split = child.ToString().Split(new char[] { ':' }, 2);
-<<<<<<< HEAD
+
                     split[0] = split[0].Trim().Trim('"');   // kill leading whitespace and " char
                     split[1] = split[1].Trim().Trim('"');
-=======
->>>>>>> a3d8c054daaa4a4a7e6e9ab9d34575b2577c17ee
+
                     fields.Add(split[0], split[1]);
                 }
 
@@ -128,11 +111,8 @@ public class TextToView : MonoBehaviour {
             conn.AppendLine();
             
             foreach(string key in connection.Keys)
-            {
-<<<<<<< HEAD
-=======
+            { 
                 print("here");
->>>>>>> a3d8c054daaa4a4a7e6e9ab9d34575b2577c17ee
                 conn.Append('\t');
                 string value = "";
                 connection.TryGetValue(key, out value);
