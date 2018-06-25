@@ -9,37 +9,50 @@ using System.Text;
 public class TextToView : MonoBehaviour {
 
     public string path = "Assets/httplistener.json";
-    public List<Dictionary<string, string>> Connections;
+
     public GameObject Node_Prefab;
+    public GameObject Parent_Object;
+
+    private static List<Dictionary<string, string>> Connections;
+    private static GameObject[] nodes;
+
+    public static List<Dictionary<string, string>> GetConnections { get { return Connections; } }
+    public static GameObject[] Nodes { get { return nodes; } }
 
 
 	// Use this for initialization
 	void Start() {
         Connections = new List<Dictionary<string, string>>();
-        
 
         // read JSON file on connections
         ReadJSON();
         print(PrettyPrint(Connections));
 
         // create game Objects
-        GameObject[] nodes = CreateNodes();
+        nodes = CreateNodes();
 	}
 
 
 	
     private GameObject[] CreateNodes()
     {
-        GameObject[] nodes = new GameObject[Connections.Count];
+        GameObject[] node = new GameObject[Connections.Count];
         int i = 0;
         foreach(Dictionary<string, string> pair in Connections)
         {   
             // more can be done here with data provide in Dictionary pairs
             GameObject newNode = Instantiate(Node_Prefab);
-            nodes[i++] = newNode;
-        }
 
-        return nodes;
+            // make new nodes children of ParentObject (should be NodeManager game object)
+            newNode.transform.parent = Parent_Object.transform;
+            newNode.name = "node-"+i;
+
+            // hide this node from view
+            newNode.SetActive(false);
+
+            node[i++] = newNode;
+        }
+        return node;
     }
 
     private void ReadJSON()
@@ -69,6 +82,10 @@ public class TextToView : MonoBehaviour {
                 foreach(JToken child in childs)
                 {
                     string[] split = child.ToString().Split(new char[] { ':' }, 2);
+
+                    split[0] = split[0].Trim().Trim('"');   // kill leading whitespace and " char
+                    split[1] = split[1].Trim().Trim('"');
+
                     fields.Add(split[0], split[1]);
                 }
 
@@ -94,7 +111,7 @@ public class TextToView : MonoBehaviour {
             conn.AppendLine();
             
             foreach(string key in connection.Keys)
-            {
+            { 
                 print("here");
                 conn.Append('\t');
                 string value = "";

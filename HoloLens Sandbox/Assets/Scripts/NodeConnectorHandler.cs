@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /*
@@ -15,7 +16,7 @@ public class NodeConnectorHandler : MonoBehaviour
     public GameObject root;
 
     // These are lists in lieu of arrays so they can be dynamic at runtime.
-    public List<GameObject> nodes = new List<GameObject>();
+    public GameObject[] nodes = TextToView.Nodes;
     private List<GameObject> connectors = new List<GameObject>();
 
     private Transform target;
@@ -30,18 +31,18 @@ public class NodeConnectorHandler : MonoBehaviour
 
         // Line up the nexus and the root
         this.gameObject.transform.position = root.transform.position;
-        print("Nexus gameObject moved to " + this.gameObject.transform.position);
+        // print("Nexus gameObject moved to " + this.gameObject.transform.position);
 
         // Save the root position for creating nodes
         Vector3 start = root.transform.position;
-        print("Start vector at " + start);
+        // print("Start vector at " + start);
 
         // Create a cylinder for each connection
         foreach (GameObject node in nodes)
         {
             // Calculate the half-distance for each pair of points and put a cylinder at each place
 
-            print("Creating a cylinder in Start()");
+            // print("Creating a cylinder in Start()");
 
             Vector3 end = nodes[i].transform.position;
             //print("End vector at " + end);
@@ -69,7 +70,6 @@ public class NodeConnectorHandler : MonoBehaviour
             connectors[connectors.Count - 1].transform.rotation = Quaternion.FromToRotation(Vector3.up, end - start);
 
         }
-        print("DEBUG: " + connectors);
 
     }
 
@@ -85,23 +85,23 @@ public class NodeConnectorHandler : MonoBehaviour
 
     }
 
-    private void UpdateCylinders(List<GameObject> nodes, List<GameObject> connectors)
+    private void UpdateCylinders(GameObject[] nodes, List<GameObject> connectors)
     {
 
-        // Wipe any nulls from the nodes list
-        if (nodes.Contains(null))
-        {
-            print("Trying to clean up nodes list...");
-            nodes.RemoveAll(item => item == null); // new lambda syntax. Neat!
-        }
+        //// Wipe any nulls from the nodes list
+        //if (nodes.Contains(null))
+        //{
+        //    print("Trying to clean up nodes list...");
+        //    nodes.RemoveAll(item => item == null); // new lambda syntax. Neat!
+        //}
 
-        if (connectors.Count < nodes.Count)
+        if (connectors.Count < nodes.Length)
         {
             // FIXME: Watch out for a potential garbage collector issue detailed here: https://answers.unity.com/questions/1315488/destroy-a-gameobject-referenced-in-list-and-remove.html
             // If we have too few Cylinders, then we need to add more
-            while (connectors.Count < nodes.Count)
+            while (connectors.Count < nodes.Length)
             {
-                print("Adding connector...");
+                // print("Adding connector...");
 
                 // Note that we are just adding cylinders to the array - they'll remain at the origin until the UpdatePositions call in the same Update
                 connectors.Add(GameObject.CreatePrimitive(PrimitiveType.Cylinder));
@@ -111,19 +111,19 @@ public class NodeConnectorHandler : MonoBehaviour
                 connectors[connectors.Count - 1].transform.parent = this.gameObject.transform;
             }
         }
-        else if (connectors.Count > nodes.Count)
+        else if (connectors.Count > nodes.Length)
         {
             // If we have too many cylinders, then we need to remove some
-            while (connectors.Count > nodes.Count)
+            while (connectors.Count > nodes.Length)
             {
-                print("Removing connector...");
+                // print("Removing connector...");
                 Destroy(connectors[connectors.Count - 1]);
                 connectors.RemoveAt(connectors.Count - 1);
             }
         }
     }
 
-    private void UpdatePositions(List<GameObject> nodes, List<GameObject> connectors)
+    private void UpdatePositions(GameObject[] nodes, List<GameObject> connectors)
     {
 
         // Update our start vector, in case the root has moved.
@@ -135,7 +135,7 @@ public class NodeConnectorHandler : MonoBehaviour
             print("There's a null in the nodes list!");
         }
 
-        for (int j = 0; j < nodes.Count; j++)
+        for (int j = 0; j < nodes.Length; j++)
         {
             Vector3 updateEnd = nodes[j].transform.position;
             Vector3 updateMidpoint = (updateEnd - updateStart) * 0.5f + updateStart;
