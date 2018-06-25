@@ -70,8 +70,9 @@ public class TextToView : MonoBehaviour {
                 // found https://stackoverflow.com/questions/13297563/read-and-parse-a-json-file-in-c-sharp
                 // probably look into this more in depth
                 JObject line = JsonConvert.DeserializeObject<JObject>(json_item);
-
                 // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JObject.htm
+                
+
                 JProperty result = line.Property("result"); // get "result" property
                 // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JProperty.htm
 
