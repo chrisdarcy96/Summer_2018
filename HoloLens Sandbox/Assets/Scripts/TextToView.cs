@@ -48,7 +48,7 @@ public class TextToView : MonoBehaviour {
             newNode.name = "node-"+i;
 
             // hide this node from view
-            newNode.SetActive(false);
+            //newNode.SetActive(false);
 
             node[i++] = newNode;
         }
@@ -112,7 +112,6 @@ public class TextToView : MonoBehaviour {
             
             foreach(string key in connection.Keys)
             { 
-                print("here");
                 conn.Append('\t');
                 string value = "";
                 connection.TryGetValue(key, out value);
