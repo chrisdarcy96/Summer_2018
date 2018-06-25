@@ -25,6 +25,7 @@ public class NodeConnectorHandler : MonoBehaviour
     void Start()
     {
         nodes = TextToView.Nodes;
+        //nodes = GameObject.FindGameObjectsWithTag("node");
 
         // Line up the nexus and the root
         this.gameObject.transform.position = root.transform.position;
@@ -46,7 +47,11 @@ public class NodeConnectorHandler : MonoBehaviour
             //print("Distance between start and end: " + distance);
 
             //Create a cylinder
-            connectors.Add(GameObject.CreatePrimitive(PrimitiveType.Cylinder));
+            GameObject newLine = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            connectors.Add(newLine);
+
+            // kill cylinder collider
+            newLine.GetComponent<Collider>().enabled = false;
 
             // Name and assign the cylinder
             connectors[connectors.Count - 1].name = "Connector" + (connectors.Count - 1);

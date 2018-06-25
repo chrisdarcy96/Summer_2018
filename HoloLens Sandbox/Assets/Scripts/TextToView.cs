@@ -41,7 +41,9 @@ public class TextToView : MonoBehaviour {
         foreach(Dictionary<string, string> pair in Connections)
         {   
             // more can be done here with data provide in Dictionary pairs
-            GameObject newNode = Instantiate(Node_Prefab);
+            GameObject newNode = Instantiate(Node_Prefab, new Vector3(Parent_Object.transform.position.x * i * .05f, 
+                                                                      Parent_Object.transform.position.y + 0.2f, 
+                                                                      Parent_Object.transform.position.z), Parent_Object.transform.rotation);
 
             // make new nodes children of ParentObject (should be NodeManager game object)
             newNode.transform.parent = Parent_Object.transform;
