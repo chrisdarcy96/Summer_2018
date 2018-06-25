@@ -7,8 +7,8 @@
 # Default behavior is to never overwrite files
 Nodes.sln: modified
 GeneratedProjects\UWP\Assembly-CSharp\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
-Nodes\App.cs: 712166E1A26ECAF365F5A6C7B6FF4E11
-Nodes\Nodes.csproj: A07049FB010B78A2924E41D4101EC451
+Nodes\App.cs: modified
+Nodes\Nodes.csproj: D3BC13CB737ED41E575850FA2CA03C7C
 Nodes\Nodes.csproj.user: modified
 Nodes\Package.appxmanifest: 0FF7D3E57F10CED698FA4B59782D0533
 Nodes\project.json: 1D02BC64BAC0D041019673A1C4C51737
@@ -26,5 +26,5 @@ Nodes\bin\x86\Release\AppX\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857F
 Nodes\bin\x86\Release\AppX\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
 Nodes\bin\x86\Release\AppX\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
 Nodes\obj\x86\Release\Nodes.csproj.CopyComplete: D41D8CD98F00B204E9800998ECF8427E
-Nodes\Properties\AssemblyInfo.cs: 4E555A36F09A5EFB6310C4B48A0CD8DC
+Nodes\Properties\AssemblyInfo.cs: modified
 Nodes\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
