@@ -35,6 +35,6 @@ public class GameController : MonoBehaviour {
 
     void Update()
     {
-        gameCtrlHID.PaintModeController();
+        //gameCtrlHID.PaintModeController();
     }
 }

@@ -125,13 +125,13 @@ public class GameCtrlUI : MonoBehaviour {
         }
     }
 
-    internal bool PanelIsPointeroverPanel(Vector3 pointerCoords)
-    {
-        if (pointerCoords.x < panelrecttrans.rect.xMax)
-            return true;
-        else
-            return false;
-    }
+    //internal bool PanelIsPointeroverPanel(Vector3 pointerCoords)
+    //{
+    //    if (pointerCoords.x < panelrecttrans.rect.xMax)
+    //        return true;
+    //    else
+    //        return false;
+    //}
 
     internal void ProgressBarSetActive(bool state)
     {
