@@ -12,8 +12,8 @@ public class GraphController : MonoBehaviour {
     private static bool verbose = true;
 
     private static GameController gameControl;
-    private static GameCtrlUI gameCtrlUI;
-    private static GameCtrlHelper gameCtrlHelper;
+    //private static GameCtrlUI gameCtrlUI;
+    //private static GameCtrlHelper gameCtrlHelper;
 
     [SerializeField]
     private bool allStatic = false;
@@ -393,7 +393,6 @@ public class GraphController : MonoBehaviour {
                     linkObject.source = source;
                     linkObject.target = target;
                     linkCount++;
-                    gameCtrlUI.PanelStatusLinkCountTxt.text = "Linkcount: " + LinkCount;
 
                     return true;
                 }
@@ -478,8 +477,8 @@ public class GraphController : MonoBehaviour {
     void Start()
     {
         gameControl = GetComponent<GameController>();
-        gameCtrlUI = GetComponent<GameCtrlUI>();
-        gameCtrlHelper = GetComponent<GameCtrlHelper>();
+        //gameCtrlUI = GetComponent<GameCtrlUI>();
+        //gameCtrlHelper = GetComponent<GameCtrlHelper>();
 
         nodeCount = 0;
         linkCount = 0;
