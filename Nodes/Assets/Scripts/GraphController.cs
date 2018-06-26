@@ -51,7 +51,7 @@ public class GraphController : MonoBehaviour {
     [SerializeField]
     private float linkForceStrength = 6F;
     [SerializeField]
-    private float linkIntendedLinkLength = 5F;
+    private float linkIntendedLinkLength = 0.15F;
 
     private static int nodeCount;
     private static int linkCount;
@@ -284,9 +284,9 @@ public class GraphController : MonoBehaviour {
             nodeCount++;
             //gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
-            GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
-            debugObjects.Add(debugObj);
-            debugObj.SetActive(false);
+            //GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
+            //debugObjects.Add(debugObj);
+            //debugObj.SetActive(false);
 
             if (verbose)
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
@@ -563,20 +563,20 @@ public class GraphController : MonoBehaviour {
         }
 
         // prepare stuff
-        if (gameControl.EngineBulletUnity)
-        {
-            RepulseForceStrength = .1f;
-            GlobalGravityBullet = 1f;
-            LinkForceStrength = .1f;
-            LinkIntendedLinkLength = 3f;
-        } else
-        {
-            RepulseForceStrength = 5f;
-            GlobalGravityPhysX = 10f;
-            NodePhysXForceSphereRadius = 35f;
-            LinkForceStrength = 5f;
-            LinkIntendedLinkLength = 3f;
-        }
+        //if (gameControl.EngineBulletUnity)
+        //{
+        //    RepulseForceStrength = .1f;
+        //    GlobalGravityBullet = 1f;
+        //    LinkForceStrength = .1f;
+        //    LinkIntendedLinkLength = 3f;
+        //} else
+        //{
+        //    RepulseForceStrength = 5f;
+        //    GlobalGravityPhysX = 10f;
+        //    NodePhysXForceSphereRadius = 35f;
+        //    LinkForceStrength = 5f;
+        //    LinkIntendedLinkLength = 3f;
+        //}
         // Debug 
         for(int i = 0; i<10; i++)
         {

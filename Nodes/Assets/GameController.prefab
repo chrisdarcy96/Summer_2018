@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5190ce3342b500449ce00968d157189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nodes: []
   allStatic: 0
   paintMode: 0
   repulseActive: 1
@@ -96,10 +97,10 @@ MonoBehaviour:
   nodeVectorGenRange: 7
   globalGravityBullet: 0.1
   globalGravityPhysX: 10
-  repulseForceStrength: 5
+  repulseForceStrength: 2.5
   nodePhysXForceSphereRadius: 3
   linkForceStrength: 6
-  linkIntendedLinkLength: 5
+  linkIntendedLinkLength: 0.45
 --- !u!114 &114643089217926202
 MonoBehaviour:
   m_ObjectHideFlags: 1
