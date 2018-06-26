@@ -41,21 +41,33 @@ public class TextToView : MonoBehaviour {
         foreach(Dictionary<string, string> pair in Connections)
         {   
             // more can be done here with data provide in Dictionary pairs
-            GameObject newNode = Instantiate(Node_Prefab, new Vector3(Parent_Object.transform.position.x * i * .05f, 
-                                                                      Parent_Object.transform.position.y + 0.2f, 
-                                                                      Parent_Object.transform.position.z), Parent_Object.transform.rotation);
+            GameObject newNode = Instantiate(Node_Prefab);
 
             // make new nodes children of ParentObject (should be NodeManager game object)
             newNode.transform.parent = Parent_Object.transform;
             newNode.name = "node-"+i;
 
             // hide this node from view
-            //newNode.SetActive(false);
-
+            // newNode.SetActive(false);
+            float x;
+            float y;
+            GetPoints(i, out x, out y);
+            //Debug.Log("moving to: " + x + ", " + y);
+            newNode.transform.position = new Vector3(x, y, 2);
             node[i++] = newNode;
         }
         return node;
     }
+
+    private void GetPoints(int i, out float xPos, out float yPos)
+    {
+        // split 360 degress (or 2pi) into equal fractions
+        double theta = (Math.PI) / (Connections.Count-1);
+        double angle = theta * i;   // angle moves this around the circle
+
+        xPos = Convert.ToSingle(.25 * Math.Cos(angle));  // get X and convert back to float
+        yPos = Convert.ToSingle(.25 * Math.Sin(angle));  // for y
+    } 
 
     private void ReadJSON()
     {
