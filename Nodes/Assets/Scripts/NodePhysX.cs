@@ -7,6 +7,8 @@ public class NodePhysX : Node {
 
     private float sphRadius;
     private float sphRadiusSqr;
+    public  bool delete = false;
+    public bool hide = false;
 
     // Public debug settings
     [Tooltip("This offsets the center of gravity for the graph in the z direction. Default is 3 (roughly standard for HoloLens)")]

@@ -1,11 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 //using BulletUnity;
 
 public class GraphController : MonoBehaviour {
     // Storage unit for the nodes we have
     public List<GameObject> nodes = new List<GameObject>();
+
+    //// Bins for each time I need an action done on nodes. This is to avoid an iteration of nodes each frame.
+    //private List<GameObject> needToHide = new List<GameObject>();
+    //private List<GameObject> hidden = new List<GameObject>();
+    //private List<GameObject> deathRow = new List<GameObject>();
+
 
 
     [SerializeField]
@@ -472,6 +479,40 @@ public class GraphController : MonoBehaviour {
             // Create a link on random Coordinates
             GenerateLink("random");
         }
+    }
+
+    public void UpdateLinks()
+    {
+        ///<summary>
+        /// The purpose of this function is to add, destroy, and hide links as necessary by iterating through the nodes list and checking the status of each node.
+        /// Thought about creating a bunch of "status lists", but that would simply result in a ton of linear searches anyway.
+        /// </summary>
+        
+        foreach (GameObject node in nodes)
+        {
+            // Is the object flagged for deletion?
+            NodePhysX nodeInfo = node.GetComponent<NodePhysX>();
+            if (nodeInfo.delete)
+            {
+                nodes.Remove(node);
+                Destroy(node);
+                
+            }
+            else if (nodeInfo.hide)
+            {
+                // Hide the mesh+collider
+                node.SetActive(false);
+            }
+        }
+        // After we're all done, remove the links.
+        ScrubLinks();
+    }
+
+    private void ScrubLinks()
+    {
+        ///<summary>
+        /// Runs through the links and removes any that are connected to hidden or null nodes.
+        /// </summary>
     }
 
     void Start()
