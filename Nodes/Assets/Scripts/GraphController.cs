@@ -513,6 +513,23 @@ public class GraphController : MonoBehaviour {
         ///<summary>
         /// Runs through the links and removes any that are connected to hidden or null nodes.
         /// </summary>
+
+        // Borrowing the find-and-iterate from ResetWorld
+        foreach (GameObject link in GameObject.FindGameObjectsWithTag("link"))
+        {
+
+            // Two cases here: one for if the link has a null source (destroyed) and one for hidden nodes
+            if(link.GetComponent<Link>().source == null || !link.GetComponent<Link>().source.activeSelf)
+            {
+                print("Scrubbing link " + link.name);
+                Destroy(link);
+                LinkCount -= 1;
+                //gameCtrlUI.PanelStatusLinkCountTxt.text = "Linkcount: " + LinkCount;
+            }
+
+        }
+
+
     }
 
     void Start()
