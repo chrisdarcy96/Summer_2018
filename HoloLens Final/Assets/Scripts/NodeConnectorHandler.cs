@@ -24,7 +24,8 @@ public class NodeConnectorHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        nodes = ReadFile.Nodes;
+        GraphNodeType[] nodeTypes = ReadFile.Nodes;
+        nodes = new GameObject[nodeTypes.Length];
         //nodes = GameObject.FindGameObjectsWithTag("node");
 
         // Line up the nexus and the root
@@ -36,8 +37,9 @@ public class NodeConnectorHandler : MonoBehaviour
         // print("Start vector at " + start);
 
         // Create a cylinder for each connection
-        for(int i=0; i<nodes.Length; i++)
+        for(int i=0; i<nodeTypes.Length; i++)
         {
+            nodes[i] = nodeTypes[i].getObject();
             // calculate midpoints
             Vector3 end = nodes[i].transform.position;
             //print("End vector at " + end);

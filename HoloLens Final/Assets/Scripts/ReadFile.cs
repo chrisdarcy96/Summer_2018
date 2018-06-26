@@ -12,21 +12,20 @@ public class ReadFile : MonoBehaviour {
 
     public GameObject Node_Prefab;
     public GameObject Parent_Object;
+    private static GraphNodeType[] nodes;
 
-    private static List<Dictionary<string, string>> Connections;
-    private static GameObject[] nodes;
-
-    public static List<Dictionary<string, string>> GetConnections { get { return Connections; } }
-    public static GameObject[] Nodes { get { return nodes; } }
+    public static List<Dictionary<string, string>> GetConnections { get; private set; }
+    public static GraphNodeType[] Nodes { get { return nodes; } }
 
 
-	// Use this for initialization
-	void Start() {
-        Connections = new List<Dictionary<string, string>>();
+
+    // Use this for initialization
+    void Start() {
+        GetConnections = new List<Dictionary<string, string>>();
 
         // read JSON file on connections
         ReadJSON();
-        print(PrettyPrint(Connections));
+        print(PrettyPrint(GetConnections));
 
         // create game Objects
         nodes = CreateNodes();
@@ -34,14 +33,25 @@ public class ReadFile : MonoBehaviour {
 
 
 	
-    private GameObject[] CreateNodes()
+    private GraphNodeType[] CreateNodes()
     {
-        GameObject[] node = new GameObject[Connections.Count];
+        GraphNodeType[] node = new GraphNodeType[GetConnections.Count];
         int i = 0;
-        foreach(Dictionary<string, string> pair in Connections)
+        foreach(Dictionary<string, string> pair in GetConnections)
         {   
             // more can be done here with data provide in Dictionary pairs
             GameObject newNode = Instantiate(Node_Prefab);
+            GraphNodeType newNodeType = newNode.AddComponent<GraphNodeType>();
+            newNodeType.setObject(newNode);
+
+            // get neat splunk data
+            DateTime time;
+            string host;
+            GetUsefulInfo(pair, out time, out host);
+
+            newNodeType.setTime(time);
+            newNodeType.setHost(host);
+
 
             // make new nodes children of ParentObject (should be NodeManager game object)
             newNode.transform.parent = Parent_Object.transform;
@@ -53,8 +63,9 @@ public class ReadFile : MonoBehaviour {
             float y;
             GetPoints(i, out x, out y);
             //Debug.Log("moving to: " + x + ", " + y);
-            newNode.transform.position = new Vector3(x, y, 2);
-            node[i++] = newNode;
+            newNodeType.setPosition(new Vector3(x, y, 2));
+
+            node[i++] = newNodeType;
         }
         return node;
     }
@@ -62,7 +73,7 @@ public class ReadFile : MonoBehaviour {
     private void GetPoints(int i, out float xPos, out float yPos)
     {
         // split 360 degress (or 2pi) into equal fractions
-        double theta = (Math.PI) / (Connections.Count-1);
+        double theta = (Math.PI) / (GetConnections.Count-1);
         double angle = theta * i;   // angle moves this around the circle
 
         xPos = Convert.ToSingle(.25 * Math.Cos(angle));  // get X and convert back to float
@@ -105,7 +116,7 @@ public class ReadFile : MonoBehaviour {
                 }
 
                 // Add this result to list
-                Connections.Add(fields);
+                GetConnections.Add(fields);
 
                 json_item = sr.ReadLine();
             }
@@ -137,6 +148,15 @@ public class ReadFile : MonoBehaviour {
 
         }
         return sb.ToString();
+    }
+
+    private void GetUsefulInfo(Dictionary<string, string> pair, out DateTime Splunktime, out string host)
+    {
+        string time;
+        pair.TryGetValue("_time", out time);
+        Splunktime = Convert.ToDateTime(time);
+
+        pair.TryGetValue("host", out host);
     }
 }
 

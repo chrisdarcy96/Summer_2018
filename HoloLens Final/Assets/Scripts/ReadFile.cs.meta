@@ -9,7 +9,7 @@ MonoImporter:
   - Node_Prefab: {instanceID: 0}
   - Parent_Object: {fileID: 1872677121663018, guid: 1973f2019cc067d4198e2fdeab581050,
       type: 2}
-  executionOrder: 0
+  executionOrder: -100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
