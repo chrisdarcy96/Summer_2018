@@ -54,3 +54,5 @@ MonoBehaviour:
   id: 
   source: {fileID: 0}
   target: {fileID: 0}
+  startWidth: 0.05
+  endWidth: 0.05
