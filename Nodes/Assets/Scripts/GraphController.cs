@@ -578,7 +578,27 @@ public class GraphController : MonoBehaviour {
             LinkIntendedLinkLength = 3f;
         }
         // Debug 
-        //GenerateLink()
+        for(int i = 0; i<10; i++)
+        {
+            NewHost();
+        }
+    }
+
+    private void NewHost()
+    {
+        ///<summary>This function creates a new node on random coordinates, as well as a link between it and the root.</summary>
+        ///
+
+        GameObject newNode = GenerateNode();
+
+        nodes.Add(newNode);
+        GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
+
+        print("Created new node named " + newNode.name);
+
+
+
+
     }
 
     void Update()
