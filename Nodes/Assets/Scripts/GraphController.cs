@@ -4,6 +4,9 @@ using System.Collections.Generic;
 //using BulletUnity;
 
 public class GraphController : MonoBehaviour {
+    // Storage unit for the nodes we have
+    public List<GameObject> nodes = new List<GameObject>();
+
 
     [SerializeField]
     private static bool verbose = true;
@@ -482,10 +485,11 @@ public class GraphController : MonoBehaviour {
         linkCount = 0;
         debugObjects.Clear();
 
-        foreach (GameObject debugObj in GameObject.FindGameObjectsWithTag("debug"))
+        foreach (GameObject obj in nodes)
         {
-            debugObjects.Add(debugObj);
-            debugObj.SetActive(false);
+            // Create the initial links
+            // TODO: Create requirements/warnings that the nodes have a NodePhysX component.
+            GenerateLink("specific_src_tgt", obj, obj.GetComponent<NodePhysX>().root);
         }
 
         // prepare stuff
@@ -503,6 +507,8 @@ public class GraphController : MonoBehaviour {
             LinkForceStrength = 5f;
             LinkIntendedLinkLength = 3f;
         }
+        // Debug 
+        //GenerateLink()
     }
 
     void Update()
