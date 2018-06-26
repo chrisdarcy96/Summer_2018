@@ -24,6 +24,7 @@ public class Link : MonoBehaviour
 
     void doAttraction()
     {
+        if(sourceRb == null) { return; } // Should the source be null, this link only has frames to live - stall the forces for now.
         Vector3 forceDirection = sourceRb.transform.position - targetRb.transform.position;
         float distSqr = forceDirection.sqrMagnitude;
 
