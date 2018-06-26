@@ -494,6 +494,7 @@ public class GraphController : MonoBehaviour {
             NodePhysX nodeInfo = node.GetComponent<NodePhysX>();
             if (nodeInfo.delete)
             {
+                print("Destroying " + node.name);
                 nodes.Remove(node);
                 Destroy(node);
                 
@@ -501,6 +502,7 @@ public class GraphController : MonoBehaviour {
             else if (nodeInfo.hide)
             {
                 // Hide the mesh+collider
+                print("Hiding " + node.name);
                 node.SetActive(false);
             }
         }
@@ -572,6 +574,7 @@ public class GraphController : MonoBehaviour {
     {
         Link.intendedLinkLength = linkIntendedLinkLength;
         Link.forceStrength = linkForceStrength;
+        UpdateLinks();
     }
 
 }
