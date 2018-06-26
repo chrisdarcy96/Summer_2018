@@ -507,12 +507,14 @@ public class GraphController : MonoBehaviour {
                 nodeInfo.hide = false;
             }
 
-            else if (nodeInfo.unHide)
+            else if (nodeInfo.unHide && node.activeSelf == false)
             {
                 // Hide the mesh+collider
                 print("Un-Hiding " + node.name);
                 node.SetActive(true);
                 nodeInfo.unHide = false;
+                // re-create the link
+                GenerateLink("specific_src_tgt", node, node.GetComponent<NodePhysX>().root);
             }
         }
         // After we're all done, remove the links.
