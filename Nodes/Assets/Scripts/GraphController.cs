@@ -13,7 +13,7 @@ public class GraphController : MonoBehaviour {
 
     private static GameController gameControl;
     //private static GameCtrlUI gameCtrlUI;
-    //private static GameCtrlHelper gameCtrlHelper;
+    private static GameCtrlHelper gameCtrlHelper;
 
     [SerializeField]
     private bool allStatic = false;
@@ -231,14 +231,14 @@ public class GraphController : MonoBehaviour {
         {
             Destroy(destroyTarget);
             LinkCount -= 1;
-            gameCtrlUI.PanelStatusLinkCountTxt.text = "Linkcount: " + LinkCount;
+            //gameCtrlUI.PanelStatusLinkCountTxt.text = "Linkcount: " + LinkCount;
         }
 
         foreach (GameObject destroyTarget in GameObject.FindGameObjectsWithTag("node"))
         {
             Destroy(destroyTarget);
             NodeCount -= 1;
-            gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
+            //gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
         }
 
         foreach (GameObject destroyTarget in GameObject.FindGameObjectsWithTag("debug"))
@@ -275,7 +275,7 @@ public class GraphController : MonoBehaviour {
         {
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
-            gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
+            //gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
             GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
             debugObjects.Add(debugObj);
@@ -306,7 +306,7 @@ public class GraphController : MonoBehaviour {
         {
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
-            gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
+            //gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
             GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
             debugObjects.Add(debugObj);
@@ -343,7 +343,7 @@ public class GraphController : MonoBehaviour {
             nodeNode.Type = type;
 
             nodeCount++;
-            gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
+            //gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
             GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
             debugObjects.Add(debugObj);
