@@ -504,6 +504,7 @@ public class GraphController : MonoBehaviour {
                 // Hide the mesh+collider
                 print("Hiding " + node.name);
                 node.SetActive(false);
+                nodeInfo.hide = false;
             }
         }
         // After we're all done, remove the links.
