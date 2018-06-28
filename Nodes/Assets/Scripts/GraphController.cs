@@ -52,6 +52,10 @@ public class GraphController : MonoBehaviour {
     private float linkForceStrength = 6F;
     [SerializeField]
     private float linkIntendedLinkLength = 0.15F;
+    [SerializeField, Tooltip("Adjust this slider to provide a scalar increase to the force that drives hosts upwards or downwards based on their tag"), Range(-2, 2)]
+    private float stratificationScalingFactor = 1;
+    [Tooltip("Use this to have the GraphController insert randomly placed hosts at runtime.")]
+    public int randomNodes = 10;
 
     private static int nodeCount;
     private static int linkCount;
@@ -578,7 +582,7 @@ public class GraphController : MonoBehaviour {
         //    LinkIntendedLinkLength = 3f;
         //}
         // Debug 
-        for(int i = 0; i<10; i++)
+        for(int i = 0; i<randomNodes; i++)
         {
             NewHost();
         }

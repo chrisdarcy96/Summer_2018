@@ -14,7 +14,7 @@ public class NodePhysX : Node {
     // Public debug settings
     [Tooltip("This offsets the center of gravity for the graph in the z direction. Default is 3 (roughly standard for HoloLens)")]
     //public float zOffset = 3;
-    public GameObject root, upperCog, lowerCog;
+    public GameObject root;
 
     protected override void doGravity()
     {
@@ -22,19 +22,28 @@ public class NodePhysX : Node {
         //Vector3 dirToCenter = - this.transform.position + new Vector3(0,0,zOffset); // For the HoloLens, the "center" is (0,0,2)
         Vector3 dirToCenter = -this.transform.position + root.transform.position; // For the HoloLens, the "center" is (0,0,2)
 
-        // Based on whether or not the host is supposed to rise or fall, we will apply new gravity forces to "pinch" the host in the right direction.
+
+        // Add the root gravity force
+        Vector3 impulse = dirToCenter.normalized * thisRigidbody.mass * graphControl.GlobalGravityPhysX;
+        thisRigidbody.AddForce(impulse);
+
+            // Based on whether or not the host is supposed to rise or fall, we will apply new gravity forces to "pinch" the host in the right direction.
         if (this.tag == "upper")
         {
-            // Do things that make the host rise
+            // Generate a new force that also pulls the host upwards.
+            Vector3 riseImpulse = Vector3.up * thisRigidbody.mass * graphControl.GlobalGravityPhysX;
+            thisRigidbody.AddForce(riseImpulse);
+
         }
         else if (this.tag == "lower")
         {
             // Do things that make the host fall
+            Vector3 fallImpulse = Vector3.down * thisRigidbody.mass * graphControl.GlobalGravityPhysX;
+            thisRigidbody.AddForce(fallImpulse);
         }
-
-        Vector3 impulse = dirToCenter.normalized * thisRigidbody.mass * graphControl.GlobalGravityPhysX;
-        thisRigidbody.AddForce(impulse);
     }
+
+
 
     protected override void doRepulse()
     {
