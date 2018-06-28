@@ -98,13 +98,13 @@ MonoBehaviour:
     type: 2}
   nodeVectorGenRange: 7
   globalGravityBullet: 0.1
-  globalGravityPhysX: 10
-  repulseForceStrength: 11
+  globalGravityPhysX: 6
+  repulseForceStrength: 10
   nodePhysXForceSphereRadius: 0.2
   linkForceStrength: 6
   linkIntendedLinkLength: 0.45
   stratificationScalingFactor: 0.11
-  randomNodes: 4
+  randomNodes: 98
   hostsAndProcesses: 1
 --- !u!114 &114643089217926202
 MonoBehaviour:
