@@ -182,6 +182,11 @@ Prefab:
       propertyPath: nodePhysXForceSphereRadius
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 114386456391748164, guid: 457e711c4e43ca24ebf9e2fa2ac9ab86,
+        type: 2}
+      propertyPath: randomNodes
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 457e711c4e43ca24ebf9e2fa2ac9ab86, type: 2}
   m_IsPrefabParent: 0

@@ -31,14 +31,14 @@ public class NodePhysX : Node {
         if (this.tag == "upper")
         {
             // Generate a new force that also pulls the host upwards.
-            Vector3 riseImpulse = Vector3.up * thisRigidbody.mass * graphControl.GlobalGravityPhysX;
+            Vector3 riseImpulse = Vector3.up * thisRigidbody.mass * graphControl.GlobalGravityPhysX * graphControl.stratificationScalingFactor;
             thisRigidbody.AddForce(riseImpulse);
 
         }
         else if (this.tag == "lower")
         {
             // Do things that make the host fall
-            Vector3 fallImpulse = Vector3.down * thisRigidbody.mass * graphControl.GlobalGravityPhysX;
+            Vector3 fallImpulse = Vector3.down * thisRigidbody.mass * graphControl.GlobalGravityPhysX * graphControl.stratificationScalingFactor;
             thisRigidbody.AddForce(fallImpulse);
         }
     }
