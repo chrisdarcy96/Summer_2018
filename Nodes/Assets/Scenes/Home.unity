@@ -187,7 +187,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!1 &218295418 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1338073754193012, guid: f0d6cef9089c3934fbacd865aa3b8a1d,
+  m_PrefabParentObject: {fileID: 1926518442273168, guid: 76f9ba20467e6c8459cc17e29f21cbb0,
     type: 2}
   m_PrefabInternal: {fileID: 1759998503}
 --- !u!1001 &372924718
@@ -406,44 +406,44 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4625503359443526, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+    - target: {fileID: 4406015902211868, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.08
+      value: -0.1221
       objectReference: {fileID: 0}
-    - target: {fileID: 4625503359443526, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+    - target: {fileID: 4406015902211868, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.002
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4625503359443526, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+    - target: {fileID: 4406015902211868, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 2.004
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4625503359443526, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+    - target: {fileID: 4406015902211868, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4625503359443526, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+    - target: {fileID: 4406015902211868, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4625503359443526, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+    - target: {fileID: 4406015902211868, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4625503359443526, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+    - target: {fileID: 4406015902211868, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4625503359443526, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+    - target: {fileID: 4406015902211868, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1338073754193012, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+    - target: {fileID: 1926518442273168, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
       propertyPath: m_Name
-      value: Reddit
+      value: MimiKatz
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f0d6cef9089c3934fbacd865aa3b8a1d, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 76f9ba20467e6c8459cc17e29f21cbb0, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1785029527
 Prefab:
