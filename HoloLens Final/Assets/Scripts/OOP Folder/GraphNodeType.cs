@@ -1,24 +1,37 @@
 ﻿using System;
 using UnityEngine;
 
-public class GraphNodeType : MonoBehaviour {
+public class GraphNodeType : ScriptableObject {
 
-    
     private GameObject thisObject;
     private DateTime nodeTime;
-    private bool IsActive = false;
+    private bool IsActive;
     private Vector3 position;
     private string hostIP;
+    private int fields;
+    private SubGraphNode[] subNodes;
+    
+    public static GraphNodeType CreateInstance(GameObject go, DateTime time, string host, Vector3 pos, GameObject miniGo, bool act = false, int num = 3)
+    {
+        GraphNodeType inst = CreateInstance<GraphNodeType>();
+        inst.Init(go, time, host, pos, act, num);
+        inst.InitSubNodes(new string[] {time.ToString(), host, pos.ToString() }, miniGo);
+        return inst;
+    }
 
+    private void Init(GameObject go, DateTime time, string host, Vector3 pos, bool act, int num)
+    {
+        thisObject = go;
+        nodeTime = time;
+        IsActive = act;
+        position = pos;
+        hostIP = host;
+        fields = num;
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-       
-	}
+        // create base gameobject
+        thisObject = Instantiate(thisObject, pos, Quaternion.identity);
+
+    }
 
     // ************ Accessors *****************
     public GameObject getObject()
@@ -44,6 +57,16 @@ public class GraphNodeType : MonoBehaviour {
     public string getHost()
     {
         return hostIP;
+    }
+
+    public int getFields()
+    {
+        return fields;
+    }
+
+    public SubGraphNode[] getSubGraphNodes()
+    {
+        return subNodes;
     }
 
     // ************ Mutators *****************
@@ -77,6 +100,60 @@ public class GraphNodeType : MonoBehaviour {
     public void setHost(string newHost)
     {
         hostIP = newHost;
+    }
+
+    public void incrementFields(int optionalIncrement = 1)
+    {
+        fields += optionalIncrement;
+    }
+
+    public void InitSubNodes(string[] subs, GameObject go)
+    {
+        // it would be improper to call this function to add sub nodes
+        // this is only for initial creation
+        subNodes = new SubGraphNode[subs.Length];
+        int i = 0;
+        foreach (string str in subs)
+        {
+            SubGraphNode sgn = SubGraphNode.CreateInstance(go, Vector3.zero, str);
+            sgn.getObject().transform.parent = thisObject.transform;
+            subNodes[i++] = sgn;
+        }
+        positionSubNodes();
+    }
+
+    public void positionSubNodes(float r = 0.1f)
+    {
+        double theta = (Math.PI / 2) / (fields - 1);
+        double startPos = 0;
+        
+        for (int i = 0; i < subNodes.Length; i++)
+        {
+            if (this.position.x < 0)
+            {
+                startPos = Math.PI / 2;   // shift over to left side of nodes
+                subNodes[i].getObject().GetComponent<TextMesh>().anchor = TextAnchor.UpperRight;   
+            }
+            else if(Mathf.Round(this.position.x * 100f)/100f == 0)
+            {
+                startPos = Math.PI / 4;
+                subNodes[i].getObject().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+            }
+            // set up positioning 
+            double angle = theta * i + startPos;                                    // offset angle
+            float xPos = Convert.ToSingle(r * Math.Cos(angle)) + this.position.x;   // get X and convert back to float
+            float yPos = Convert.ToSingle(r * Math.Sin(angle)) + this.position.y;   // for y
+
+            subNodes[i].setPosition(new Vector3(xPos, yPos, this.position.z));
+        }
+    }
+
+    public void ToggleActiveSubs()
+    {
+        foreach(SubGraphNode sgn in subNodes)
+        {
+            sgn.hide(!sgn.getHidden());
+        }
     }
 
 }

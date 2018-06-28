@@ -12,6 +12,7 @@ public class ReadFile : MonoBehaviour {
 
     public GameObject Node_Prefab;
     public GameObject Parent_Object;
+    public GameObject MiniNodePrefab;
     private static GraphNodeType[] nodes;
 
     public static List<Dictionary<string, string>> GetConnections { get; private set; }
@@ -39,32 +40,20 @@ public class ReadFile : MonoBehaviour {
         int i = 0;
         foreach(Dictionary<string, string> pair in GetConnections)
         {   
-            // more can be done here with data provide in Dictionary pairs
-            GameObject newNode = Instantiate(Node_Prefab);
-            GraphNodeType newNodeType = newNode.AddComponent<GraphNodeType>();
-            newNodeType.setObject(newNode);
-
             // get neat splunk data
             DateTime time;
             string host;
             GetUsefulInfo(pair, out time, out host);
-
-            newNodeType.setTime(time);
-            newNodeType.setHost(host);
-
-
-            // make new nodes children of ParentObject (should be NodeManager game object)
-            newNode.transform.parent = Parent_Object.transform;
-            newNode.name = "node-"+i;
-
-            // hide this node from view
-            // newNode.SetActive(false);
             float x;
             float y;
             GetPoints(i, out x, out y);
-            //Debug.Log("moving to: " + x + ", " + y);
-            newNodeType.setPosition(new Vector3(x, y, 2));
+            GraphNodeType newNodeType = GraphNodeType.CreateInstance(Node_Prefab, time, host, new Vector3(x,y,2), MiniNodePrefab);
+            
 
+            // make new nodes children of ParentObject (should be NodeManager game object)
+            newNodeType.getObject().transform.parent = Parent_Object.transform;
+            newNodeType.setPosition(new Vector3(x,y,2));
+  
             node[i++] = newNodeType;
         }
         return node;

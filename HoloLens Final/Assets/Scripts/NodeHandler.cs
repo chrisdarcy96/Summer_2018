@@ -10,7 +10,8 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
 
     public GameObject spawn;
     public Shader shadeOnView;
-    private ArrayList spawnsThisView;
+
+    private SubGraphNode[] subNodes;
     private int framesViewed = 0;
     private bool isViewing = false;
     
@@ -21,32 +22,18 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
         // change shader
         GetComponent<Renderer>().material.shader = shadeOnView;
         isViewing = !isViewing;
-        viewHandler(this.gameObject);
+        GraphNodeManager.ToggleSubNodes(this.gameObject);
     }
 
     private void viewHandler(GameObject focusedObject)
     {
         Transform parent = focusedObject.transform;
-       
-        // create 3 miniNodes of Information
-        GameObject newMiniNode = Instantiate(spawn); 
-        spawnsThisView.Add(newMiniNode);
-        // right top
-        newMiniNode.transform.position = new Vector3(parent.position.x + 4 * newMiniNode.GetComponent<Renderer>().bounds.size.x, parent.position.y 
-                                                    + 4 * newMiniNode.GetComponent<Renderer>().bounds.size.y, parent.position.z);
+        foreach(SubGraphNode sgn in subNodes)
+        {
+            sgn.hide(false);
+        }
+        
 
-        newMiniNode = Instantiate(spawn); // create new spawn
-        spawnsThisView.Add(newMiniNode);
-        // right middle
-        newMiniNode.transform.position = new Vector3(parent.position.x + 4 * newMiniNode.GetComponent<Renderer>().bounds.size.x, 
-                                                    parent.position.y, parent.position.z);
-
-        newMiniNode = Instantiate(spawn); // create new spawn
-        spawnsThisView.Add(newMiniNode);
-        //right bottom
-        newMiniNode.transform.position = new Vector3(parent.position.x + 4 * newMiniNode.GetComponent<Renderer>().bounds.size.x, 
-                                                     parent.position.y - 4 * newMiniNode.GetComponent<Renderer>().bounds.size.y, parent.position.z);
-    
     }
 
     public void OnFocusExit()
@@ -56,23 +43,17 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
         GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
 
         // if no longer viewing
-        if(isViewing == false)
+        if (isViewing == false)
         {
-            framesViewed = 0;
-            // clear array list of spawned objects
-            for (int i = 0; i < spawnsThisView.Count; i++)
-            {
-                GameObject toDestroy = (GameObject)spawnsThisView[i];
-                Destroy(toDestroy);
-            }
-            spawnsThisView.Clear();
+
+            GraphNodeManager.ToggleSubNodes(this.gameObject);
         }
-        
     }
 
     // Use this for initialization
     void Start () {
-        spawnsThisView = new ArrayList();
+        
+
         // kill the TapToPlace component
         this.gameObject.GetComponent<TapToPlace>().enabled = false;
         

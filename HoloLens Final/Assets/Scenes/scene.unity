@@ -383,6 +383,8 @@ MonoBehaviour:
   Node_Prefab: {fileID: 1872677121663018, guid: 1973f2019cc067d4198e2fdeab581050,
     type: 2}
   Parent_Object: {fileID: 898889770}
+  MiniNodePrefab: {fileID: 1781881690646952, guid: b32f489a03bc00647b7c411838799cbe,
+    type: 2}
 --- !u!4 &578262737
 Transform:
   m_ObjectHideFlags: 0
@@ -568,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27e7734aa2764a499721d5c1cf8699f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphNodes: []
+  spawn: {fileID: 1781881690646952, guid: b32f489a03bc00647b7c411838799cbe, type: 2}
   hideAll: 0
 --- !u!1001 &928694297
 Prefab:

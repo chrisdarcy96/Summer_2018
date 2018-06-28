@@ -1,51 +1,59 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GraphNodeManager : MonoBehaviour
 {
 
-    [SerializeField] private GraphNodeType[] graphNodes;
+    public GameObject spawn;
+
+    [SerializeField] private static Dictionary<GraphNodeType, SubGraphNode[]> masterNodes;
     [SerializeField] private bool hideAll = false;
     private bool oldHide;
 
     // Use this for initialization
     void Start()
     {
-        graphNodes = FindObjectsOfType<GraphNodeType>();
+        masterNodes = new Dictionary<GraphNodeType, SubGraphNode[]>();
+        GraphNodeType[] graphNodes = FindObjectsOfType<GraphNodeType>();
+        foreach(GraphNodeType gnt in graphNodes)
+        {
+            masterNodes.Add(gnt, gnt.getSubGraphNodes());
+        }
         oldHide = !hideAll;
         SetAllActive();
     }
 
+
     private void SetAllActive()
     {
-        foreach (GraphNodeType nod in graphNodes)
+        foreach(GraphNodeType key in masterNodes.Keys)
         {
-            nod.setActive(true);
+            foreach(SubGraphNode sgn in masterNodes[key])
+            {
+                sgn.hide(true);
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hideAll && oldHide != hideAll) { HideAllNodes(); }
+        if (hideAll && oldHide != hideAll) {  }
         else if (!hideAll && oldHide != hideAll) { SetAllActive(); }
         oldHide = hideAll;
     }
 
-    private void HideAllNodes()
+    public static void ToggleSubNodes(GameObject focused)
     {
-        foreach (GraphNodeType nod in graphNodes)
+        foreach(GraphNodeType gnt in masterNodes.Keys)
         {
-            if (!nod.getActive())
+            if(gnt.getObject().GetInstanceID() == focused.GetInstanceID())
             {
-                Debug.LogWarning("Warning: Setting nodes to false that are already false");
+                // if they are same game object
+                // turn on sub nodes
+                gnt.ToggleActiveSubs();
             }
-            else
-            {
-                nod.setActive(false);
-            }
-
         }
-        
     }
 }
