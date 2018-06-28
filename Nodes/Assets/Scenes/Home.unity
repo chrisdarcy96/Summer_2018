@@ -120,11 +120,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114386456391748164, guid: 457e711c4e43ca24ebf9e2fa2ac9ab86,
-        type: 2}
-      propertyPath: nodes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4705954550327284, guid: 457e711c4e43ca24ebf9e2fa2ac9ab86, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -169,23 +164,8 @@ Prefab:
       objectReference: {fileID: 1558242952}
     - target: {fileID: 114386456391748164, guid: 457e711c4e43ca24ebf9e2fa2ac9ab86,
         type: 2}
-      propertyPath: linkIntendedLinkLength
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 114386456391748164, guid: 457e711c4e43ca24ebf9e2fa2ac9ab86,
-        type: 2}
-      propertyPath: repulseForceStrength
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114386456391748164, guid: 457e711c4e43ca24ebf9e2fa2ac9ab86,
-        type: 2}
-      propertyPath: nodePhysXForceSphereRadius
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114386456391748164, guid: 457e711c4e43ca24ebf9e2fa2ac9ab86,
-        type: 2}
       propertyPath: randomNodes
-      value: 2
+      value: 98
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 457e711c4e43ca24ebf9e2fa2ac9ab86, type: 2}
@@ -585,6 +565,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4126437322005020, guid: afcb294c2cc96e14ab3435d6fc542682, type: 2}
       propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 135228937163875430, guid: afcb294c2cc96e14ab3435d6fc542682,
+        type: 2}
+      propertyPath: m_Radius
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
