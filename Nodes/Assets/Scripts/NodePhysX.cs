@@ -14,7 +14,7 @@ public class NodePhysX : Node {
     // Public debug settings
     [Tooltip("This offsets the center of gravity for the graph in the z direction. Default is 3 (roughly standard for HoloLens)")]
     //public float zOffset = 3;
-    public GameObject root;
+    public GameObject root, upperCog, lowerCog;
 
     protected override void doGravity()
     {
