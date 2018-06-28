@@ -34,7 +34,9 @@ public class GraphController : MonoBehaviour {
     [SerializeField]
     private GameObject nodePrefabBullet;
     [SerializeField]
-    private GameObject nodePrefabPhysX;
+    private GameObject hostPrefab;
+    [SerializeField]
+    private GameObject procPrefab;
     [SerializeField]
     private Link linkPrefab;
     [SerializeField]
@@ -56,6 +58,8 @@ public class GraphController : MonoBehaviour {
     public float stratificationScalingFactor = 1;
     [Tooltip("Use this to have the GraphController insert randomly placed hosts at runtime.")]
     public int randomNodes = 10;
+    [Tooltip("If true, then the Random Nodes will be half host, half process.")]
+    public bool hostsAndProcesses = true;
 
     private static int nodeCount;
     private static int linkCount;
@@ -260,7 +264,20 @@ public class GraphController : MonoBehaviour {
         debugObjects.Clear();
     }
 
-    private GameObject InstObj(Vector3 createPos)
+    private GameObject InstHost(Vector3 createPos)
+    {
+        // TODO: remove or commment all references to BulletUnity for brevity
+        if (gameControl.EngineBulletUnity)
+        {
+            return Instantiate(nodePrefabBullet, createPos, Quaternion.identity) as GameObject;
+        }
+        else
+        {
+            return Instantiate(hostPrefab, createPos, Quaternion.identity) as GameObject;
+        }
+    }
+
+    private GameObject InstProc(Vector3 createPos)
     {
         if (gameControl.EngineBulletUnity)
         {
@@ -268,11 +285,12 @@ public class GraphController : MonoBehaviour {
         }
         else
         {
-            return Instantiate(nodePrefabPhysX, createPos, Quaternion.identity) as GameObject;
+            return Instantiate(procPrefab, createPos, Quaternion.identity) as GameObject;
         }
     }
 
-    public GameObject GenerateNode()
+
+    public GameObject GenerateNode(bool createProcess = false)
     {
         // Method for creating a Node on random coordinates, e.g. when spawning multiple new nodes
 
@@ -280,7 +298,14 @@ public class GraphController : MonoBehaviour {
 
         Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
 
-        nodeCreated = InstObj(createPos);
+        if (createProcess)
+        {
+            nodeCreated = InstProc(createPos);
+        }
+        else
+        {
+        nodeCreated = InstHost(createPos);
+        }
 
         if (nodeCreated != null)
         {
@@ -311,7 +336,7 @@ public class GraphController : MonoBehaviour {
         GameObject nodeCreated = null;
 
         //nodeCreated = Instantiate(nodePrefabBullet, createPos, Quaternion.identity) as Node;
-        nodeCreated = InstObj(createPos);
+        nodeCreated = InstHost(createPos);
 
         if (nodeCreated != null)
         {
@@ -344,7 +369,7 @@ public class GraphController : MonoBehaviour {
         Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
 
         //nodeCreated = Instantiate(nodePrefabBullet, createPos, Quaternion.identity) as Node;
-        nodeCreated = InstObj(createPos);
+        nodeCreated = InstHost(createPos);
 
         if (nodeCreated != null)
         {
@@ -584,13 +609,20 @@ public class GraphController : MonoBehaviour {
         // Debug 
         for(int i = 0; i<randomNodes; i++)
         {
-            NewHost();
+            if(hostsAndProcesses && i % 2 == 0)
+            {
+                NewProc();
+            }
+            else
+            {
+                NewHost();
+            }
         }
     }
 
     private void NewHost()
     {
-        ///<summary>This function creates a new node on random coordinates, as well as a link between it and the root.</summary>
+        ///<summary>This function creates a new host on random coordinates, as well as a link between it and the root.</summary>
         ///
 
         GameObject newNode = GenerateNode();
@@ -600,8 +632,18 @@ public class GraphController : MonoBehaviour {
 
         print("Created new node named " + newNode.name);
 
+    }
+    private void NewProc()
+    {
+        ///<summary>This function creates a new process on random coordinates, as well as a link between it and the root.</summary>
+        ///
 
+        GameObject newNode = GenerateNode(createProcess : true);
 
+        nodes.Add(newNode);
+        GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
+
+        print("Created new node named " + newNode.name);
 
     }
 
