@@ -588,6 +588,10 @@ public class GraphController : MonoBehaviour {
         {
             // Create the initial links
             // TODO: Create requirements/warnings that the nodes have a NodePhysX component.
+            if (obj == null)
+            {
+                continue;
+            }
             GenerateLink("specific_src_tgt", obj, obj.GetComponent<NodePhysX>().root);
         }
 

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 54974926148344498}
   - component: {fileID: 135928716170106114}
   - component: {fileID: 114888913301654432}
+  - component: {fileID: 114810978391303416}
   m_Layer: 0
   m_Name: Process
   m_TagString: lower
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985470366745714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: -0.135, y: 0, z: 2}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114810978391303416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1985470366745714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27212baead927ec4a8fa71888a0fce53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glow: {fileID: 4800000, guid: ba34b104fd9d5b44b88d23205a8aa4d7, type: 3}
 --- !u!114 &114888913301654432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,7 +127,7 @@ MonoBehaviour:
   delete: 0
   hide: 0
   unHide: 0
-  root: {fileID: 1917881429158956, guid: afcb294c2cc96e14ab3435d6fc542682, type: 2}
+  root: {fileID: 0}
 --- !u!135 &135928716170106114
 SphereCollider:
   m_ObjectHideFlags: 1
