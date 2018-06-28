@@ -113,6 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glow: {fileID: 4800000, guid: ba34b104fd9d5b44b88d23205a8aa4d7, type: 3}
+  beingLookedAt: 0
+  isSelected: 0
+  stareTriggerDuration: 3
 --- !u!114 &114888913301654432
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -61,7 +61,7 @@ public class GraphController : MonoBehaviour {
     [Tooltip("If true, then the Random Nodes will be half host, half process.")]
     public bool hostsAndProcesses = true;
 
-    public GameObject selectedNode = null;
+    //public GameObject selectedNode = null;
 
     private static int nodeCount;
     private static int linkCount;

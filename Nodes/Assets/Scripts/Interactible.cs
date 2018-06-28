@@ -12,8 +12,11 @@ public class Interactible : MonoBehaviour, IFocusable {
 
     public Shader glow;
     public bool beingLookedAt = false;
+    public bool isSelected = false;
     public float stareTriggerDuration = 3f;
     private float stareTimer = 0f;
+    private GameObject GameController = GameObject.Find("GameController");
+    
     
 
     public void OnFocusEnter()
@@ -41,7 +44,8 @@ public class Interactible : MonoBehaviour, IFocusable {
             stareTimer += Time.deltaTime;
             if(stareTimer >= stareTriggerDuration)
             {
-
+                isSelected = true;
+                SelectionManager.HandleSelection(this.gameObject);
             }
         }
 	}

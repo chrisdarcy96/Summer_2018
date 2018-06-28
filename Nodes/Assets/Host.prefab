@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 135675664418224382}
   - component: {fileID: 114230699723440236}
   - component: {fileID: 114436237169555270}
+  - component: {fileID: 114057296074302590}
   m_Layer: 0
   m_Name: Host
   m_TagString: upper
@@ -101,6 +102,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114057296074302590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338073754193012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114436237169555270}
+          m_MethodName: OnFocusEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114230699723440236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glow: {fileID: 4800000, guid: ba34b104fd9d5b44b88d23205a8aa4d7, type: 3}
+  beingLookedAt: 0
+  isSelected: 0
+  stareTriggerDuration: 3
 --- !u!135 &135675664418224382
 SphereCollider:
   m_ObjectHideFlags: 1
