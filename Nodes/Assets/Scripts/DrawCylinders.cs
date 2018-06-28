@@ -8,6 +8,7 @@ public class DrawCylinders : MonoBehaviour
     public Material lineMaterial;
     public float radius = 0.05f;
     public GameObject root;
+    public bool isActive = true;
 
     // These are lists in lieu of arrays so they can be dynamic at runtime.
     public List<GameObject> nodes = new List<GameObject>();
@@ -22,6 +23,13 @@ public class DrawCylinders : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+        // Turn off on debug set
+        if (!isActive)
+        {
+            this.enabled = false;
+            return;
+        }
 
         // Line up the nexus and the root
         this.gameObject.transform.position = root.transform.position;
