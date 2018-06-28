@@ -22,6 +22,16 @@ public class NodePhysX : Node {
         //Vector3 dirToCenter = - this.transform.position + new Vector3(0,0,zOffset); // For the HoloLens, the "center" is (0,0,2)
         Vector3 dirToCenter = -this.transform.position + root.transform.position; // For the HoloLens, the "center" is (0,0,2)
 
+        // Based on whether or not the host is supposed to rise or fall, we will apply new gravity forces to "pinch" the host in the right direction.
+        if (this.tag == "upper")
+        {
+            // Do things that make the host rise
+        }
+        else if (this.tag == "lower")
+        {
+            // Do things that make the host fall
+        }
+
         Vector3 impulse = dirToCenter.normalized * thisRigidbody.mass * graphControl.GlobalGravityPhysX;
         thisRigidbody.AddForce(impulse);
     }

@@ -97,8 +97,8 @@ MonoBehaviour:
   nodeVectorGenRange: 7
   globalGravityBullet: 0.1
   globalGravityPhysX: 10
-  repulseForceStrength: 2.5
-  nodePhysXForceSphereRadius: 3
+  repulseForceStrength: 11
+  nodePhysXForceSphereRadius: 0.2
   linkForceStrength: 6
   linkIntendedLinkLength: 0.45
 --- !u!114 &114643089217926202
