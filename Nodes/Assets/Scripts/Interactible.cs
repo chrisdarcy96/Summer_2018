@@ -79,13 +79,13 @@ public class Interactible : MonoBehaviour, IFocusable {
                 }
             }
         }
-        if (!isSelected && originRender.material == selectionMaterial)
-        {
+        //if (!isSelected && originRender.material == selectionMaterial)
+        //{
 
-            print("Node " + name + " has been un-selected");
-            originRender.material.shader = Shader.Find("Transparent/Diffuse");
-            originRender.material = originMat;
+        //    print("Node " + name + " has been un-selected");
+        //    originRender.material.shader = Shader.Find("Transparent/Diffuse");
+        //    originRender.material = originMat;
 
-        }
+        //}
     }
 }

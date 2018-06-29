@@ -84,9 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5190ce3342b500449ce00968d157189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: 0}
-  - {fileID: 0}
+  nodes: []
   allStatic: 0
   paintMode: 0
   repulseActive: 1
@@ -96,7 +94,7 @@ MonoBehaviour:
   procPrefab: {fileID: 1985470366745714, guid: 895deec19f8483046b7db158de2f9d43, type: 2}
   linkPrefab: {fileID: 114267639656735752, guid: a16e43a6ed6f2c349b24bd989133d6f4,
     type: 2}
-  nodeVectorGenRange: 7
+  nodeVectorGenRange: 2
   globalGravityBullet: 0.1
   globalGravityPhysX: 6
   repulseForceStrength: 10

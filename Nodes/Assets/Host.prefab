@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gazeGlow: {fileID: 4800000, guid: ba34b104fd9d5b44b88d23205a8aa4d7, type: 3}
   selectionGlow: {fileID: 4800000, guid: b436b770072dab249af9731e9208b66f, type: 3}
+  selectionMaterial: {fileID: 2100000, guid: 448455b8f01ff9f4fb4a48a47b613d44, type: 2}
   beingLookedAt: 0
   isSelected: 0
   stareTriggerDuration: 3
