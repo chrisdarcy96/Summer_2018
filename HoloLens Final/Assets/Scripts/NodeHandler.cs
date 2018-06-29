@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using HoloToolkit.Unity;
+﻿using UnityEngine;
 using HoloToolkit.Unity.InputModule;
-using System;
 using HoloToolkit.Unity.SpatialMapping;
 
 public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
@@ -19,41 +15,38 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
     // Gaze spawns 3 small spheres at right angles to the focusedObject
     public void OnFocusEnter()
     {
-        // change shader
-        GetComponent<Renderer>().material.shader = shadeOnView;
-        isViewing = !isViewing;
-        GraphNodeManager.ToggleSubNodes(this.gameObject);
-    }
-
-    private void viewHandler(GameObject focusedObject)
-    {
-        Transform parent = focusedObject.transform;
-        foreach(SubGraphNode sgn in subNodes)
+        // don't do anything if they are already viewing...
+        if (!isViewing)
         {
-            sgn.hide(false);
+            isViewing = !isViewing;
+            GetComponent<Renderer>().material.shader = shadeOnView;
+            GraphNodeManager.ToggleSubNodes(this.gameObject);
         }
-        
-
+        else
+        {
+            isViewing = !isViewing; // set to false to keep active on exit :)
+        }
     }
+
 
     public void OnFocusExit()
     {
-        isViewing = !isViewing; // toggle isViewing
-
-        GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
-
-        // if no longer viewing
-        if (isViewing == false)
+        // if the object was not selected
+        if (isViewing)
         {
-
             GraphNodeManager.ToggleSubNodes(this.gameObject);
+            GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
+            isViewing = false;  //no longer viewing, 
+        }
+        // if selected
+        else if (!isViewing)
+        {
+            isViewing = true;   // set back to true for OnFocusEnter again
         }
     }
 
     // Use this for initialization
     void Start () {
-        
-
         // kill the TapToPlace component
         this.gameObject.GetComponent<TapToPlace>().enabled = false;
         
@@ -72,8 +65,6 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
     {
         // toggle isViewing so to toggle onViewExit behavior
         isViewing = !isViewing;
-        this.GetComponent<TapToPlace>().enabled = !this.GetComponent<TapToPlace>().enabled;
 
-        print("Click!!!");
     }
 }

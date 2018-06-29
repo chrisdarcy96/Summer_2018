@@ -6,9 +6,10 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Text;
 
+
 public class ReadFile : MonoBehaviour {
 
-    public string path = "Assets/httplistener.json";
+    public string path = "httplistener.json";
 
     public GameObject Node_Prefab;
     public GameObject Parent_Object;
@@ -71,8 +72,9 @@ public class ReadFile : MonoBehaviour {
 
     private void ReadJSON()
     {
-
-        using (StreamReader sr = new StreamReader(File.OpenRead(path)))
+        // gets the file path that can be used on release
+        string realFilePath = Path.Combine(Application.streamingAssetsPath, path);
+        using (StreamReader sr = new StreamReader(File.OpenRead(realFilePath)))
         {
             //string json_item = sr.ReadToEnd();  // reads entire JSON file into String (there's no way this will ever break...)
             string json_item = sr.ReadLine();   // read single line into string

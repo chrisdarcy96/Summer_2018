@@ -1,29 +1,67 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
+using HoloToolkit.Unity.SpatialMapping;
+using System;
 
-public class GraphNodeManager : MonoBehaviour
+public class GraphNodeManager : MonoBehaviour 
 {
 
     public GameObject spawn;
 
     [SerializeField] private static Dictionary<GraphNodeType, SubGraphNode[]> masterNodes;
     [SerializeField] private bool hideAll = false;
+
+
     private bool oldHide;
+    private KeywordRecognizer wordRecognizer;
+    private Dictionary<string, System.Action> keywords;
+
 
     // Use this for initialization
     void Start()
     {
+        // set up nodes
         masterNodes = new Dictionary<GraphNodeType, SubGraphNode[]>();
         GraphNodeType[] graphNodes = FindObjectsOfType<GraphNodeType>();
-        foreach(GraphNodeType gnt in graphNodes)
+        foreach (GraphNodeType gnt in graphNodes)
         {
             masterNodes.Add(gnt, gnt.getSubGraphNodes());
         }
         oldHide = !hideAll;
         SetAllActive();
+
+        // set up speech listeners
+        keywords = new Dictionary<string, System.Action>
+        {
+            {
+                "tap to place",
+                () =>
+                    {
+                        // toggle the tap to place components
+                        foreach (GraphNodeType gnt in masterNodes.Keys)
+                        {
+                            gnt.getObject().GetComponent<TapToPlace>().enabled = !gnt.getObject().GetComponent<TapToPlace>().enabled;
+                        }
+                    }
+            }
+        };
+        wordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
+        wordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
+        wordRecognizer.Start();
+
     }
 
+    private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
+    {
+        Action keywordAction;
+        if(keywords.TryGetValue(args.text, out keywordAction))
+        {
+            keywordAction.Invoke();
+        }
+        Debug.Log("Recognized: " + args.text);
+    }
 
     private void SetAllActive()
     {
@@ -56,4 +94,6 @@ public class GraphNodeManager : MonoBehaviour
             }
         }
     }
+
+
 }

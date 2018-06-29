@@ -6,9 +6,10 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - Node_Prefab: {instanceID: 0}
-  - Parent_Object: {fileID: 1872677121663018, guid: 1973f2019cc067d4198e2fdeab581050,
+  - Node_Prefab: {fileID: 1872677121663018, guid: 1973f2019cc067d4198e2fdeab581050,
       type: 2}
+  - Parent_Object: {instanceID: 0}
+  - MiniNodePrefab: {instanceID: 0}
   executionOrder: -100
   icon: {instanceID: 0}
   userData: 
