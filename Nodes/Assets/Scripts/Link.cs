@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using BulletUnity;
 
 public class Link : MonoBehaviour
 {
@@ -36,15 +35,6 @@ public class Link : MonoBehaviour
             Vector3 targetRbImpulse = forceDirection.normalized * forceStrength * distSqrNorm;
             Vector3 sourceRbImpulse = forceDirection.normalized * -1 * forceStrength * distSqrNorm;
 
-            if (gameControl.EngineBulletUnity)
-            {
-                //Debug.Log("(Link.FixedUpdate) targetRb: " + targetRb + ". forceDirection.normalized: " + forceDirection.normalized + ". distSqrNorm: " + distSqrNorm + ". Applying Impulse: " + targetRbImpulse);
-                ((BRigidBody)targetRb as BRigidBody).AddImpulse(targetRbImpulse);
-                //Debug.Log("(Link.FixedUpdate) targetRb: " + sourceRb + ". forceDirection.normalized: " + forceDirection.normalized + "  * -1 * distSqrNorm: " + distSqrNorm + ". Applying Impulse: " + sourceRbImpulse);
-                ((BRigidBody)sourceRb as BRigidBody).AddImpulse(sourceRbImpulse);
-            }
-            else
-            {
                 // Catch NaN forces
                 // TODO: Figure out why there's some NaN forces right at the beginning of the simulation.
                 if(float.IsNaN(sourceRbImpulse.x) && float.IsNaN(sourceRbImpulse.y) && float.IsNaN(sourceRbImpulse.z))
@@ -56,7 +46,7 @@ public class Link : MonoBehaviour
                 ((Rigidbody)targetRb as Rigidbody).AddForce(targetRbImpulse);
                 //Debug.Log("(Link.FixedUpdate) targetRb: " + sourceRb + ". forceDirection.normalized: " + forceDirection.normalized + "  * -1 * distSqrNorm: " + distSqrNorm + ". Applying Impulse: " + sourceRbImpulse);
                 ((Rigidbody)sourceRb as Rigidbody).AddForce(sourceRbImpulse);
-            }
+
         }
     }
 
@@ -83,16 +73,9 @@ public class Link : MonoBehaviour
         lineRenderer.SetPosition(0, source.transform.position);
         lineRenderer.SetPosition(1, target.transform.position);
 
-        if (gameControl.EngineBulletUnity)
-        {
-            sourceRb = source.GetComponent<BRigidBody>();
-            targetRb = target.GetComponent<BRigidBody>();
-        }
-        else
-        {
             sourceRb = source.GetComponent<Rigidbody>();
             targetRb = target.GetComponent<Rigidbody>();
-        }
+
 
         intendedLinkLengthSqr = intendedLinkLength * intendedLinkLength;
     }
