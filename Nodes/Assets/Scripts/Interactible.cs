@@ -18,6 +18,7 @@ public class Interactible : MonoBehaviour, IFocusable {
     private float stareTimer = 0f;
     private GameObject GameController;
     private Color oldColor;
+    private static Shader standard;
     
     
 
@@ -38,7 +39,8 @@ public class Interactible : MonoBehaviour, IFocusable {
     {
         if (!isSelected)
         {
-        GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
+            GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
+            beingLookedAt = false;
 
         }
     }
@@ -46,6 +48,7 @@ public class Interactible : MonoBehaviour, IFocusable {
     // Use this for initialization
     void Start () {
         GameController = GameObject.Find("GameController");
+        standard = Shader.Find("Transparent/Diffuse");
     }
 	
 	// Update is called once per frame
@@ -72,6 +75,7 @@ public class Interactible : MonoBehaviour, IFocusable {
             Shader currShade = GetComponent<Renderer>().material.shader;
             if(currShade == selectionGlow)
             {
+                print("Node " + name + "has been un-selected");
                 GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
             }
         }
