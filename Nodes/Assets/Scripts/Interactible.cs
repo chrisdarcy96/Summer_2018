@@ -12,13 +12,17 @@ public class Interactible : MonoBehaviour, IFocusable {
 
     public Shader gazeGlow;
     public Shader selectionGlow;
+    public Material selectionMaterial;
     public bool beingLookedAt = false;
     public bool isSelected = false;
     public float stareTriggerDuration = 3f;
     private float stareTimer = 0f;
     private GameObject GameController;
     private Color oldColor;
-    private static Shader standard;
+    private Shader standard;
+    private Material originMat;
+    private Renderer originRender;
+
     
     
 
@@ -49,6 +53,8 @@ public class Interactible : MonoBehaviour, IFocusable {
     void Start () {
         GameController = GameObject.Find("GameController");
         standard = Shader.Find("Transparent/Diffuse");
+        Renderer originRender = GetComponent<Renderer>();
+        originMat = originRender.material;
     }
 	
 	// Update is called once per frame
@@ -62,22 +68,24 @@ public class Interactible : MonoBehaviour, IFocusable {
                 SelectionManager.HandleSelection(this.gameObject);
                 if (this.isSelected)
                 {
+                    // Highlight the selected object
                     Renderer renderer = GetComponent<Renderer>();
+                    renderer.material = selectionMaterial;
                     renderer.material.shader = selectionGlow;
-                    //oldColor = renderer.material.color;
-                    //renderer.material.SetColor("_Color", Color.green);
 
+                    // Clear out the timer and beingLookedAt variables
+                    stareTimer = 0f;
+                    beingLookedAt = false;
                 }
             }
         }
-        if(!isSelected)
+        if (!isSelected && originRender.material == selectionMaterial)
         {
-            Shader currShade = GetComponent<Renderer>().material.shader;
-            if(currShade == selectionGlow)
-            {
-                print("Node " + name + "has been un-selected");
-                GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
-            }
+
+            print("Node " + name + " has been un-selected");
+            originRender.material.shader = Shader.Find("Transparent/Diffuse");
+            originRender.material = originMat;
+
         }
-	}
+    }
 }

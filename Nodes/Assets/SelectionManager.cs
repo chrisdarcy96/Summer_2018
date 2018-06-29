@@ -22,10 +22,12 @@ public class SelectionManager : MonoBehaviour {
     {
         if(newSelection == currentlySelected)
         {
+            print("SelectionManager Ignoring duplicate selection.");
             return;
         }
         if(currentlySelected != null)
         {
+            print("SelectionManager un-selecting " + currentlySelected.name);
             currentlySelected.GetComponent<Interactible>().isSelected = false;
         }
         currentlySelected = newSelection;
