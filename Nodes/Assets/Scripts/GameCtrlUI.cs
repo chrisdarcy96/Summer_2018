@@ -109,21 +109,7 @@ public class GameCtrlUI : MonoBehaviour {
         }
     }
 
-    public void ToggleDebugRepulse(Toggle tgl)
-    {
-        if (tgl.isOn)
-        {
-            graphControl.DebugRepulse = true;
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": DebugRepulse on");
-        }
-        else
-        {
-            graphControl.DebugRepulse = false;
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": DebugRepulse off");
-        }
-    }
+
 
     //internal bool PanelIsPointeroverPanel(Vector3 pointerCoords)
     //{

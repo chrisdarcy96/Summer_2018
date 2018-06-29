@@ -7,7 +7,6 @@ public class GameCtrlHID : MonoBehaviour {
 
     private static GraphController graphControl;
     private static GameCtrlUI gameCtrlUI;
-    private static GameCtrlHelper gameCtrlHelper;
 
     private Vector3 btnDownPointerPos;
     private Vector3 btnUpPointerPos;
@@ -155,6 +154,5 @@ public class GameCtrlHID : MonoBehaviour {
     {
         graphControl = GetComponent<GraphController>();
         gameCtrlUI = GetComponent<GameCtrlUI>();
-        gameCtrlHelper = GetComponent<GameCtrlHelper>();
     }
 }
