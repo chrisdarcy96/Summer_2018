@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27212baead927ec4a8fa71888a0fce53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glow: {fileID: 4800000, guid: ba34b104fd9d5b44b88d23205a8aa4d7, type: 3}
+  gazeGlow: {fileID: 4800000, guid: ba34b104fd9d5b44b88d23205a8aa4d7, type: 3}
+  selectionGlow: {fileID: 4800000, guid: b436b770072dab249af9731e9208b66f, type: 3}
   beingLookedAt: 0
   isSelected: 0
   stareTriggerDuration: 3

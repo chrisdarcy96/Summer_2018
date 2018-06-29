@@ -24,7 +24,11 @@ public class SelectionManager : MonoBehaviour {
         {
             return;
         }
-
+        if(currentlySelected != null)
+        {
+            currentlySelected.GetComponent<Interactible>().isSelected = false;
+        }
         currentlySelected = newSelection;
+        newSelection.GetComponent<Interactible>().isSelected = true;
     }
 }

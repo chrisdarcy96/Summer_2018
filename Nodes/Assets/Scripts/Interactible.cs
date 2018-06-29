@@ -5,37 +5,48 @@ using HoloToolkit.Unity.InputModule;
 using UnityEngine;
 
 //TODO: Potentially may want to rename this.
-
+ 
 // Kudos to a stare-select explanation done for the Google Cardboard by this StackOverflow user:
 // https://stackoverflow.com/questions/34384382/use-gaze-input-duration-to-select-ui-text-in-google-cardboard/40842739#40842739
 public class Interactible : MonoBehaviour, IFocusable {
 
-    public Shader glow;
+    public Shader gazeGlow;
+    public Shader selectionGlow;
     public bool beingLookedAt = false;
     public bool isSelected = false;
     public float stareTriggerDuration = 3f;
     private float stareTimer = 0f;
-    private GameObject GameController = GameObject.Find("GameController");
+    private GameObject GameController;
+    private Color oldColor;
     
     
 
     public void OnFocusEnter()
     {
-        GetComponent<Renderer>().material.shader = glow;
-        beingLookedAt = true;
+        if (!isSelected)
+        {
+            GetComponent<Renderer>().material.shader = gazeGlow;
+            beingLookedAt = true;
+        }
+
+
     }
 
 
 
     public void OnFocusExit()
     {
+        if (!isSelected)
+        {
         GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
+
+        }
     }
 
     // Use this for initialization
     void Start () {
-
-}
+        GameController = GameObject.Find("GameController");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,8 +55,24 @@ public class Interactible : MonoBehaviour, IFocusable {
             stareTimer += Time.deltaTime;
             if(stareTimer >= stareTriggerDuration)
             {
-                isSelected = true;
+                
                 SelectionManager.HandleSelection(this.gameObject);
+                if (this.isSelected)
+                {
+                    Renderer renderer = GetComponent<Renderer>();
+                    renderer.material.shader = selectionGlow;
+                    //oldColor = renderer.material.color;
+                    //renderer.material.SetColor("_Color", Color.green);
+
+                }
+            }
+        }
+        if(!isSelected)
+        {
+            Shader currShade = GetComponent<Renderer>().material.shader;
+            if(currShade == selectionGlow)
+            {
+                GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
             }
         }
 	}
