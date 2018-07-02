@@ -48,12 +48,26 @@ public class TextToView : MonoBehaviour {
             newNode.name = "node-"+i;
 
             // hide this node from view
-            //newNode.SetActive(false);
-
+            // newNode.SetActive(false);
+            float x;
+            float y;
+            GetPoints(i, out x, out y);
+            //Debug.Log("moving to: " + x + ", " + y);
+            newNode.transform.position = new Vector3(x, y, 2);
             node[i++] = newNode;
         }
         return node;
     }
+
+    private void GetPoints(int i, out float xPos, out float yPos)
+    {
+        // split 360 degress (or 2pi) into equal fractions
+        double theta = (Math.PI) / (Connections.Count-1);
+        double angle = theta * i;   // angle moves this around the circle
+
+        xPos = Convert.ToSingle(.25 * Math.Cos(angle));  // get X and convert back to float
+        yPos = Convert.ToSingle(.25 * Math.Sin(angle));  // for y
+    } 
 
     private void ReadJSON()
     {
@@ -68,8 +82,9 @@ public class TextToView : MonoBehaviour {
                 // found https://stackoverflow.com/questions/13297563/read-and-parse-a-json-file-in-c-sharp
                 // probably look into this more in depth
                 JObject line = JsonConvert.DeserializeObject<JObject>(json_item);
-
                 // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JObject.htm
+                
+
                 JProperty result = line.Property("result"); // get "result" property
                 // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JProperty.htm
 

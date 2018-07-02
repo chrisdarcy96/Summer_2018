@@ -1,2 +1,0 @@
-Host Name IPv4 Date Time Connections Processes
-cdarcy 127.0.0.1 06/18/218 14:30:00 https://www.splunk.com/,https://support.unity3d.com/hc/en-us/articles/115000341143-How-do-I-read-and-write-data-from-a-text-file-, Google_Chrome,MS_Outlook,Unity,XDE.exe
