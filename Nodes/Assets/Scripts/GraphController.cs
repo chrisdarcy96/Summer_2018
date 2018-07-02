@@ -20,7 +20,6 @@ public class GraphController : MonoBehaviour {
 
     private static GameController gameControl;
     //private static GameCtrlUI gameCtrlUI;
-    private static GameCtrlHelper gameCtrlHelper;
 
     [SerializeField]
     private bool allStatic = false;
@@ -60,6 +59,8 @@ public class GraphController : MonoBehaviour {
     public int randomNodes = 10;
     [Tooltip("If true, then the Random Nodes will be half host, half process.")]
     public bool hostsAndProcesses = true;
+
+    //public GameObject selectedNode = null;
 
     private static int nodeCount;
     private static int linkCount;
@@ -115,21 +116,7 @@ public class GraphController : MonoBehaviour {
         }
     }
 
-    public bool DebugRepulse
-    {
-        get
-        {
-            return debugRepulse;
-        }
-        set
-        {
-            if (debugRepulse != value)
-            {
-                debugRepulse = value;
-                DebugAllNodes();
-            }
-        }
-    }
+
 
     public float GlobalGravityBullet
     {
@@ -216,29 +203,6 @@ public class GraphController : MonoBehaviour {
     }
 
 
-
-    void DebugAllNodes()
-    {
-        if (DebugRepulse)
-        {
-            foreach (GameObject debugObj in debugObjects)
-            {
-                debugObj.SetActive(true);
-                if (debugObj.name == "debugRepulseObj")
-                {
-                    float sphereDiam = gameCtrlHelper.GetRepulseSphereDiam();
-                    debugObj.transform.localScale = new Vector3(sphereDiam, sphereDiam, sphereDiam);
-                }
-            }
-        }
-        else
-        {
-            foreach (GameObject debugObj in debugObjects)
-            {
-                debugObj.SetActive(false);
-            }
-        }
-    }
 
     public void ResetWorld()
     {
@@ -588,6 +552,10 @@ public class GraphController : MonoBehaviour {
         {
             // Create the initial links
             // TODO: Create requirements/warnings that the nodes have a NodePhysX component.
+            if (obj == null)
+            {
+                continue;
+            }
             GenerateLink("specific_src_tgt", obj, obj.GetComponent<NodePhysX>().root);
         }
 

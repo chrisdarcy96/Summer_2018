@@ -2,7 +2,6 @@
 
 [RequireComponent(typeof(GameCtrlUI))]
 [RequireComponent(typeof(GameCtrlHID))]
-[RequireComponent(typeof(GameCtrlHelper))]
 [RequireComponent(typeof(GameCtrlInputReader))]
 [RequireComponent(typeof(GraphController))]
 

@@ -4,12 +4,14 @@ using System.Collections;
 public class NodePhysX : Node {
 
     private Rigidbody thisRigidbody;
+    //public GameObject playerCamera;
 
     private float sphRadius;
     private float sphRadiusSqr;
     public  bool delete = false;
     public bool hide = false;
     public bool unHide = false;
+    private GameObject camera;
 
     // Public debug settings
     [Tooltip("This offsets the center of gravity for the graph in the z direction. Default is 3 (roughly standard for HoloLens)")]
@@ -27,7 +29,7 @@ public class NodePhysX : Node {
         Vector3 impulse = dirToCenter.normalized * thisRigidbody.mass * graphControl.GlobalGravityPhysX;
         thisRigidbody.AddForce(impulse);
 
-            // Based on whether or not the host is supposed to rise or fall, we will apply new gravity forces to "pinch" the host in the right direction.
+        // Based on whether or not the host is supposed to rise or fall, we will apply new gravity forces to "pinch" the host in the right direction.
         if (this.tag == "upper")
         {
             // Generate a new force that also pulls the host upwards.
@@ -40,6 +42,15 @@ public class NodePhysX : Node {
             // Do things that make the host fall
             Vector3 fallImpulse = Vector3.down * thisRigidbody.mass * graphControl.GlobalGravityPhysX * graphControl.stratificationScalingFactor;
             thisRigidbody.AddForce(fallImpulse);
+        }
+        else if (this.tag == "selection")
+        {
+            // Attract the host towards the camera
+            Vector3 dirToCamera = camera.transform.position;
+            // STARTHERE: Adjust the forces to help the selected node "rotate" to the desired facing
+            Vector3 focusImpulse = -dirToCamera * thisRigidbody.mass * graphControl.GlobalGravityPhysX * graphControl.stratificationScalingFactor;
+            thisRigidbody.AddForce(focusImpulse);
+            print("Added force to selection");
         }
     }
 
@@ -73,6 +84,8 @@ public class NodePhysX : Node {
     {
         base.Start();
         thisRigidbody = this.GetComponent<Rigidbody>();
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
+        print("Located main camera. Its position is " + camera.transform.position.x + ", " + camera.transform.position.y + ", " + camera.transform.position.z);
     }
 
     void Update()
