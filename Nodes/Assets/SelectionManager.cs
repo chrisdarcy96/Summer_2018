@@ -5,8 +5,10 @@ using UnityEngine;
 public class SelectionManager : MonoBehaviour {
     private List<GameObject> nodes = new List<GameObject>();
     public static GameObject currentlySelected = null;
-	// Use this for initialization
-	void Start () {
+    public static Material selectionMaterial;
+
+    // Use this for initialization
+    void Start () {
         // Link with the GraphController's Node list
         nodes = GetComponent<GraphController>().nodes;
 	}
@@ -20,17 +22,25 @@ public class SelectionManager : MonoBehaviour {
 
     public static void HandleSelection(GameObject newSelection)
     {
-        if(newSelection == currentlySelected)
+        if (newSelection == currentlySelected)
         {
             print("SelectionManager Ignoring duplicate selection.");
             return;
         }
-        if(currentlySelected != null)
+        // At this point we will go ahead ("approve" the selection)
+        Interactible nsinteractible = newSelection.GetComponent<Interactible>();
+
+        // Un-select if something else is currently selected.
+        if (currentlySelected != null)
         {
             print("SelectionManager un-selecting " + currentlySelected.name);
-            currentlySelected.GetComponent<Interactible>().isSelected = false;
+            Interactible csinteractible = currentlySelected.GetComponent<Interactible>();
+            csinteractible.isSelected = false;
+            // The Interactible script of the formerly selected node will re-assign its own materials and tags
+   
         }
         currentlySelected = newSelection;
-        newSelection.GetComponent<Interactible>().isSelected = true;
+        nsinteractible.isSelected = true;
+        nsinteractible.tag = "selection";
     }
 }

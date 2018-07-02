@@ -22,6 +22,7 @@ public class Interactible : MonoBehaviour, IFocusable {
     private Shader standard;
     private Material originMat;
     private Renderer originRender;
+    private string originTag;
 
     
     
@@ -53,8 +54,9 @@ public class Interactible : MonoBehaviour, IFocusable {
     void Start () {
         GameController = GameObject.Find("GameController");
         standard = Shader.Find("Transparent/Diffuse");
-        Renderer originRender = GetComponent<Renderer>();
+        originRender = GetComponent<Renderer>();
         originMat = originRender.material;
+        originTag = this.tag;
     }
 	
 	// Update is called once per frame
@@ -68,10 +70,10 @@ public class Interactible : MonoBehaviour, IFocusable {
                 SelectionManager.HandleSelection(this.gameObject);
                 if (this.isSelected)
                 {
-                    // Highlight the selected object
-                    Renderer renderer = GetComponent<Renderer>();
-                    renderer.material = selectionMaterial;
-                    renderer.material.shader = selectionGlow;
+                    //// Highlight the selected object
+                    //originRender.material = selectionMaterial;
+                    //originRender.material.shader = selectionGlow;
+                    // ^ Moved to update based on tag status
 
                     // Clear out the timer and beingLookedAt variables
                     stareTimer = 0f;
@@ -79,13 +81,23 @@ public class Interactible : MonoBehaviour, IFocusable {
                 }
             }
         }
-        //if (!isSelected && originRender.material == selectionMaterial)
-        //{
 
-        //    print("Node " + name + " has been un-selected");
-        //    originRender.material.shader = Shader.Find("Transparent/Diffuse");
-        //    originRender.material = originMat;
 
-        //}
+        if (tag == "selection")
+        {
+
+            if (originRender.material.ToString() != selectionMaterial.ToString())
+            {
+                // Set the selection material defined in the SelectionManager
+                originRender.material.shader = selectionGlow;
+            }
+            else if (!isSelected)
+            {
+                // The node has been de-selected, hopefully only by the SelectionManager
+                originRender.material.shader = standard;
+                tag = originTag;
+            }
+
+        }
     }
 }

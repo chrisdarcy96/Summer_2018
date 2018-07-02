@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 using ProgressBar;
+using UnityEditor;
 
 public class GameCtrlUI : MonoBehaviour {
 
