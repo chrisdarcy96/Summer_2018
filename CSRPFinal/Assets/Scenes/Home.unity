@@ -268,6 +268,65 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d29bc40b7f3df26479d6a0aac211c355, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1920547212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1920547214}
+  - component: {fileID: 1920547213}
+  m_Layer: 0
+  m_Name: GraphManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1920547213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1920547212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ebb54d6abff8a4e9bca388a4399731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes: []
+  allStatic: 0
+  paintMode: 0
+  repulseActive: 1
+  debugRepulse: 0
+  nodePrefabBullet: {fileID: 0}
+  hostPrefab: {fileID: 0}
+  procPrefab: {fileID: 0}
+  linkPrefab: {fileID: 0}
+  nodeVectorGenRange: 7
+  globalGravityBullet: 0.1
+  globalGravityPhysX: 10
+  repulseForceStrength: 0.1
+  nodePhysXForceSphereRadius: 50
+  linkForceStrength: 6
+  linkIntendedLinkLength: 0.15
+  stratificationScalingFactor: 1
+  randomNodes: 10
+  hostsAndProcesses: 1
+--- !u!4 &1920547214
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1920547212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1944037498
 Prefab:
   m_ObjectHideFlags: 0
