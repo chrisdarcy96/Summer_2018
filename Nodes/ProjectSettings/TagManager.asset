@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - nexus
+  - link
+  - lower
+  - upper
+  - node
+  - repulse
+  - debug
+  - selection
   layers:
   - Default
   - TransparentFX
