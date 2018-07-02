@@ -191,7 +191,7 @@ namespace HoloToolkit.Unity.Boundary
             }
             else
             {
-                Debug.Log("TryGetGeometry always returns false.");
+                // Debug.Log("TryGetGeometry always returns false.");
             }
 
             // Ensuring that we set height of the bounds volume to be say 10 feet tall.
