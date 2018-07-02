@@ -69,6 +69,8 @@ public class Interactible : MonoBehaviour, IFocusable {
             {
                 
                 SelectionManager.HandleSelection(this.gameObject);
+
+                // FIXME: Could this create infinite requests if SelectionManager says no
                 if (this.isSelected)
                 {
                     //// Highlight the selected object

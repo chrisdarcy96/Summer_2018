@@ -70,6 +70,7 @@ public class GameCtrlHelper : MonoBehaviour
             return null;
     }
 
+    // TODO: Get this out of this script!
     public float GetRepulseSphereDiam()
     {
         float sphereDiam;

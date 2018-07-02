@@ -7,6 +7,8 @@ public class SelectionManager : MonoBehaviour {
     public static GameObject currentlySelected = null;
     public static Material selectionMaterial;
 
+    // TODO: Delete after integration with GraphNodeType
+
     // Use this for initialization
     void Start () {
         // Link with the GraphController's Node list
