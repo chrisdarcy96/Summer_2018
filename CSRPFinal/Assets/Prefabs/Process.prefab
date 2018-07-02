@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 23349743119025100}
   - component: {fileID: 54974926148344498}
   - component: {fileID: 135928716170106114}
-  - component: {fileID: 114888913301654432}
-  - component: {fileID: 114810978391303416}
+  - component: {fileID: 114427694720826902}
+  - component: {fileID: 114935896549270792}
   m_Layer: 0
   m_Name: Process
   m_TagString: lower
@@ -101,7 +101,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114810978391303416
+--- !u!114 &114427694720826902
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -109,32 +109,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1985470366745714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27212baead927ec4a8fa71888a0fce53, type: 3}
+  m_Script: {fileID: 11500000, guid: 9734db3d43890ab4b8e4a7196b26a6a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gazeGlow: {fileID: 4800000, guid: ba34b104fd9d5b44b88d23205a8aa4d7, type: 3}
-  selectionGlow: {fileID: 4800000, guid: b436b770072dab249af9731e9208b66f, type: 3}
-  selectionMaterial: {fileID: 2100000, guid: 448455b8f01ff9f4fb4a48a47b613d44, type: 2}
-  beingLookedAt: 0
-  isSelected: 0
-  stareTriggerDuration: 3
---- !u!114 &114888913301654432
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1985470366745714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd096c400b2ee614f9d9b4489806764b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 1208988342737728, guid: f46f9eddea7bd4d4e813283cdc60cb96,
-    type: 2}
   delete: 0
   hide: 0
   unHide: 0
-  root: {fileID: 1917881429158956, guid: afcb294c2cc96e14ab3435d6fc542682, type: 2}
+  root: {fileID: 1917881429158956, guid: d7a1da9da6d15ce4498f0ed604941c84, type: 2}
+--- !u!114 &114935896549270792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1985470366745714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8db7f12d89260438b02cf515b7cb7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gazeGlow: {fileID: 4800000, guid: d6421792a5a806242a5fc84919ed6b0c, type: 3}
+  selectionGlow: {fileID: 4800000, guid: f820eba0d7dfc7045a48892f1686a3ae, type: 3}
+  selectionMaterial: {fileID: 2100000, guid: c27e2dfa025e8414d968268b74c84cee, type: 2}
+  beingLookedAt: 0
+  isSelected: 0
+  stareTriggerDuration: 3
 --- !u!135 &135928716170106114
 SphereCollider:
   m_ObjectHideFlags: 1

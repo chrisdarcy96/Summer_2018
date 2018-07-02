@@ -301,18 +301,19 @@ MonoBehaviour:
   repulseActive: 1
   debugRepulse: 0
   nodePrefabBullet: {fileID: 0}
-  hostPrefab: {fileID: 0}
-  procPrefab: {fileID: 0}
-  linkPrefab: {fileID: 0}
-  nodeVectorGenRange: 7
+  hostPrefab: {fileID: 1338073754193012, guid: b5dc30530ff5e1645ba6ed2c89befaad, type: 2}
+  procPrefab: {fileID: 1985470366745714, guid: 602dbd049bcdcaf4d85de7e5845241b9, type: 2}
+  linkPrefab: {fileID: 114910071216619204, guid: a9ada143e94c5d644b9a271ac3b07483,
+    type: 2}
+  nodeVectorGenRange: 2
   globalGravityBullet: 0.1
-  globalGravityPhysX: 10
-  repulseForceStrength: 0.1
-  nodePhysXForceSphereRadius: 50
+  globalGravityPhysX: 6
+  repulseForceStrength: 10
+  nodePhysXForceSphereRadius: 0.2
   linkForceStrength: 6
-  linkIntendedLinkLength: 0.15
-  stratificationScalingFactor: 1
-  randomNodes: 10
+  linkIntendedLinkLength: 0.45
+  stratificationScalingFactor: 0.1
+  randomNodes: 2
   hostsAndProcesses: 1
 --- !u!4 &1920547214
 Transform:
