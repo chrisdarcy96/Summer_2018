@@ -58,7 +58,11 @@ public class NodeHandler : MonoBehaviour, IFocusable, IInputClickHandler {
         {
             framesViewed += 1;
         }
-		
+        //if(shadeOnView.ToString() == GetComponent<Renderer>().material.shader.ToString())
+        //{
+        //    Debug.Log("Success");
+        //}
+
 	}
 
     public void OnInputClicked(InputClickedEventData eventData)
