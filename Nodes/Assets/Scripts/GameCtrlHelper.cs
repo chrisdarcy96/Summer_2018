@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
-using BulletUnity;
-using BulletSharp;
+//using BulletUnity;
+//using BulletSharp;
 
-public class GameCtrlHelper : MonoBehaviour {
+public class GameCtrlHelper : MonoBehaviour
+{
 
     [SerializeField]
     private bool verbose = true;
 
-    [SerializeField]
-    private BPhysicsWorld bPhysicsWorld;
+    //[SerializeField]
+    //private BPhysicsWorld bPhysicsWorld;
 
     GameController gameControl;
     GraphController graphControl;
@@ -17,17 +18,19 @@ public class GameCtrlHelper : MonoBehaviour {
 
     public GameObject ScreenPointToRaySingleHitBullet(Camera cam, Vector3 pointerCoords)
     {
-        CollisionObject hitCo = BCamera.ScreenPointToRay(cam, pointerCoords, CollisionFilterGroups.SensorTrigger, CollisionFilterGroups.DefaultFilter);
+        Debug.LogWarning("ScreenPointToRaySingleHitBullet was called");
+        return new GameObject();
+        //CollisionObject hitCo = BCamera.ScreenPointToRay(cam, pointerCoords, CollisionFilterGroups.SensorTrigger, CollisionFilterGroups.DefaultFilter);
 
-        if (hitCo != null && hitCo.UserObject is BCollisionObject)
-        {
-            BCollisionObject hitBCo = (BCollisionObject)hitCo.UserObject as BCollisionObject;
-            return hitBCo.gameObject;
-        }
-        else
-        {
-            return null;
-        }
+        //if (hitCo != null && hitCo.UserObject is BCollisionObject)
+        //{
+        //    BCollisionObject hitBCo = (BCollisionObject)hitCo.UserObject as BCollisionObject;
+        //    return hitBCo.gameObject;
+        //}
+        //else
+        //{
+        //    return null;
+        //}
     }
 
     public GameObject ScreenPointToRaySingleHitNative(Camera cam, Vector3 pointerCoords)
@@ -55,7 +58,8 @@ public class GameCtrlHelper : MonoBehaviour {
         if (gameControl.EngineBulletUnity)
         {
             hitGo = ScreenPointToRaySingleHitBullet(cam, pointerCoords);
-        } else
+        }
+        else
         {
             hitGo = ScreenPointToRaySingleHitNative(cam, pointerCoords);
         }
@@ -69,28 +73,19 @@ public class GameCtrlHelper : MonoBehaviour {
     public float GetRepulseSphereDiam()
     {
         float sphereDiam;
-
-        if (gameControl.EngineBulletUnity)
-        {
-            sphereDiam = GameObject.FindGameObjectWithTag("repulse").GetComponent<GhostObjPiggyBack2>().SphRadius * 2;
-        }
-        else
-        {
-            sphereDiam = graphControl.NodePhysXForceSphereRadius * 2;
-        }
-
+        sphereDiam = graphControl.NodePhysXForceSphereRadius * 2;
         return sphereDiam;
     }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-        gameControl = GetComponent<GameController>();
-        graphControl = GetComponent<GraphController>();
+        //gameControl = GetComponent<GameController>();
+        //graphControl = GetComponent<GraphController>();
 
-        if (gameControl.EngineBulletUnity)
-        {
-            Instantiate(bPhysicsWorld);
-        }
+        //if (gameControl.EngineBulletUnity)
+        //{
+        //    Instantiate(bPhysicsWorld);
+        //}
     }
 }

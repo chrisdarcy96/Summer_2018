@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 using ProgressBar;
+using UnityEditor;
 
 public class GameCtrlUI : MonoBehaviour {
 
@@ -109,21 +109,7 @@ public class GameCtrlUI : MonoBehaviour {
         }
     }
 
-    public void ToggleDebugRepulse(Toggle tgl)
-    {
-        if (tgl.isOn)
-        {
-            graphControl.DebugRepulse = true;
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": DebugRepulse on");
-        }
-        else
-        {
-            graphControl.DebugRepulse = false;
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": DebugRepulse off");
-        }
-    }
+
 
     //internal bool PanelIsPointeroverPanel(Vector3 pointerCoords)
     //{
@@ -158,7 +144,7 @@ public class GameCtrlUI : MonoBehaviour {
 
         progressBar = FindObjectOfType<ProgressBarBehaviour>();
         //progressBarObj = progressBar.gameObject;
-        panelrecttrans = GameObject.Find("PanelLeft").GetComponent<RectTransform>();
+  
         progressBarObj.SetActive(false);
     }
 }

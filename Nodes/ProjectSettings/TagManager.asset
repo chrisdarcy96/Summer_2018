@@ -11,6 +11,7 @@ TagManager:
   - node
   - repulse
   - debug
+  - selection
   layers:
   - Default
   - TransparentFX

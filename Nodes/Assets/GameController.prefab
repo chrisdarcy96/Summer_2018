@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114337296660211734}
   - component: {fileID: 114737140587445290}
   - component: {fileID: 114386456391748164}
+  - component: {fileID: 114486977971306940}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -71,8 +72,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b968d980d9a30a949bf24deb4817b297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verbose: 1
-  bPhysicsWorld: {fileID: 0}
 --- !u!114 &114386456391748164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,9 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5190ce3342b500449ce00968d157189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: 0}
-  - {fileID: 0}
+  nodes: []
   allStatic: 0
   paintMode: 0
   repulseActive: 1
@@ -96,7 +93,7 @@ MonoBehaviour:
   procPrefab: {fileID: 1985470366745714, guid: 895deec19f8483046b7db158de2f9d43, type: 2}
   linkPrefab: {fileID: 114267639656735752, guid: a16e43a6ed6f2c349b24bd989133d6f4,
     type: 2}
-  nodeVectorGenRange: 7
+  nodeVectorGenRange: 2
   globalGravityBullet: 0.1
   globalGravityPhysX: 6
   repulseForceStrength: 10
@@ -106,6 +103,17 @@ MonoBehaviour:
   stratificationScalingFactor: 0.11
   randomNodes: 98
   hostsAndProcesses: 1
+--- !u!114 &114486977971306940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542348253783090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eeebd73fd8662847bbccf86c29fbece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114643089217926202
 MonoBehaviour:
   m_ObjectHideFlags: 1

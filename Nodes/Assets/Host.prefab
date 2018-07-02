@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 54615080200007204}
   - component: {fileID: 135675664418224382}
   - component: {fileID: 114230699723440236}
+  - component: {fileID: 114436237169555270}
+  - component: {fileID: 114057296074302590}
   m_Layer: 0
   m_Name: Host
   m_TagString: upper
@@ -100,6 +102,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114057296074302590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338073754193012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114436237169555270}
+          m_MethodName: OnFocusEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114230699723440236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,10 +143,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd096c400b2ee614f9d9b4489806764b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 1208988342737728, guid: f46f9eddea7bd4d4e813283cdc60cb96,
+    type: 2}
   delete: 0
   hide: 0
   unHide: 0
   root: {fileID: 1917881429158956, guid: afcb294c2cc96e14ab3435d6fc542682, type: 2}
+--- !u!114 &114436237169555270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338073754193012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27212baead927ec4a8fa71888a0fce53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gazeGlow: {fileID: 4800000, guid: ba34b104fd9d5b44b88d23205a8aa4d7, type: 3}
+  selectionGlow: {fileID: 4800000, guid: b436b770072dab249af9731e9208b66f, type: 3}
+  selectionMaterial: {fileID: 2100000, guid: 448455b8f01ff9f4fb4a48a47b613d44, type: 2}
+  beingLookedAt: 0
+  isSelected: 0
+  stareTriggerDuration: 3
 --- !u!135 &135675664418224382
 SphereCollider:
   m_ObjectHideFlags: 1
