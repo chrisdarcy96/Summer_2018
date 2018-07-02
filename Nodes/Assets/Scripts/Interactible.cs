@@ -56,7 +56,8 @@ public class Interactible : MonoBehaviour, IFocusable {
         standard = Shader.Find("Transparent/Diffuse");
         originRender = GetComponent<Renderer>();
         originMat = originRender.material;
-        originTag = this.tag;
+        originTag = gameObject.tag;
+        print("Orginal tag for " + name + " is " + originTag);
     }
 	
 	// Update is called once per frame
@@ -83,19 +84,22 @@ public class Interactible : MonoBehaviour, IFocusable {
         }
 
 
-        if (tag == "selection")
+        if (gameObject.tag == "selection")
         {
 
-            if (originRender.material.ToString() != selectionMaterial.ToString())
-            {
-                // Set the selection material defined in the SelectionManager
-                originRender.material.shader = selectionGlow;
-            }
-            else if (!isSelected)
+
+            if (!isSelected)
             {
                 // The node has been de-selected, hopefully only by the SelectionManager
+                originRender.material = originMat;
                 originRender.material.shader = standard;
-                tag = originTag;
+                gameObject.tag = originTag;
+            }
+            else if (originRender.material.ToString() != selectionMaterial.ToString())
+            {
+                // Set the selection material defined in the SelectionManager
+                originRender.material = selectionMaterial;
+                originRender.material.shader = selectionGlow;
             }
 
         }

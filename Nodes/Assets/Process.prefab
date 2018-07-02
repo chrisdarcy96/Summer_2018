@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd096c400b2ee614f9d9b4489806764b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 1208988342737728, guid: f46f9eddea7bd4d4e813283cdc60cb96,
+    type: 2}
   delete: 0
   hide: 0
   unHide: 0
