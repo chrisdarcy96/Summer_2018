@@ -236,32 +236,29 @@ public class GraphController : MonoBehaviour {
 
     private GameObject InstHost(Vector3 createPos, DateTime metaTime, string hostname)
     {
-        // TODO: remove or commment all references to BulletUnity for brevity
-        //STARTHERE
         
         return GraphNodeType.CreateInstance(hostPrefab, metaTime, hostname,createPos, subNodePrefab).getObject() as GameObject;
         
     }
 
+    private GameObject InstProc(Vector3 createPos, DateTime metaTime, string hostname)
+    {
+
+        return GraphNodeType.CreateInstance(procPrefab, metaTime, hostname, createPos, subNodePrefab).getObject() as GameObject;
+
+    }
+
+
+    private GameObject InstHost(Vector3 createPos)
+    {
+        // Overload for debugging purposes
+        return GraphNodeType.CreateInstance(hostPrefab, debugTime, "example.com", createPos, subNodePrefab).getObject() as GameObject;
+    }
+
     private GameObject InstProc(Vector3 createPos)
     {
-        return Instantiate(procPrefab, createPos, Quaternion.identity) as GameObject;
-
-    }
-
-    private GameObject debugInstHost(Vector3 createPos)
-    {
-        // TODO: remove or commment all references to BulletUnity for brevity
-
-
-        return Instantiate(hostPrefab, createPos, Quaternion.identity) as GameObject;
-
-    }
-
-    private GameObject debbugInstProc(Vector3 createPos)
-    {
-        return Instantiate(procPrefab, createPos, Quaternion.identity) as GameObject;
-
+        // debug overload
+        return GraphNodeType.CreateInstance(procPrefab, debugTime, "example.com", createPos, subNodePrefab).getObject() as GameObject;
     }
 
 
@@ -286,11 +283,7 @@ public class GraphController : MonoBehaviour {
         {
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
-            //gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
-            //GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
-            //debugObjects.Add(debugObj);
-            //debugObj.SetActive(false);
 
             if (verbose)
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
@@ -310,14 +303,12 @@ public class GraphController : MonoBehaviour {
 
         GameObject nodeCreated = null;
 
-        //nodeCreated = Instantiate(nodePrefabBullet, createPos, Quaternion.identity) as Node;
         nodeCreated = InstHost(createPos);
 
         if (nodeCreated != null)
         {
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
-            //gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
             GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
             debugObjects.Add(debugObj);
@@ -354,11 +345,7 @@ public class GraphController : MonoBehaviour {
             nodeNode.Type = type;
 
             nodeCount++;
-            //gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
-            GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
-            debugObjects.Add(debugObj);
-            debugObj.SetActive(false);
 
             if (verbose)
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
