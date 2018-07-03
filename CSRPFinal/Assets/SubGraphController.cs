@@ -59,6 +59,8 @@ public class SubGraphController : MonoBehaviour
     private int debugChildNodes = 3;
     private string host = "example.com";
 
+    private GameObject parent;
+
 
 
     [SerializeField]
@@ -226,7 +228,7 @@ public class SubGraphController : MonoBehaviour
     private GameObject InstSubNode(Vector3 createPos, string text, bool hide = false)
     {
 
-        return SubGraphNode.CreateInstance(subNodePrefab, gameObject, createPos, text, hide).getObject() as GameObject;
+        return SubGraphNode.CreateInstance(subNodePrefab, parent, createPos, text, hide).getObject() as GameObject;
 
     }
 
@@ -234,7 +236,7 @@ public class SubGraphController : MonoBehaviour
     private GameObject InstSubNode(Vector3 createPos)
     {
         // Overload for debugging purposes
-        return SubGraphNode.CreateInstance(subNodePrefab, gameObject, createPos, "ftp.example.com").getObject() as GameObject;
+        return SubGraphNode.CreateInstance(subNodePrefab, parent, createPos, "ftp.example.com").getObject() as GameObject;
     }
 
 
@@ -246,6 +248,7 @@ public class SubGraphController : MonoBehaviour
 
         Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
 
+        // TODO: Replace with live-data version
         nodeCreated = InstSubNode(createPos);
 
 
@@ -332,6 +335,7 @@ public class SubGraphController : MonoBehaviour
 
     public Link CreateSubLink(GameObject source, GameObject target)
     {
+        print("Entering SubLink function for SGC-" + parent.name);
         if (source == null || target == null)
         {
             if (verbose)
@@ -460,8 +464,9 @@ public class SubGraphController : MonoBehaviour
         /// </summary>
 
         // remove the objects that have been subtracted from the graph since the last update
-        foreach (GameObject subNode in ObjectsInChildren())
+        foreach (GameObject subNode in NodesInChildren())
         {
+            print("UpdateLinks looping through " + parent.name + "/" + subNode.name[subNode.name.Length - 1]);
             // Is the object flagged for deletion?
             NodePhysX nodeInfo = subNode.GetComponent<NodePhysX>();
             if (nodeInfo.delete)
@@ -527,12 +532,12 @@ public class SubGraphController : MonoBehaviour
 
     void Start()
     {
-        gameControl = GetComponent<GameController>();
-
+        parent = transform.parent.gameObject;
+        print("SGC has associated " + parent.name + " as its parent");
         subNodeCount = 0;
         subLinkCount = 0;
 
-        foreach (GameObject obj in ObjectsInChildren())
+        foreach (GameObject obj in NodesInChildren())
         {
             // Create the initial links
             // TODO: Create requirements/warnings that the nodes have a NodePhysX component.
@@ -546,10 +551,11 @@ public class SubGraphController : MonoBehaviour
     }
 
     // TODO: Implement this in GraphController
-    private IEnumerable<GameObject> ObjectsInChildren()
+    private IEnumerable<GameObject> NodesInChildren()
     {
-        foreach(Transform child in transform)
+        foreach(Transform child in parent.transform)
         {
+            if (!GetComponent<NodePhysX>()) { continue; }
             yield return transform.gameObject;
         }
         yield break;
