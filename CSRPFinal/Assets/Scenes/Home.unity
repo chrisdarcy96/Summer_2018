@@ -307,7 +307,7 @@ MonoBehaviour:
     type: 2}
   linkPrefab: {fileID: 114910071216619204, guid: a9ada143e94c5d644b9a271ac3b07483,
     type: 2}
-  nodeVectorGenRange: 2
+  nodeVectorGenRange: 1
   globalGravityBullet: 0.1
   globalGravityPhysX: 6
   repulseForceStrength: 10
