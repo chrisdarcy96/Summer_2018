@@ -9,15 +9,15 @@ public class SubGraphNode : ScriptableObject {
     private Vector3 position;
     private string data;
 
-    public static SubGraphNode CreateInstance(GameObject go, Vector3 pos, string text, bool hide = false)
+    public static SubGraphNode CreateInstance(GameObject go, GameObject parent, Vector3 pos, string text, bool hide = false)
     {
         SubGraphNode sgn = CreateInstance<SubGraphNode>();
-        sgn.Init(go, pos, text, hide);
+        sgn.Init(go, parent, pos, text, hide);
 
         return sgn;
     }
 
-    private void Init(GameObject go, Vector3 pos, string text, bool hide)
+    private void Init(GameObject go, GameObject parent, Vector3 pos, string text, bool hide)
     {
         thisObject = go;
         hidden = hide;
@@ -26,7 +26,8 @@ public class SubGraphNode : ScriptableObject {
 
         thisObject = Instantiate(thisObject, position, Quaternion.identity);
         thisObject.gameObject.GetComponent<Renderer>().enabled = !hide;
-        thisObject.name = "SubGraphNode";
+        thisObject.transform.parent = parent.transform;
+        thisObject.name = parent.name + "_SubGraphNode" + parent.transform.childCount;
         thisObject.GetComponentInChildren<TextMesh>().text = data;
     }
 

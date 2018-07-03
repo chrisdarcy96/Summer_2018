@@ -4,6 +4,7 @@ using UnityEngine;
 public class GraphNodeType : ScriptableObject {
 
     private GameObject thisObject;
+    private SubGraphController childGraph;
     private DateTime nodeTime;
     private bool IsActive;
     private Vector3 position;
@@ -111,11 +112,13 @@ public class GraphNodeType : ScriptableObject {
     {
         // it would be improper to call this function to add sub nodes
         // this is only for initial creation
+        // JCL: but what if I hold my pinky up when I call it
+
         subNodes = new SubGraphNode[subs.Length];
         int i = 0;
         foreach (string str in subs)
         {
-            SubGraphNode sgn = SubGraphNode.CreateInstance(go, Vector3.zero, str);
+            SubGraphNode sgn = SubGraphNode.CreateInstance(go, thisObject, Vector3.zero, str);
             sgn.getObject().transform.parent = thisObject.transform;
             subNodes[i++] = sgn;
         }
