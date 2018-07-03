@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33267747314965750}
   - component: {fileID: 135346480458695850}
   - component: {fileID: 23444243131973836}
-  - component: {fileID: 114825070674015188}
+  - component: {fileID: 114668373555207628}
   m_Layer: 0
   m_Name: MiniNode
   m_TagString: Untagged
@@ -122,7 +122,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d5346c063627f9341af3ebde0192a079, type: 2}
+  - {fileID: 2100000, guid: 951796dc324b5014fa2712e7e42f4914, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,7 +170,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &114825070674015188
+--- !u!114 &114668373555207628
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1187447812592512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf2edb54cc4cf041bd5019a85ce073b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d8ef45034d5df84da58bff3bdba248e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135346480458695850
