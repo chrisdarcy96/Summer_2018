@@ -442,6 +442,7 @@ public class GraphController : MonoBehaviour {
 
     public void GenerateLink(string mode, GameObject source, GameObject target)
     {
+        // TODO: This overload does not need a string mode variable - one could do away with the parameter entirely.
         if (mode == "specific_src_tgt")
         {
             bool success = false;
