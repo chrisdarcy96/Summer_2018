@@ -303,6 +303,8 @@ MonoBehaviour:
   nodePrefabBullet: {fileID: 0}
   hostPrefab: {fileID: 1338073754193012, guid: b5dc30530ff5e1645ba6ed2c89befaad, type: 2}
   procPrefab: {fileID: 1985470366745714, guid: 602dbd049bcdcaf4d85de7e5845241b9, type: 2}
+  subNodePrefab: {fileID: 1032916578354432, guid: 64fafa01bf9ac9447b7d1e7857a304de,
+    type: 2}
   linkPrefab: {fileID: 114910071216619204, guid: a9ada143e94c5d644b9a271ac3b07483,
     type: 2}
   nodeVectorGenRange: 2

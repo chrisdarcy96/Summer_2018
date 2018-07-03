@@ -30,14 +30,13 @@ public class GraphController : MonoBehaviour {
     [SerializeField]
     private bool debugRepulse = false;
 
-    [SerializeField]
-    private GameObject nodePrefabBullet;
-    [SerializeField]
-    private GameObject hostPrefab;
-    [SerializeField]
-    private GameObject procPrefab;
-    [SerializeField]
-    private Link linkPrefab;
+    // Prefabs
+    public GameObject nodePrefabBullet;
+    public GameObject hostPrefab;
+    public GameObject procPrefab;
+    public GameObject subNodePrefab;
+    public Link linkPrefab;
+
     [SerializeField]
     private float nodeVectorGenRange = 7F;
 
@@ -65,6 +64,13 @@ public class GraphController : MonoBehaviour {
     private static int nodeCount;
     private static int linkCount;
     private List<GameObject> debugObjects = new List<GameObject>();
+
+    // Collection of dummy variables for debug
+    private DateTime debugTime = DateTime.Now;
+    private int debugChildNodes = 3;
+    private string host = "example.com";
+
+
 
     [SerializeField]
     public int LinkCount
@@ -228,29 +234,34 @@ public class GraphController : MonoBehaviour {
         debugObjects.Clear();
     }
 
-    private GameObject InstHost(Vector3 createPos)
+    private GameObject InstHost(Vector3 createPos, DateTime metaTime, string hostname)
     {
         // TODO: remove or commment all references to BulletUnity for brevity
-        if (gameControl.EngineBulletUnity)
-        {
-            return Instantiate(nodePrefabBullet, createPos, Quaternion.identity) as GameObject;
-        }
-        else
-        {
-            return Instantiate(hostPrefab, createPos, Quaternion.identity) as GameObject;
-        }
+        //STARTHERE
+        
+        return GraphNodeType.CreateInstance(hostPrefab, metaTime, hostname,createPos, subNodePrefab).getObject() as GameObject;
+        
     }
 
     private GameObject InstProc(Vector3 createPos)
     {
-        if (gameControl.EngineBulletUnity)
-        {
-            return Instantiate(nodePrefabBullet, createPos, Quaternion.identity) as GameObject;
-        }
-        else
-        {
-            return Instantiate(procPrefab, createPos, Quaternion.identity) as GameObject;
-        }
+        return Instantiate(procPrefab, createPos, Quaternion.identity) as GameObject;
+
+    }
+
+    private GameObject debugInstHost(Vector3 createPos)
+    {
+        // TODO: remove or commment all references to BulletUnity for brevity
+
+
+        return Instantiate(hostPrefab, createPos, Quaternion.identity) as GameObject;
+
+    }
+
+    private GameObject debbugInstProc(Vector3 createPos)
+    {
+        return Instantiate(procPrefab, createPos, Quaternion.identity) as GameObject;
+
     }
 
 
