@@ -66,7 +66,6 @@ public class GraphController : MonoBehaviour {
     private List<GameObject> debugObjects = new List<GameObject>();
 
     // Collection of dummy variables for debug
-    private DateTime debugTime = DateTime.Now;
     private int debugChildNodes = 3;
     private string host = "example.com";
 
@@ -252,13 +251,13 @@ public class GraphController : MonoBehaviour {
     private GameObject InstHost(Vector3 createPos)
     {
         // Overload for debugging purposes
-        return GraphNodeType.CreateInstance(hostPrefab, debugTime, "example.com", createPos, subNodePrefab).getObject() as GameObject;
+        return GraphNodeType.CreateInstance(hostPrefab, DateTime.Now, "example.com", createPos, subNodePrefab).getObject() as GameObject;
     }
 
     private GameObject InstProc(Vector3 createPos)
     {
         // debug overload
-        return GraphNodeType.CreateInstance(procPrefab, debugTime, "example.com", createPos, subNodePrefab).getObject() as GameObject;
+        return GraphNodeType.CreateInstance(procPrefab, DateTime.Now, "example.com", createPos, subNodePrefab).getObject() as GameObject;
     }
 
 

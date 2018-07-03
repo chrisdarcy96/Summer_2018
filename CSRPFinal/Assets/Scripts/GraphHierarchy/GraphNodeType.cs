@@ -31,6 +31,7 @@ public class GraphNodeType : ScriptableObject {
 
         // create base gameobject
         thisObject = Instantiate(thisObject, pos, Quaternion.identity);
+        
 
     }
 
