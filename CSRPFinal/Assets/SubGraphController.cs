@@ -55,8 +55,7 @@ public class SubGraphController : MonoBehaviour
     public float stratificationScalingFactor = 1;
     [Tooltip("Use this to have the GraphController insert randomly placed hosts at runtime.")]
     public int randomNodes = 10;
-    [Tooltip("If true, then the Random Nodes will be half host, half process.")]
-    public bool hostsAndProcesses = true;
+
 
     //public GameObject selectedNode = null;
 
@@ -233,7 +232,7 @@ public class SubGraphController : MonoBehaviour
         debugObjects.Clear();
     }
 
-    private GameObject InstSubNode(Vector3 createPos, string text, bool hide=false)
+    private GameObject InstSubNode(Vector3 createPos, string text, bool hide = false)
     {
 
         return SubGraphNode.CreateInstance(subNodePrefab, gameObject, createPos, text, hide).getObject() as GameObject;
@@ -248,7 +247,7 @@ public class SubGraphController : MonoBehaviour
     }
 
 
-    public GameObject GenSubNode(bool createProcess = false)
+    public GameObject GenSubNode()
     {
         // Method for creating a Node on random coordinates, e.g. when spawning multiple new nodes
 
@@ -256,14 +255,8 @@ public class SubGraphController : MonoBehaviour
 
         Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
 
-        if (createProcess)
-        {
-            nodeCreated = InstProc(createPos);
-        }
-        else
-        {
-            nodeCreated = InstSubNode(createPos);
-        }
+        nodeCreated = InstSubNode(createPos);
+
 
         if (nodeCreated != null)
         {
@@ -563,18 +556,13 @@ public class SubGraphController : MonoBehaviour
         // Debug 
         for (int i = 0; i < randomNodes; i++)
         {
-            if (hostsAndProcesses && i % 2 == 0)
-            {
-                NewProc();
-            }
-            else
-            {
-                NewHost();
-            }
+
+            NewSubNode();
+
         }
     }
 
-    private void NewHost()
+    private void NewSubNode()
     {
         ///<summary>This function creates a new host on random coordinates, as well as a link between it and the root.</summary>
         ///
@@ -587,19 +575,8 @@ public class SubGraphController : MonoBehaviour
         print("Created new node named " + newNode.name);
 
     }
-    private void NewProc()
-    {
-        ///<summary>This function creates a new process on random coordinates, as well as a link between it and the root.</summary>
-        ///
 
-        GameObject newNode = GenSubNode(createProcess: true);
 
-        nodes.Add(newNode);
-        GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
-
-        print("Created new node named " + newNode.name);
-
-    }
 
     void Update()
     {
