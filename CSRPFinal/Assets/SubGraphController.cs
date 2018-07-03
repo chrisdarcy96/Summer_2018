@@ -7,7 +7,8 @@ using System;
 public class SubGraphController : MonoBehaviour
 {
     // Storage unit for the nodes we have
-    public List<GameObject> subNodes = new List<GameObject>();
+    public List<GameObject> subNodes = new List<GameObject>(); // TODO: See if I need to delete this
+    public List<Link> links = new List<Link>();
 
     [SerializeField]
     private static bool verbose = true;
@@ -25,7 +26,6 @@ public class SubGraphController : MonoBehaviour
     private bool debugRepulse = false;
 
     // Prefabs
-    public GameObject nodePrefabBullet;
     public GameObject subNodePrefab;
     public Link linkPrefab;
 
@@ -332,7 +332,7 @@ public class SubGraphController : MonoBehaviour
         return nodeCreated.gameObject;
     }
 
-    public bool CreateLink(GameObject source, GameObject target)
+    public Link CreateSubLink(GameObject source, GameObject target)
     {
         if (source == null || target == null)
         {
@@ -340,7 +340,7 @@ public class SubGraphController : MonoBehaviour
             {
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source or target does not exist. Link not created.");
             }
-            return false;
+            return null;
         }
         else
         {
@@ -365,7 +365,7 @@ public class SubGraphController : MonoBehaviour
                     linkObject.target = target;
                     subLinkCount++;
 
-                    return true;
+                    return linkObject;
                 }
                 else
                 {
@@ -373,7 +373,7 @@ public class SubGraphController : MonoBehaviour
                     {
                         Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Link between source " + source.name + " and target " + target.name + " already exists. Link not created.");
                     }
-                    return false;
+                    return null;
                 }
             }
             else
@@ -382,7 +382,7 @@ public class SubGraphController : MonoBehaviour
                 {
                     Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source " + source.name + " and target " + target.name + " are the same. Link not created.");
                 }
-                return false;
+                return null;
             }
         }
     }
@@ -405,7 +405,7 @@ public class SubGraphController : MonoBehaviour
                 GameObject source = GameObject.Find("node_" + sourceRnd);
                 GameObject target = GameObject.Find("node_" + targetRnd);
 
-                success = CreateLink(source, target);
+                success = CreateSubLink(source, target);
             }
             if (!success)
                 if (verbose)
@@ -418,11 +418,11 @@ public class SubGraphController : MonoBehaviour
         // TODO: This overload does not need a string mode variable - one could do away with the parameter entirely.
         if (mode == "specific_src_tgt")
         {
-            bool success = false;
+            Link success = null;
 
-            success = CreateLink(source, target);
+            success = CreateSubLink(source, target);
 
-            if (!success)
+            if (success == null)
                 if (verbose)
                     Debug.LogWarning(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Problem with creating link. Link not created.");
                 else
@@ -430,7 +430,9 @@ public class SubGraphController : MonoBehaviour
 
                     // Just for Debugging SubNode links
                     print("Created link between " + source.name + " and " + target.name);
+                    links.Add(success);
                 }
+
         }
     }
 
@@ -459,33 +461,33 @@ public class SubGraphController : MonoBehaviour
         /// Thought about creating a bunch of "status lists", but that would simply result in a ton of linear searches anyway.
         /// </summary>
 
-        foreach (GameObject node in subNodes)
+        foreach (GameObject subNode in ObjectsInChildren())
         {
             // Is the object flagged for deletion?
-            NodePhysX nodeInfo = node.GetComponent<NodePhysX>();
+            NodePhysX nodeInfo = subNode.GetComponent<NodePhysX>();
             if (nodeInfo.delete)
             {
-                print("Destroying " + node.name);
-                subNodes.Remove(node);
-                Destroy(node);
+                print("Destroying " + subNode.name);
+                subNodes.Remove(subNode);
+                Destroy(subNode);
 
             }
             else if (nodeInfo.hide)
             {
                 // Hide the mesh+collider
-                print("Hiding " + node.name);
-                node.SetActive(false);
+                print("Hiding " + subNode.name);
+                subNode.SetActive(false);
                 nodeInfo.hide = false;
             }
 
-            else if (nodeInfo.unHide && node.activeSelf == false)
+            else if (nodeInfo.unHide && subNode.activeSelf == false)
             {
                 // Hide the mesh+collider
-                print("Un-Hiding " + node.name);
-                node.SetActive(true);
+                print("Un-Hiding " + subNode.name);
+                subNode.SetActive(true);
                 nodeInfo.unHide = false;
                 // re-create the link
-                GenerateLink("specific_src_tgt", node, node.GetComponent<NodePhysX>().root);
+                GenerateLink("specific_src_tgt", subNode, subNode.GetComponent<NodePhysX>().root);
             }
         }
         // After we're all done, remove the links.
@@ -499,16 +501,16 @@ public class SubGraphController : MonoBehaviour
         /// </summary>
 
         // Borrowing the find-and-iterate from ResetWorld
-        foreach (GameObject link in GameObject.FindGameObjectsWithTag("link"))
+        foreach (Link link in links)
         {
 
             // Two cases here: one for if the link has a null source (destroyed) and one for hidden nodes
             if (link.GetComponent<Link>().source == null || !link.GetComponent<Link>().source.activeSelf)
             {
                 print("Scrubbing link " + link.name);
+                links.Remove(link);
                 Destroy(link);
                 LinkCount -= 1;
-                //gameCtrlUI.PanelStatusLinkCountTxt.text = "Linkcount: " + LinkCount;
             }
 
         }
@@ -519,12 +521,9 @@ public class SubGraphController : MonoBehaviour
     void Start()
     {
         gameControl = GetComponent<GameController>();
-        //gameCtrlUI = GetComponent<GameCtrlUI>();
-        //gameCtrlHelper = GetComponent<GameCtrlHelper>();
 
         subNodeCount = 0;
         subLinkCount = 0;
-        debugObjects.Clear();
 
         foreach (GameObject obj in ObjectsInChildren())
         {
