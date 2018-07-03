@@ -347,7 +347,7 @@ public class SubGraphController : MonoBehaviour
             if (source != target)
             {
                 bool alreadyExists = false;
-                foreach (GameObject checkObj in GameObject.FindGameObjectsWithTag("link"))
+                foreach (Link checkObj in links)
                 {
                     Link checkLink = checkObj.GetComponent<Link>();
                     if (checkLink.source == source && checkLink.target == target)
@@ -360,7 +360,7 @@ public class SubGraphController : MonoBehaviour
                 if (!alreadyExists)
                 {
                     Link linkObject = Instantiate(linkPrefab, new Vector3(0, 0, 0), Quaternion.identity) as Link;
-                    linkObject.name = "link_" + subLinkCount;
+                    linkObject.name = "sublink_" + subLinkCount;
                     linkObject.source = source;
                     linkObject.target = target;
                     subLinkCount++;
@@ -461,6 +461,7 @@ public class SubGraphController : MonoBehaviour
         /// Thought about creating a bunch of "status lists", but that would simply result in a ton of linear searches anyway.
         /// </summary>
 
+        // remove the objects that have been subtracted from the graph since the last update
         foreach (GameObject subNode in ObjectsInChildren())
         {
             // Is the object flagged for deletion?
@@ -489,7 +490,15 @@ public class SubGraphController : MonoBehaviour
                 // re-create the link
                 GenerateLink("specific_src_tgt", subNode, subNode.GetComponent<NodePhysX>().root);
             }
+            else if (nodeInfo.isNew)
+            {
+                // A new link must be created
+                GenerateLink("specific_src_tgt", subNode, subNode.GetComponent<NodePhysX>().root);
+                nodeInfo.isNew = false;
+            }
+
         }
+
         // After we're all done, remove the links.
         ScrubLinks();
     }

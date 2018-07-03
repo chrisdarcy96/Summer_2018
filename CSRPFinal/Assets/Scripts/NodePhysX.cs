@@ -13,6 +13,10 @@ public class NodePhysX : Node {
     public bool unHide = false;
     private GameObject camera;
 
+    // for subnodes
+    [System.NonSerialized]
+    public bool isNew = true;
+
     // Public debug settings
     [Tooltip("This offsets the center of gravity for the graph in the z direction. Default is 3 (roughly standard for HoloLens)")]
     //public float zOffset = 3;
