@@ -46,8 +46,6 @@ public class SubGraphController : MonoBehaviour
     private float linkIntendedLinkLength = 0.15F;
     [SerializeField, Tooltip("Adjust this slider to provide a scalar increase to the force that drives hosts upwards or downwards based on their tag"), Range(-2, 2)]
     public float stratificationScalingFactor = 1;
-    [Tooltip("Use this to have the GraphController insert randomly placed hosts at runtime.")]
-    public int randomNodes = 10;
 
 
     //public GameObject selectedNode = null;
@@ -545,12 +543,6 @@ public class SubGraphController : MonoBehaviour
             GenerateLink("specific_src_tgt", obj, obj.GetComponent<NodePhysX>().root);
         }
 
-        for (int i = 0; i < randomNodes; i++)
-        {
-
-            NewSubNode();
-
-        }
     }
 
     // TODO: Implement this in GraphController
