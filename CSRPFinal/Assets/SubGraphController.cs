@@ -7,14 +7,7 @@ using System;
 public class SubGraphController : MonoBehaviour
 {
     // Storage unit for the nodes we have
-    public List<GameObject> nodes = new List<GameObject>();
-
-    //// Bins for each time I need an action done on nodes. This is to avoid an iteration of nodes each frame.
-    //private List<GameObject> needToHide = new List<GameObject>();
-    //private List<GameObject> hidden = new List<GameObject>();
-    //private List<GameObject> deathRow = new List<GameObject>();
-
-
+    public List<GameObject> subNodes = new List<GameObject>();
 
     [SerializeField]
     private static bool verbose = true;
@@ -59,8 +52,8 @@ public class SubGraphController : MonoBehaviour
 
     //public GameObject selectedNode = null;
 
-    private static int nodeCount;
-    private static int linkCount;
+    private static int subNodeCount;
+    private static int subLinkCount;
     private List<GameObject> debugObjects = new List<GameObject>();
 
     // Collection of dummy variables for debug
@@ -75,11 +68,11 @@ public class SubGraphController : MonoBehaviour
     {
         get
         {
-            return linkCount;
+            return subLinkCount;
         }
         set
         {
-            linkCount = value;
+            subLinkCount = value;
         }
     }
 
@@ -198,11 +191,11 @@ public class SubGraphController : MonoBehaviour
     {
         get
         {
-            return nodeCount;
+            return subNodeCount;
         }
         set
         {
-            nodeCount = value;
+            subNodeCount = value;
         }
     }
 
@@ -260,8 +253,8 @@ public class SubGraphController : MonoBehaviour
 
         if (nodeCreated != null)
         {
-            nodeCreated.name = "node_" + nodeCount;
-            nodeCount++;
+            nodeCreated.name = "node_" + subNodeCount;
+            subNodeCount++;
 
 
             if (verbose)
@@ -287,8 +280,8 @@ public class SubGraphController : MonoBehaviour
 
         if (nodeCreated != null)
         {
-            nodeCreated.name = "node_" + nodeCount;
-            nodeCount++;
+            nodeCreated.name = "node_" + subNodeCount;
+            subNodeCount++;
 
             GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
             debugObjects.Add(debugObj);
@@ -324,7 +317,7 @@ public class SubGraphController : MonoBehaviour
             nodeNode.Text = name;
             nodeNode.Type = type;
 
-            nodeCount++;
+            subNodeCount++;
 
 
             if (verbose)
@@ -367,10 +360,10 @@ public class SubGraphController : MonoBehaviour
                 if (!alreadyExists)
                 {
                     Link linkObject = Instantiate(linkPrefab, new Vector3(0, 0, 0), Quaternion.identity) as Link;
-                    linkObject.name = "link_" + linkCount;
+                    linkObject.name = "link_" + subLinkCount;
                     linkObject.source = source;
                     linkObject.target = target;
-                    linkCount++;
+                    subLinkCount++;
 
                     return true;
                 }
@@ -400,14 +393,14 @@ public class SubGraphController : MonoBehaviour
         {
             bool success = false;
             int tryCounter = 0;
-            int tryLimit = nodeCount * 5;
+            int tryLimit = subNodeCount * 5;
 
             while (!success && tryCounter < tryLimit)
             {
                 tryCounter++;
 
-                int sourceRnd = UnityEngine.Random.Range(0, nodeCount);
-                int targetRnd = UnityEngine.Random.Range(0, nodeCount);
+                int sourceRnd = UnityEngine.Random.Range(0, subNodeCount);
+                int targetRnd = UnityEngine.Random.Range(0, subNodeCount);
 
                 GameObject source = GameObject.Find("node_" + sourceRnd);
                 GameObject target = GameObject.Find("node_" + targetRnd);
@@ -416,7 +409,7 @@ public class SubGraphController : MonoBehaviour
             }
             if (!success)
                 if (verbose)
-                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Too many unsuccessful tries, limit reached. Bailing out of GenerateLink run with mode=random. TryCounter: " + tryCounter + " Limit: " + nodeCount * 5);
+                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Too many unsuccessful tries, limit reached. Bailing out of GenerateLink run with mode=random. TryCounter: " + tryCounter + " Limit: " + subNodeCount * 5);
         }
     }
 
@@ -431,7 +424,13 @@ public class SubGraphController : MonoBehaviour
 
             if (!success)
                 if (verbose)
-                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Problem with creating link. Link not created.");
+                    Debug.LogWarning(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Problem with creating link. Link not created.");
+                else
+                {
+
+                    // Just for Debugging SubNode links
+                    print("Created link between " + source.name + " and " + target.name);
+                }
         }
     }
 
@@ -460,14 +459,14 @@ public class SubGraphController : MonoBehaviour
         /// Thought about creating a bunch of "status lists", but that would simply result in a ton of linear searches anyway.
         /// </summary>
 
-        foreach (GameObject node in nodes)
+        foreach (GameObject node in subNodes)
         {
             // Is the object flagged for deletion?
             NodePhysX nodeInfo = node.GetComponent<NodePhysX>();
             if (nodeInfo.delete)
             {
                 print("Destroying " + node.name);
-                nodes.Remove(node);
+                subNodes.Remove(node);
                 Destroy(node);
 
             }
@@ -523,11 +522,11 @@ public class SubGraphController : MonoBehaviour
         //gameCtrlUI = GetComponent<GameCtrlUI>();
         //gameCtrlHelper = GetComponent<GameCtrlHelper>();
 
-        nodeCount = 0;
-        linkCount = 0;
+        subNodeCount = 0;
+        subLinkCount = 0;
         debugObjects.Clear();
 
-        foreach (GameObject obj in nodes)
+        foreach (GameObject obj in ObjectsInChildren())
         {
             // Create the initial links
             // TODO: Create requirements/warnings that the nodes have a NodePhysX component.
@@ -538,28 +537,22 @@ public class SubGraphController : MonoBehaviour
             GenerateLink("specific_src_tgt", obj, obj.GetComponent<NodePhysX>().root);
         }
 
-        // prepare stuff
-        //if (gameControl.EngineBulletUnity)
-        //{
-        //    RepulseForceStrength = .1f;
-        //    GlobalGravityBullet = 1f;
-        //    LinkForceStrength = .1f;
-        //    LinkIntendedLinkLength = 3f;
-        //} else
-        //{
-        //    RepulseForceStrength = 5f;
-        //    GlobalGravityPhysX = 10f;
-        //    NodePhysXForceSphereRadius = 35f;
-        //    LinkForceStrength = 5f;
-        //    LinkIntendedLinkLength = 3f;
-        //}
-        // Debug 
         for (int i = 0; i < randomNodes; i++)
         {
 
             NewSubNode();
 
         }
+    }
+
+    // TODO: Implement this in GraphController
+    private IEnumerable<GameObject> ObjectsInChildren()
+    {
+        foreach(Transform child in transform)
+        {
+            yield return transform.gameObject;
+        }
+        yield break;
     }
 
     private void NewSubNode()
@@ -569,7 +562,7 @@ public class SubGraphController : MonoBehaviour
 
         GameObject newNode = GenSubNode();
 
-        nodes.Add(newNode);
+        subNodes.Add(newNode);
         GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
 
         print("Created new node named " + newNode.name);

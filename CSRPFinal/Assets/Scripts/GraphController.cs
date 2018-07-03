@@ -8,13 +8,6 @@ public class GraphController : MonoBehaviour {
     // Storage unit for the nodes we have
     public List<GameObject> nodes = new List<GameObject>();
 
-    //// Bins for each time I need an action done on nodes. This is to avoid an iteration of nodes each frame.
-    //private List<GameObject> needToHide = new List<GameObject>();
-    //private List<GameObject> hidden = new List<GameObject>();
-    //private List<GameObject> deathRow = new List<GameObject>();
-
-
-
     [SerializeField]
     private static bool verbose = true;
 
