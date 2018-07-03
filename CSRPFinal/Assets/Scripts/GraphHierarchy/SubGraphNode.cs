@@ -27,6 +27,7 @@ public class SubGraphNode : ScriptableObject {
         thisObject = Instantiate(thisObject, position, Quaternion.identity);
         thisObject.gameObject.GetComponent<Renderer>().enabled = !hide;
         thisObject.transform.parent = parent.transform;
+        thisObject.GetComponent<NodePhysX>().root = parent;
         thisObject.name = parent.name + "_SubGraphNode" + parent.transform.childCount;
         thisObject.GetComponentInChildren<TextMesh>().text = data;
     }

@@ -85,7 +85,7 @@ public class NodePhysX : Node {
         base.Start();
         thisRigidbody = this.GetComponent<Rigidbody>();
         camera = GameObject.FindGameObjectWithTag("MainCamera");
-        print("Located main camera. Its position is " + camera.transform.position.x + ", " + camera.transform.position.y + ", " + camera.transform.position.z);
+        //print("Located main camera. Its position is " + camera.transform.position.x + ", " + camera.transform.position.y + ", " + camera.transform.position.z);
     }
 
     void Update()

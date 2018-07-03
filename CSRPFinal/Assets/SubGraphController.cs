@@ -33,8 +33,6 @@ public class SubGraphController : MonoBehaviour
 
     // Prefabs
     public GameObject nodePrefabBullet;
-    public GameObject hostPrefab;
-    public GameObject procPrefab;
     public GameObject subNodePrefab;
     public Link linkPrefab;
 
@@ -235,35 +233,22 @@ public class SubGraphController : MonoBehaviour
         debugObjects.Clear();
     }
 
-    private GameObject InstHost(Vector3 createPos, DateTime metaTime, string hostname)
+    private GameObject InstSubNode(Vector3 createPos, string text, bool hide=false)
     {
 
-        return GraphNodeType.CreateInstance(hostPrefab, metaTime, hostname, createPos, subNodePrefab).getObject() as GameObject;
-
-    }
-
-    private GameObject InstProc(Vector3 createPos, DateTime metaTime, string hostname)
-    {
-
-        return GraphNodeType.CreateInstance(procPrefab, metaTime, hostname, createPos, subNodePrefab).getObject() as GameObject;
+        return SubGraphNode.CreateInstance(subNodePrefab, gameObject, createPos, text, hide).getObject() as GameObject;
 
     }
 
 
-    private GameObject InstHost(Vector3 createPos)
+    private GameObject InstSubNode(Vector3 createPos)
     {
         // Overload for debugging purposes
-        return GraphNodeType.CreateInstance(hostPrefab, debugTime, "example.com", createPos, subNodePrefab).getObject() as GameObject;
-    }
-
-    private GameObject InstProc(Vector3 createPos)
-    {
-        // debug overload
-        return GraphNodeType.CreateInstance(procPrefab, debugTime, "example.com", createPos, subNodePrefab).getObject() as GameObject;
+        return SubGraphNode.CreateInstance(subNodePrefab, gameObject, createPos, "ftp.example.com").getObject() as GameObject;
     }
 
 
-    public GameObject GenerateNode(bool createProcess = false)
+    public GameObject GenSubNode(bool createProcess = false)
     {
         // Method for creating a Node on random coordinates, e.g. when spawning multiple new nodes
 
@@ -277,7 +262,7 @@ public class SubGraphController : MonoBehaviour
         }
         else
         {
-            nodeCreated = InstHost(createPos);
+            nodeCreated = InstSubNode(createPos);
         }
 
         if (nodeCreated != null)
@@ -299,13 +284,13 @@ public class SubGraphController : MonoBehaviour
         return nodeCreated.gameObject;
     }
 
-    public GameObject GenerateNode(Vector3 createPos)
+    public GameObject GenSubNode(Vector3 createPos)
     {
         // Method for creating a Node on specific coordinates, e.g. in Paintmode when a node is created at the end of a paintedLink
 
         GameObject nodeCreated = null;
 
-        nodeCreated = InstHost(createPos);
+        nodeCreated = InstSubNode(createPos);
 
         if (nodeCreated != null)
         {
@@ -337,7 +322,7 @@ public class SubGraphController : MonoBehaviour
         Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
 
         //nodeCreated = Instantiate(nodePrefabBullet, createPos, Quaternion.identity) as Node;
-        nodeCreated = InstHost(createPos);
+        nodeCreated = InstSubNode(createPos);
 
         if (nodeCreated != null)
         {
@@ -462,7 +447,7 @@ public class SubGraphController : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             // Create a node on random Coordinates
-            GenerateNode();
+            GenSubNode();
         }
     }
 
@@ -594,7 +579,7 @@ public class SubGraphController : MonoBehaviour
         ///<summary>This function creates a new host on random coordinates, as well as a link between it and the root.</summary>
         ///
 
-        GameObject newNode = GenerateNode();
+        GameObject newNode = GenSubNode();
 
         nodes.Add(newNode);
         GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
@@ -607,7 +592,7 @@ public class SubGraphController : MonoBehaviour
         ///<summary>This function creates a new process on random coordinates, as well as a link between it and the root.</summary>
         ///
 
-        GameObject newNode = GenerateNode(createProcess: true);
+        GameObject newNode = GenSubNode(createProcess: true);
 
         nodes.Add(newNode);
         GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
