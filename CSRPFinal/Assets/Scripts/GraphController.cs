@@ -80,6 +80,18 @@ public class GraphController : MonoBehaviour {
         }
     }
 
+    public bool AllStatic
+    {
+        get
+        {
+            return AllStatic;
+        }
+        set
+        {
+            AllStatic = value;
+        }
+    }
+
     public float GlobalGravityPhysX
     {
         get
