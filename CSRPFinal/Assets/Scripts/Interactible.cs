@@ -70,7 +70,7 @@ public class Interactible : MonoBehaviour, IFocusable {
 
                 //SelectionManager.HandleSelection(this.gameObject);
 
-                SelectSelf();
+                ToggleSelection();
 
                 // FIXME: Could this create infinite requests if SelectionManager says no
                 if (this.isSelected)
@@ -93,7 +93,7 @@ public class Interactible : MonoBehaviour, IFocusable {
     private void SelectSelf()
     {
         isSelected = true;
-        gameObject.tag = "selection";
+        gameObject.tag = "selected";
         // Set the selection material defined in the SelectionManager
         originRender.material = selectionMaterial;
         originRender.material.shader = selectionGlow;
@@ -106,7 +106,7 @@ public class Interactible : MonoBehaviour, IFocusable {
         originRender.material.shader = standard;
         gameObject.tag = originTag;
     }
-    public void toggleSelection()
+    public void ToggleSelection()
     {
         if (isSelected)
         {

@@ -47,7 +47,7 @@ public class NodePhysX : Node {
             Vector3 fallImpulse = Vector3.down * thisRigidbody.mass * graphControl.GlobalGravityPhysX * graphControl.stratificationScalingFactor;
             thisRigidbody.AddForce(fallImpulse);
         }
-        else if (this.tag == "selection")
+        else if (this.tag == "selected")
         {
             // Attract the host towards the camera
             Vector3 dirToCamera = camera.transform.position;
