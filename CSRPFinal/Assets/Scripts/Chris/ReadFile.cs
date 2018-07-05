@@ -14,16 +14,26 @@ public class ReadFile : MonoBehaviour {
     public GameObject Node_Prefab;
     public GameObject Parent_Object;
     public GameObject MiniNodePrefab;
-    private static GraphNodeType[] nodes;
+    public GraphController GraphManager; 
+    private static GameObject[] nodes;
 
     public static List<Dictionary<string, string>> GetConnections { get; private set; }
-    public static GraphNodeType[] Nodes { get { return nodes; } }
+    public static GameObject[] Nodes { get { return nodes; } }
 
 
 
     // Use this for initialization
     void Start() {
         GetConnections = new List<Dictionary<string, string>>();
+        if (GraphManager == null)
+        {
+            GraphManager = GameObject.Find("GraphManager").GetComponent<GraphController>();
+            if(GraphManager == null)
+            {
+                Debug.LogError("GraphManger not provided or found!");
+            }
+        }
+        
 
         // read JSON file on connections
         ReadJSON();
@@ -35,9 +45,9 @@ public class ReadFile : MonoBehaviour {
 
 
 	
-    private GraphNodeType[] CreateNodes()
+    private GameObject[] CreateNodes()
     {
-        GraphNodeType[] node = new GraphNodeType[GetConnections.Count];
+        GameObject[] node = new GameObject[GetConnections.Count];
         int i = 0;
         foreach(Dictionary<string, string> pair in GetConnections)
         {   
@@ -48,12 +58,12 @@ public class ReadFile : MonoBehaviour {
             float x;
             float y;
             GetPoints(i, out x, out y);
-            GraphNodeType newNodeType = GraphNodeType.CreateInstance(Node_Prefab, time, host, new Vector3(x,y,2), MiniNodePrefab);
+            GameObject newNodeType = GraphManager.InstHost(new Vector3(x, y, 2), time, host);
             
 
             // make new nodes children of ParentObject (should be NodeManager game object)
-            newNodeType.getObject().transform.parent = Parent_Object.transform;
-            newNodeType.setPosition(new Vector3(x,y,2));
+            newNodeType.transform.parent = Parent_Object.transform;
+            newNodeType.transform.position = new Vector3(x,y,2);
   
             node[i++] = newNodeType;
         }

@@ -226,14 +226,16 @@ public class GraphController : MonoBehaviour {
         debugObjects.Clear();
     }
 
-    private GameObject InstHost(Vector3 createPos, DateTime metaTime, string hostname)
+    public GameObject InstHost(Vector3 createPos, DateTime metaTime, string hostname)
     {
-        
-        return GraphNodeType.CreateInstance(hostPrefab, metaTime, hostname,createPos, subNodePrefab).getObject() as GameObject;
-        
+
+            return GraphNodeType.CreateInstance(hostPrefab, metaTime, hostname, createPos, subNodePrefab).getObject() as GameObject;
+
+
     }
 
-    private GameObject InstProc(Vector3 createPos, DateTime metaTime, string hostname)
+
+    public GameObject InstProc(Vector3 createPos, DateTime metaTime, string hostname)
     {
 
         return GraphNodeType.CreateInstance(procPrefab, metaTime, hostname, createPos, subNodePrefab).getObject() as GameObject;
@@ -550,21 +552,6 @@ public class GraphController : MonoBehaviour {
             GenerateLink("specific_src_tgt", obj, obj.GetComponent<NodePhysX>().root);
         }
 
-        // prepare stuff
-        //if (gameControl.EngineBulletUnity)
-        //{
-        //    RepulseForceStrength = .1f;
-        //    GlobalGravityBullet = 1f;
-        //    LinkForceStrength = .1f;
-        //    LinkIntendedLinkLength = 3f;
-        //} else
-        //{
-        //    RepulseForceStrength = 5f;
-        //    GlobalGravityPhysX = 10f;
-        //    NodePhysXForceSphereRadius = 35f;
-        //    LinkForceStrength = 5f;
-        //    LinkIntendedLinkLength = 3f;
-        //}
         // Debug 
         for(int i = 0; i<randomNodes; i++)
         {

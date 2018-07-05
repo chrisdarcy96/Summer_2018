@@ -288,13 +288,10 @@ public class SubGraphController : MonoBehaviour
             debugObjects.Add(debugObj);
             debugObj.SetActive(false);
 
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
         }
         else
         {
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
+            
         }
 
         return nodeCreated.gameObject;
@@ -322,12 +319,12 @@ public class SubGraphController : MonoBehaviour
 
 
             if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
+                Debug.Log("Node created: " + nodeCreated.gameObject.name);
         }
         else
         {
             if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, no node created.");
+                Debug.Log("Something went wrong, no node created.");
         }
 
         return nodeCreated.gameObject;
@@ -340,7 +337,7 @@ public class SubGraphController : MonoBehaviour
         {
             if (verbose)
             {
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source or target does not exist. Link not created.");
+                Debug.Log("CreateSubLink: source or target does not exist. Link not created.");
             }
             return null;
         }
@@ -373,17 +370,13 @@ public class SubGraphController : MonoBehaviour
                 {
                     if (verbose)
                     {
-                        Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Link between source " + source.name + " and target " + target.name + " already exists. Link not created.");
+                        Debug.Log("Link between source " + source.name + " and target " + target.name + " already exists. Link not created.");
                     }
                     return null;
                 }
             }
             else
             {
-                if (verbose)
-                {
-                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source " + source.name + " and target " + target.name + " are the same. Link not created.");
-                }
                 return null;
             }
         }
@@ -411,7 +404,7 @@ public class SubGraphController : MonoBehaviour
             }
             if (!success)
                 if (verbose)
-                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Too many unsuccessful tries, limit reached. Bailing out of GenerateLink run with mode=random. TryCounter: " + tryCounter + " Limit: " + subNodeCount * 5);
+                    Debug.Log("Too many unsuccessful tries, limit reached. Bailing out of GenerateLink run with mode=random.");
         }
     }
 
@@ -426,7 +419,7 @@ public class SubGraphController : MonoBehaviour
 
             if (success == null)
                 if (verbose)
-                    Debug.LogWarning(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Problem with creating link. Link not created.");
+                    Debug.LogWarning("Problem with creating link. Link not created.");
                 else
                 {
 
