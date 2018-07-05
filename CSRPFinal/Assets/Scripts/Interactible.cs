@@ -70,7 +70,7 @@ public class Interactible : MonoBehaviour, IFocusable {
 
                 //SelectionManager.HandleSelection(this.gameObject);
 
-                selectSelf();
+                SelectSelf();
 
                 // FIXME: Could this create infinite requests if SelectionManager says no
                 if (this.isSelected)
@@ -88,29 +88,33 @@ public class Interactible : MonoBehaviour, IFocusable {
         }
 
 
-        if (gameObject.tag == "selection")
-        {
-
-
-            if (!isSelected)
-            {
-                // The node has been de-selected, hopefully only by the SelectionManager
-                originRender.material = originMat;
-                originRender.material.shader = standard;
-                gameObject.tag = originTag;
-            }
-            else if (originRender.material.ToString() != selectionMaterial.ToString())
-            {
-                // Set the selection material defined in the SelectionManager
-                originRender.material = selectionMaterial;
-                originRender.material.shader = selectionGlow;
-            }
-
-        }
     }
 
-    private void selectSelf()
+    private void SelectSelf()
     {
-        throw new NotImplementedException();
+        isSelected = true;
+        gameObject.tag = "selection";
+        // Set the selection material defined in the SelectionManager
+        originRender.material = selectionMaterial;
+        originRender.material.shader = selectionGlow;
+    }
+
+    public void UnSelectSelf()
+    {
+        isSelected = false;
+        originRender.material = originMat;
+        originRender.material.shader = standard;
+        gameObject.tag = originTag;
+    }
+    public void toggleSelection()
+    {
+        if (isSelected)
+        {
+            UnSelectSelf();
+        }
+        else if (!isSelected)
+        {
+            SelectSelf();
+        }
     }
 }
