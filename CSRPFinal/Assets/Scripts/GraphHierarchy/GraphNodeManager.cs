@@ -84,6 +84,8 @@ public class GraphNodeManager : MonoBehaviour
     }
 
     public static void ToggleSubNodes(GameObject focused)
+
+        // Toggles subnodes for ALL nodes
     {
         foreach(GraphNodeType gnt in masterNodes.Keys)
         {

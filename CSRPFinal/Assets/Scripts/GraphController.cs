@@ -6,19 +6,13 @@ using System;
 
 public class GraphController : MonoBehaviour {
     // Storage unit for the nodes we have
-    public List<GameObject> nodes = new List<GameObject>();
+    public List<GraphNodeType> nodes = new List<GraphNodeType>();
 
     [SerializeField]
     private static bool verbose = true;
 
     private static GameController gameControl;
-    //private static GameCtrlUI gameCtrlUI;
 
-    [SerializeField]
-    private bool allStatic = false;
-    [SerializeField]
-    private bool paintMode = false;
-    [SerializeField]
     private bool repulseActive = true;
     [SerializeField]
     private bool debugRepulse = false;
@@ -56,13 +50,10 @@ public class GraphController : MonoBehaviour {
 
     private static int nodeCount;
     private static int linkCount;
-    private List<GameObject> debugObjects = new List<GameObject>();
 
     // Collection of dummy variables for debug
     private int debugChildNodes = 3;
     private string host = "example.com";
-
-
 
     [SerializeField]
     public int LinkCount
@@ -77,31 +68,6 @@ public class GraphController : MonoBehaviour {
         }
     }
 
-
-    public bool AllStatic
-    {
-        get
-        {
-            return allStatic;
-        }
-        set
-        {
-            allStatic = value;
-        }
-    }
-
-    public bool PaintMode
-    {
-        get
-        {
-            return paintMode;
-        }
-        set
-        {
-            paintMode = value;
-        }
-    }
-
     public bool RepulseActive
     {
         get
@@ -111,20 +77,6 @@ public class GraphController : MonoBehaviour {
         set
         {
             repulseActive = value;
-        }
-    }
-
-
-
-    public float GlobalGravityBullet
-    {
-        get
-        {
-            return globalGravityBullet;
-        }
-        private set
-        {
-            globalGravityBullet = value;
         }
     }
 
@@ -223,44 +175,42 @@ public class GraphController : MonoBehaviour {
             Destroy(destroyTarget);
         }
 
-        debugObjects.Clear();
     }
 
-    public GameObject InstHost(Vector3 createPos, DateTime metaTime, string hostname)
+    public GraphNodeType InstHost(Vector3 createPos, DateTime metaTime, string hostname)
     {
 
-            return GraphNodeType.CreateInstance(hostPrefab, metaTime, hostname, createPos, subNodePrefab).getObject() as GameObject;
-
+            return GraphNodeType.CreateInstance(hostPrefab, metaTime, hostname, createPos, subNodePrefab);
 
     }
 
 
-    public GameObject InstProc(Vector3 createPos, DateTime metaTime, string hostname)
+    public GraphNodeType InstProc(Vector3 createPos, DateTime metaTime, string hostname)
     {
 
-        return GraphNodeType.CreateInstance(procPrefab, metaTime, hostname, createPos, subNodePrefab).getObject() as GameObject;
+        return GraphNodeType.CreateInstance(procPrefab, metaTime, hostname, createPos, subNodePrefab);
 
     }
 
 
-    private GameObject InstHost(Vector3 createPos)
+    private GraphNodeType InstHost(Vector3 createPos)
     {
         // Overload for debugging purposes
-        return GraphNodeType.CreateInstance(hostPrefab, DateTime.Now, "example.com", createPos, subNodePrefab).getObject() as GameObject;
+        return GraphNodeType.CreateInstance(hostPrefab, DateTime.Now, "example.com", createPos, subNodePrefab);
     }
 
-    private GameObject InstProc(Vector3 createPos)
+    private GraphNodeType InstProc(Vector3 createPos)
     {
         // debug overload
-        return GraphNodeType.CreateInstance(procPrefab, DateTime.Now, "example.com", createPos, subNodePrefab).getObject() as GameObject;
+        return GraphNodeType.CreateInstance(procPrefab, DateTime.Now, "example.com", createPos, subNodePrefab);
     }
 
 
-    public GameObject GenerateNode(bool createProcess = false)
+    public GraphNodeType GenerateNode(bool createProcess = false)
     {
         // Method for creating a Node on random coordinates, e.g. when spawning multiple new nodes
 
-        GameObject nodeCreated = null;
+        GraphNodeType nodeCreated = null;
 
         Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
 
@@ -280,7 +230,7 @@ public class GraphController : MonoBehaviour {
 
 
             if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
+                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
 
         } else
         {
@@ -288,14 +238,14 @@ public class GraphController : MonoBehaviour {
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
         }
 
-        return nodeCreated.gameObject;
+        return nodeCreated;
     }
 
-    public GameObject GenerateNode(Vector3 createPos)
+    public GraphNodeType GenerateNode(Vector3 createPos)
     {
         // Method for creating a Node on specific coordinates, e.g. in Paintmode when a node is created at the end of a paintedLink
         // Debug overload that uses default information for the node's subnodes.
-        GameObject nodeCreated = null;
+        GraphNodeType nodeCreated = null;
 
         nodeCreated = InstHost(createPos);
 
@@ -304,12 +254,8 @@ public class GraphController : MonoBehaviour {
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
 
-            GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
-            debugObjects.Add(debugObj);
-            debugObj.SetActive(false);
-
             if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
+                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
         }
         else
         {
@@ -317,14 +263,14 @@ public class GraphController : MonoBehaviour {
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
         }
 
-        return nodeCreated.gameObject;
+        return nodeCreated;
     }
 
-    public GameObject GenerateNode(Vector3 createPos, string hostname, DateTime metaTime)
+    public GraphNodeType GenerateNode(Vector3 createPos, string hostname, DateTime metaTime)
     {
         // Method for creating a Node on specific coordinates, e.g. in Paintmode when a node is created at the end of a paintedLink
         // "Standard" overload for manual input of meta information
-        GameObject nodeCreated = null;
+        GraphNodeType nodeCreated = null;
 
         nodeCreated = InstHost(createPos, metaTime, hostname);
 
@@ -334,7 +280,7 @@ public class GraphController : MonoBehaviour {
             nodeCount++;
 
             if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
+                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
         }
         else
         {
@@ -342,42 +288,9 @@ public class GraphController : MonoBehaviour {
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
         }
 
-        return nodeCreated.gameObject;
+        return nodeCreated;
     }
 
-
-    public GameObject GenerateNode(string name, string id, string type)
-    {
-        // Method for creating a Node on random coordinates, but with defined labels. E.g. when loaded from a file which contains these label.
-
-        GameObject nodeCreated = null;
-
-        Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
-
-        //nodeCreated = Instantiate(nodePrefabBullet, createPos, Quaternion.identity) as Node;
-        nodeCreated = InstHost(createPos);
-
-        if (nodeCreated != null)
-        {
-            Node nodeNode = nodeCreated.GetComponent<Node>();
-            nodeNode.name = id;
-            nodeNode.Text = name;
-            nodeNode.Type = type;
-
-            nodeCount++;
-
-
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
-        }
-        else
-        {
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, no node created.");
-        }
-
-        return nodeCreated.gameObject;
-    }
 
     public bool CreateLink(GameObject source, GameObject target)
     {
@@ -500,10 +413,11 @@ public class GraphController : MonoBehaviour {
         /// Thought about creating a bunch of "status lists", but that would simply result in a ton of linear searches anyway.
         /// </summary>
         
-        foreach (GameObject node in nodes)
+        foreach (GraphNodeType node in nodes)
         {
+            GameObject nodeObj = node.getObject();
             // Is the object flagged for deletion?
-            NodePhysX nodeInfo = node.GetComponent<NodePhysX>();
+            NodePhysX nodeInfo = nodeObj.GetComponent<NodePhysX>();
             if (nodeInfo.delete)
             {
                 print("Destroying " + node.name);
@@ -515,18 +429,18 @@ public class GraphController : MonoBehaviour {
             {
                 // Hide the mesh+collider
                 print("Hiding " + node.name);
-                node.SetActive(false);
+                nodeObj.SetActive(false);
                 nodeInfo.hide = false;
             }
 
-            else if (nodeInfo.unHide && node.activeSelf == false)
+            else if (nodeInfo.unHide && nodeObj.activeSelf == false)
             {
                 // Hide the mesh+collider
                 print("Un-Hiding " + node.name);
-                node.SetActive(true);
+                nodeObj.SetActive(true);
                 nodeInfo.unHide = false;
                 // re-create the link
-                GenerateLink("specific_src_tgt", node, node.GetComponent<NodePhysX>().root);
+                GenerateLink("specific_src_tgt", nodeObj, nodeInfo.root);
             }
         }
         // After we're all done, remove the links.
@@ -565,17 +479,17 @@ public class GraphController : MonoBehaviour {
 
         nodeCount = 0;
         linkCount = 0;
-        debugObjects.Clear();
 
-        foreach (GameObject obj in nodes)
+        foreach (GraphNodeType gnt in nodes)
         {
             // Create the initial links
-            // TODO: Create requirements/warnings that the nodes have a NodePhysX component.
-            if (obj == null)
+            // TODO: Create requirements/warnings that the nodes have a NodePhysX component.\
+            GameObject nodeObj = gnt.getObject();
+            if (nodeObj == null)
             {
                 continue;
             }
-            GenerateLink("specific_src_tgt", obj, obj.GetComponent<NodePhysX>().root);
+            GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
         }
 
         // Debug 
@@ -597,10 +511,11 @@ public class GraphController : MonoBehaviour {
         ///<summary>This function creates a new host on random coordinates, as well as a link between it and the root.</summary>
         ///
         // Debug overload
-        GameObject newNode = GenerateNode();
+        GraphNodeType newNode = GenerateNode();
+        GameObject nodeObj = newNode.getObject();
 
         nodes.Add(newNode);
-        GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
+        GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
         print("Created new node named " + newNode.name);
 
@@ -608,17 +523,17 @@ public class GraphController : MonoBehaviour {
 
     public void NewHost(Vector3 createPos, string hostname, DateTime metaTime)
     {
-        ///<summary>This function creates a new host on random coordinates, as well as a link between it and the root.</summary>
+        ///<summary>This function creates a new host on set coordinates, as well as a link between it and the root.</summary>
         ///
         // "Standard" overload
-        GameObject newNode = GenerateNode(createPos, hostname, metaTime);
-
+        GraphNodeType newNode = GenerateNode(createPos, hostname, metaTime);
+        GameObject nodeObj = newNode.getObject();
         nodes.Add(newNode);
 
         // Hierarchy maintenance - make this new node a child of the GraphController
-        newNode.transform.parent = this.transform;
+        nodeObj.transform.parent = this.transform;
 
-        GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
+        GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
         print("Created new host named " + newNode.name);
 
@@ -630,10 +545,10 @@ public class GraphController : MonoBehaviour {
         ///
         //Debug overload
 
-        GameObject newNode = GenerateNode(createProcess : true);
-
+        GraphNodeType newNode = GenerateNode(createProcess : true);
+        GameObject nodeObj = newNode.getObject();
         nodes.Add(newNode);
-        GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
+        GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
         print("Created new process named " + newNode.name);
 

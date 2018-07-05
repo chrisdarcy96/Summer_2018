@@ -17,7 +17,7 @@ public class Interactible : MonoBehaviour, IFocusable {
     public bool isSelected = false;
     public float stareTriggerDuration = 3f;
     private float stareTimer = 0f;
-    private GameObject GameController;
+    private GameObject GraphManager;
     private Color oldColor;
     private Shader standard;
     private Material originMat;
@@ -52,7 +52,7 @@ public class Interactible : MonoBehaviour, IFocusable {
 
     // Use this for initialization
     void Start () {
-        GameController = GameObject.Find("GameController");
+        GraphManager = GameObject.Find("GraphManager");
         standard = Shader.Find("Transparent/Diffuse");
         originRender = GetComponent<Renderer>();
         originMat = originRender.material;
@@ -97,6 +97,8 @@ public class Interactible : MonoBehaviour, IFocusable {
         // Set the selection material defined in the SelectionManager
         originRender.material = selectionMaterial;
         originRender.material.shader = selectionGlow;
+        // Toggle the viewing of the subnodes
+        
     }
 
     public void UnSelectSelf()

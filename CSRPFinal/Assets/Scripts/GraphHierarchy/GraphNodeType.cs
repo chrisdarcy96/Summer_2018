@@ -4,7 +4,6 @@ using UnityEngine;
 public class GraphNodeType : ScriptableObject {
 
     private GameObject thisObject;
-    private SubGraphController childGraph;
     private DateTime nodeTime;
     private bool IsActive;
     private Vector3 position;
