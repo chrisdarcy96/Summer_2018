@@ -153,9 +153,12 @@ public class GraphNodeType : ScriptableObject {
 
     public void ToggleActiveSubs()
     {
+        Debug.Log("My D00000D I ToggleActiveSubs has been called");
         foreach(SubGraphNode sgn in subNodes)
         {
-            sgn.hide(!sgn.getHidden());
+            Debug.Log("My D000000000D I am a subnode being toggled!");
+            sgn.getObject().SetActive(true);
+            sgn.ToggleMesh();
         }
     }
 

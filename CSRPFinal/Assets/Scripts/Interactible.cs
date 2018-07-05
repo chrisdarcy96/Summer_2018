@@ -18,14 +18,14 @@ public class Interactible : MonoBehaviour, IFocusable {
     public float stareTriggerDuration = 3f;
     private float stareTimer = 0f;
     private GameObject GraphManager;
+
+    public GraphController graphController;
+
     private Color oldColor;
     private Shader standard;
     private Material originMat;
     private Renderer originRender;
     private string originTag;
-
-    
-    
 
     public void OnFocusEnter()
     {
@@ -53,6 +53,7 @@ public class Interactible : MonoBehaviour, IFocusable {
     // Use this for initialization
     void Start () {
         GraphManager = GameObject.Find("GraphManager");
+        graphController = GraphManager.GetComponent<GraphController>();
         standard = Shader.Find("Transparent/Diffuse");
         originRender = GetComponent<Renderer>();
         originMat = originRender.material;
@@ -97,16 +98,21 @@ public class Interactible : MonoBehaviour, IFocusable {
         // Set the selection material defined in the SelectionManager
         originRender.material = selectionMaterial;
         originRender.material.shader = selectionGlow;
-        // Toggle the viewing of the subnodes
+        // Toggle the viewing of the subnodes by reaching out to the graphManager
+        Debug.Log("My D00D I am calling ToggleSubNodes");
+        graphController.ToggleSubNodes(gameObject);
         
     }
 
     public void UnSelectSelf()
     {
+        print("UnSelectSelf() called");
         isSelected = false;
         originRender.material = originMat;
         originRender.material.shader = standard;
         gameObject.tag = originTag;
+        // Toggle the viewing of the subnodes by reaching out to the graphManager
+        graphController.ToggleSubNodes(gameObject);
     }
     public void ToggleSelection()
     {

@@ -11,22 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1985470366745714}
   m_IsPrefabParent: 1
---- !u!1 &1431814527861732
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4814650034103590}
-  - component: {fileID: 114862079970962866}
-  m_Layer: 0
-  m_Name: SubGraphManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1985470366745714
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,22 +43,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.135, y: 0, z: 2}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
-  m_Children:
-  - {fileID: 4814650034103590}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4814650034103590
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1431814527861732}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4423000354574248}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23349743119025100
@@ -185,36 +155,6 @@ MonoBehaviour:
   hide: 0
   unHide: 0
   root: {fileID: 1917881429158956, guid: d7a1da9da6d15ce4498f0ed604941c84, type: 2}
---- !u!114 &114862079970962866
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1431814527861732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b12df1a028df7429a4a7d17dac498e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  subNodes: []
-  links: []
-  allStatic: 0
-  paintMode: 0
-  repulseActive: 1
-  debugRepulse: 0
-  subNodePrefab: {fileID: 1187447812592512, guid: dd94b0bef980ca6489d6647ea2225dad,
-    type: 2}
-  linkPrefab: {fileID: 114910071216619204, guid: 627c5efdc6be8ea4190eac43c8f9e5e4,
-    type: 2}
-  nodeVectorGenRange: 7
-  globalGravityBullet: 0.1
-  globalGravityPhysX: 10
-  repulseForceStrength: 0.1
-  nodePhysXForceSphereRadius: 50
-  linkForceStrength: 6
-  linkIntendedLinkLength: 0.15
-  stratificationScalingFactor: 1
-  randomNodes: 10
 --- !u!114 &114935896549270792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,6 +172,7 @@ MonoBehaviour:
   beingLookedAt: 0
   isSelected: 0
   stareTriggerDuration: 3
+  graphController: {fileID: 0}
 --- !u!135 &135928716170106114
 SphereCollider:
   m_ObjectHideFlags: 1

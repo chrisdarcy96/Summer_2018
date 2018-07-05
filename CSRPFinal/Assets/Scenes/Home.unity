@@ -188,6 +188,7 @@ MonoBehaviour:
   Parent_Object: {fileID: 826282349}
   MiniNodePrefab: {fileID: 1187447812592512, guid: dd94b0bef980ca6489d6647ea2225dad,
     type: 2}
+  GraphManager: {fileID: 0}
 --- !u!4 &511139763
 Transform:
   m_ObjectHideFlags: 0

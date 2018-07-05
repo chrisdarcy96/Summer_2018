@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System;
 //using BulletUnity;
 
-public class GraphController : MonoBehaviour {
+public class GraphController : MonoBehaviour
+{
     // Storage unit for the nodes we have
     public List<GraphNodeType> nodes = new List<GraphNodeType>();
 
@@ -23,6 +24,7 @@ public class GraphController : MonoBehaviour {
     public GameObject procPrefab;
     public GameObject subNodePrefab;
     public Link linkPrefab;
+    private bool allStatic;
 
     [SerializeField]
     private float nodeVectorGenRange = 7F;
@@ -84,11 +86,11 @@ public class GraphController : MonoBehaviour {
     {
         get
         {
-            return AllStatic;
+            return allStatic;
         }
         set
         {
-            AllStatic = value;
+            allStatic = value;
         }
     }
 
@@ -192,7 +194,7 @@ public class GraphController : MonoBehaviour {
     public GraphNodeType InstHost(Vector3 createPos, DateTime metaTime, string hostname)
     {
 
-            return GraphNodeType.CreateInstance(hostPrefab, metaTime, hostname, createPos, subNodePrefab);
+        return GraphNodeType.CreateInstance(hostPrefab, metaTime, hostname, createPos, subNodePrefab);
 
     }
 
@@ -232,7 +234,7 @@ public class GraphController : MonoBehaviour {
         }
         else
         {
-        nodeCreated = InstHost(createPos);
+            nodeCreated = InstHost(createPos);
         }
 
         if (nodeCreated != null)
@@ -244,7 +246,8 @@ public class GraphController : MonoBehaviour {
             if (verbose)
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
 
-        } else
+        }
+        else
         {
             if (verbose)
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
@@ -424,7 +427,7 @@ public class GraphController : MonoBehaviour {
         /// The purpose of this function is to add, destroy, and hide links as necessary by iterating through the nodes list and checking the status of each node.
         /// Thought about creating a bunch of "status lists", but that would simply result in a ton of linear searches anyway.
         /// </summary>
-        
+
         foreach (GraphNodeType node in nodes)
         {
             GameObject nodeObj = node.getObject();
@@ -435,7 +438,7 @@ public class GraphController : MonoBehaviour {
                 print("Destroying " + node.name);
                 nodes.Remove(node);
                 Destroy(node);
-                
+
             }
             else if (nodeInfo.hide)
             {
@@ -470,7 +473,7 @@ public class GraphController : MonoBehaviour {
         {
 
             // Two cases here: one for if the link has a null source (destroyed) and one for hidden nodes
-            if(link.GetComponent<Link>().source == null || !link.GetComponent<Link>().source.activeSelf)
+            if (link.GetComponent<Link>().source == null || !link.GetComponent<Link>().source.activeSelf)
             {
                 print("Scrubbing link " + link.name);
                 Destroy(link);
@@ -505,9 +508,9 @@ public class GraphController : MonoBehaviour {
         }
 
         // Debug 
-        for(int i = 0; i<randomNodes; i++)
+        for (int i = 0; i < randomNodes; i++)
         {
-            if(hostsAndProcesses && i % 2 == 0)
+            if (hostsAndProcesses && i % 2 == 0)
             {
                 NewProc();
             }
@@ -557,12 +560,27 @@ public class GraphController : MonoBehaviour {
         ///
         //Debug overload
 
-        GraphNodeType newNode = GenerateNode(createProcess : true);
+        GraphNodeType newNode = GenerateNode(createProcess: true);
         GameObject nodeObj = newNode.getObject();
         nodes.Add(newNode);
         GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
         print("Created new process named " + newNode.name);
+
+    }
+
+    public void ToggleSubNodes(GameObject node)
+    {
+        ///<summary>Finds the provided GameObject in the list of nodes, then sets its GNT subnodes active or inactive based on the current state</summary>
+        ///
+        foreach (GraphNodeType gnt in nodes)
+        {
+            if (gnt.getObject() == node)
+            {
+                gnt.ToggleActiveSubs();
+                break;
+            }
+        }
 
     }
 

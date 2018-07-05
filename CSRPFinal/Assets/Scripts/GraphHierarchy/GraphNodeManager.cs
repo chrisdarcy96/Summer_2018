@@ -70,7 +70,7 @@ public class GraphNodeManager : MonoBehaviour
         {
             foreach(SubGraphNode sgn in masterNodes[key])
             {
-                sgn.hide(true);
+                sgn.SetMesh();
             }
         }
     }

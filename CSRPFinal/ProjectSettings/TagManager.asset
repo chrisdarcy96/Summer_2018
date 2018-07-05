@@ -8,6 +8,7 @@ TagManager:
   - lower
   - link
   - subLink
+  - selected
   layers:
   - Default
   - TransparentFX

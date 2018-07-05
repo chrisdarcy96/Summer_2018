@@ -5,31 +5,30 @@ using UnityEngine;
 public class SubGraphNode : ScriptableObject {
 
     private GameObject thisObject;
-    private bool hidden;
+    private bool showMesh;
     private Vector3 position;
     private string data;
 
-    public static SubGraphNode CreateInstance(GameObject go, GameObject parent, Vector3 pos, string text, bool hide = false)
+    public static SubGraphNode CreateInstance(GameObject go, GameObject parent, Vector3 pos, string text, bool showMesh = false)
     {
         SubGraphNode sgn = CreateInstance<SubGraphNode>();
-        sgn.Init(go, parent, pos, text, hide);
+        sgn.Init(go, parent, pos, text, showMesh);
 
         return sgn;
     }
 
-    private void Init(GameObject go, GameObject parent, Vector3 pos, string text, bool hide)
+    private void Init(GameObject go, GameObject parent, Vector3 pos, string text, bool showMesh)
     {
         thisObject = go;
-        hidden = hide;
+        this.showMesh = showMesh;
         position = pos;
         data = text;
 
         thisObject = Instantiate(thisObject, position, Quaternion.identity);
-        thisObject.gameObject.GetComponent<Renderer>().enabled = !hide;
+        thisObject.gameObject.GetComponent<Renderer>().enabled = showMesh;
         thisObject.transform.parent = parent.transform;
-        thisObject.GetComponent<NodePhysX>().root = parent;
         thisObject.name = parent.name + "_SubGraphNode" + parent.transform.childCount;
-        thisObject.GetComponentInChildren<TextMesh>().text = data;
+        thisObject.GetComponent<TextMesh>().text = data;
     }
 
 
@@ -50,12 +49,12 @@ public class SubGraphNode : ScriptableObject {
         return data;
     }
 
-    public bool getHidden()
+    public bool isMeshShown()
     {
-        return hidden;
+        return showMesh;
     }
 
-    // ************ Accessors *****************
+    // ************ Mutators *****************
     public void setPosition(Vector3 newPos)
     {
         position = newPos;
@@ -67,10 +66,18 @@ public class SubGraphNode : ScriptableObject {
         data = newText;
     }
 
-    public void hide(bool hide = false)
+    public void ToggleMesh()
     {
-        hidden = hide;
-        thisObject.GetComponent<Renderer>().enabled = !hidden;  //hidden = true, logically must be false to hide mesh randerer
+        showMesh = !showMesh;
+        Debug.Log("ToggleMesh called");
+        thisObject.GetComponent<Renderer>().enabled = showMesh; 
 
     }
+
+    public void SetMesh()
+    {
+        showMesh = true;
+        thisObject.GetComponent<Renderer>().enabled = showMesh;
+    }
+
 }
