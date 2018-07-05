@@ -294,7 +294,7 @@ public class GraphController : MonoBehaviour {
     public GameObject GenerateNode(Vector3 createPos)
     {
         // Method for creating a Node on specific coordinates, e.g. in Paintmode when a node is created at the end of a paintedLink
-
+        // Debug overload that uses default information for the node's subnodes.
         GameObject nodeCreated = null;
 
         nodeCreated = InstHost(createPos);
@@ -319,6 +319,36 @@ public class GraphController : MonoBehaviour {
 
         return nodeCreated.gameObject;
     }
+
+    public GameObject GenerateNode(Vector3 createPos, string hostname, DateTime metaTime)
+    {
+        // Method for creating a Node on specific coordinates, e.g. in Paintmode when a node is created at the end of a paintedLink
+        // "Standard" overload for manual input of meta information
+        GameObject nodeCreated = null;
+
+        nodeCreated = InstHost(createPos, metaTime, hostname);
+
+        if (nodeCreated != null)
+        {
+            nodeCreated.name = "node_" + nodeCount;
+            nodeCount++;
+
+            GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
+            debugObjects.Add(debugObj);
+            debugObj.SetActive(false);
+
+            if (verbose)
+                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
+        }
+        else
+        {
+            if (verbose)
+                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
+        }
+
+        return nodeCreated.gameObject;
+    }
+
 
     public GameObject GenerateNode(string name, string id, string type)
     {
@@ -570,7 +600,7 @@ public class GraphController : MonoBehaviour {
     {
         ///<summary>This function creates a new host on random coordinates, as well as a link between it and the root.</summary>
         ///
-
+        // Debug overload
         GameObject newNode = GenerateNode();
 
         nodes.Add(newNode);
@@ -579,10 +609,26 @@ public class GraphController : MonoBehaviour {
         print("Created new node named " + newNode.name);
 
     }
+
+    public void NewHost(Vector3 createPos, string hostname, DateTime metaTime)
+    {
+        ///<summary>This function creates a new host on random coordinates, as well as a link between it and the root.</summary>
+        ///
+        // Debug overload
+        GameObject newNode = GenerateNode();
+
+        nodes.Add(newNode);
+        GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
+
+        print("Created new node named " + newNode.name);
+
+    }
+
     private void NewProc()
     {
         ///<summary>This function creates a new process on random coordinates, as well as a link between it and the root.</summary>
         ///
+        //Debug overload
 
         GameObject newNode = GenerateNode(createProcess : true);
 
