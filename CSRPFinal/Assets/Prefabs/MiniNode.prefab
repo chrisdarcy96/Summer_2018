@@ -19,12 +19,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4408579903436286}
-  - component: {fileID: 33267747314965750}
   - component: {fileID: 135346480458695850}
   - component: {fileID: 23444243131973836}
   - component: {fileID: 114668373555207628}
   - component: {fileID: 114098867305565122}
   - component: {fileID: 54187063761765048}
+  - component: {fileID: 102718853567677500}
   m_Layer: 0
   m_Name: MiniNode
   m_TagString: Untagged
@@ -144,13 +144,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33267747314965750
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1187447812592512}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54187063761765048
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -166,6 +159,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!102 &102718853567677500
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1187447812592512}
+  m_Text: Hello, World!
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!102 &102918561629169174
 TextMesh:
   serializedVersion: 3

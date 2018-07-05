@@ -137,9 +137,9 @@ public class ReadFile : MonoBehaviour {
                 conn.AppendLine(key +": "+ value);
             }
             sb.AppendLine(conn.ToString());
-            // conn.Clear();
-            conn.Length = 0;
-            conn.Capacity = 16;
+            conn.Clear();
+            //conn.Length = 0;
+            //conn.Capacity = 16;
         }
         return sb.ToString();
     }

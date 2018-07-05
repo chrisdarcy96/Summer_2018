@@ -51,16 +51,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b12df1a028df7429a4a7d17dac498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodes: []
+  subNodes: []
+  links: []
   allStatic: 0
   paintMode: 0
   repulseActive: 1
   debugRepulse: 0
-  nodePrefabBullet: {fileID: 0}
-  hostPrefab: {fileID: 0}
-  procPrefab: {fileID: 0}
-  subNodePrefab: {fileID: 0}
-  linkPrefab: {fileID: 0}
+  subNodePrefab: {fileID: 1187447812592512, guid: dd94b0bef980ca6489d6647ea2225dad,
+    type: 2}
+  linkPrefab: {fileID: 114910071216619204, guid: 627c5efdc6be8ea4190eac43c8f9e5e4,
+    type: 2}
   nodeVectorGenRange: 7
   globalGravityBullet: 0.1
   globalGravityPhysX: 10
@@ -69,5 +69,3 @@ MonoBehaviour:
   linkForceStrength: 6
   linkIntendedLinkLength: 0.15
   stratificationScalingFactor: 1
-  randomNodes: 10
-  hostsAndProcesses: 1

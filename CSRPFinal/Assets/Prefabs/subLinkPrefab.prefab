@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 446352}
   - component: {fileID: 114910071216619204}
   m_Layer: 0
-  m_Name: linkPrefab
+  m_Name: subLinkPrefab
   m_TagString: link
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
