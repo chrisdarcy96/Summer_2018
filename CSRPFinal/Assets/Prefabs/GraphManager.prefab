@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1044040817112922}
+  m_IsPrefabParent: 1
+--- !u!1 &1044040817112922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4821886395981802}
+  - component: {fileID: 114909344775851466}
+  m_Layer: 0
+  m_Name: GraphManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4821886395981802
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044040817112922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114909344775851466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044040817112922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ebb54d6abff8a4e9bca388a4399731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes: []
+  allStatic: 0
+  paintMode: 0
+  repulseActive: 1
+  debugRepulse: 0
+  nodePrefabBullet: {fileID: 0}
+  hostPrefab: {fileID: 1338073754193012, guid: b5dc30530ff5e1645ba6ed2c89befaad, type: 2}
+  procPrefab: {fileID: 1985470366745714, guid: 602dbd049bcdcaf4d85de7e5845241b9, type: 2}
+  subNodePrefab: {fileID: 1187447812592512, guid: dd94b0bef980ca6489d6647ea2225dad,
+    type: 2}
+  linkPrefab: {fileID: 114910071216619204, guid: a9ada143e94c5d644b9a271ac3b07483,
+    type: 2}
+  nodeVectorGenRange: 1
+  globalGravityBullet: 0.1
+  globalGravityPhysX: 6
+  repulseForceStrength: 10
+  nodePhysXForceSphereRadius: 0.2
+  linkForceStrength: 6
+  linkIntendedLinkLength: 0.45
+  stratificationScalingFactor: 0.1
+  randomNodes: 2
+  hostsAndProcesses: 1

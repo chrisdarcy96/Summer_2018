@@ -69,7 +69,7 @@ public class ReadFile : MonoBehaviour {
         xPos = Convert.ToSingle(.25 * Math.Cos(angle));  // get X and convert back to float
         yPos = Convert.ToSingle(.25 * Math.Sin(angle));  // for y
     } 
-
+    
     private void ReadJSON()
     {
         // gets the file path that can be used on release
