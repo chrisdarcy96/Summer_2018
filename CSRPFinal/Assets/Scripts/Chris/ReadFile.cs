@@ -58,14 +58,8 @@ public class ReadFile : MonoBehaviour {
             float x;
             float y;
             GetPoints(i, out x, out y);
-            GameObject newNodeType = GraphManager.InstHost(new Vector3(x, y, 2), time, host);
-            
+            GraphManager.NewHost(new Vector3(x, y, 2), host, time);
 
-            // make new nodes children of ParentObject (should be NodeManager game object)
-            newNodeType.transform.parent = Parent_Object.transform;
-            newNodeType.transform.position = new Vector3(x,y,2);
-  
-            node[i++] = newNodeType;
         }
         return node;
     }

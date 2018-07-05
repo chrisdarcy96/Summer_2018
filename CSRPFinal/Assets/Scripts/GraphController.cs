@@ -333,10 +333,6 @@ public class GraphController : MonoBehaviour {
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
 
-            GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
-            debugObjects.Add(debugObj);
-            debugObj.SetActive(false);
-
             if (verbose)
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
         }
@@ -614,13 +610,17 @@ public class GraphController : MonoBehaviour {
     {
         ///<summary>This function creates a new host on random coordinates, as well as a link between it and the root.</summary>
         ///
-        // Debug overload
-        GameObject newNode = GenerateNode();
+        // "Standard" overload
+        GameObject newNode = GenerateNode(createPos, hostname, metaTime);
 
         nodes.Add(newNode);
+
+        // Hierarchy maintenance - make this new node a child of the GraphController
+        newNode.transform.parent = this.transform;
+
         GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
 
-        print("Created new node named " + newNode.name);
+        print("Created new host named " + newNode.name);
 
     }
 
@@ -635,7 +635,7 @@ public class GraphController : MonoBehaviour {
         nodes.Add(newNode);
         GenerateLink("specific_src_tgt", newNode, newNode.GetComponent<NodePhysX>().root);
 
-        print("Created new node named " + newNode.name);
+        print("Created new process named " + newNode.name);
 
     }
 
