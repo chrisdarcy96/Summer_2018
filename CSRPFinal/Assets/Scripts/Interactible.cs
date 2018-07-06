@@ -20,6 +20,7 @@ public class Interactible : MonoBehaviour, IFocusable {
     private GameObject GraphManager;
 
     public GraphController graphController;
+    private GraphNodeType gntME;
 
     private Color oldColor;
     private Shader standard;
@@ -58,7 +59,16 @@ public class Interactible : MonoBehaviour, IFocusable {
         originRender = GetComponent<Renderer>();
         originMat = originRender.material;
         originTag = gameObject.tag;
-        print("Orginal tag for " + name + " is " + originTag);
+        //print("Orginal tag for " + name + " is " + originTag);
+
+        // store the GraphNodeType for this object
+        foreach(GraphNodeType gnt in graphController.Nodes)
+        {
+            if(gnt.getObject().GetInstanceID() == this.GetInstanceID())
+            {
+                Debug.Log("Match Found!!!");
+            }
+        }
     }
 	
 	// Update is called once per frame
@@ -98,8 +108,7 @@ public class Interactible : MonoBehaviour, IFocusable {
         // Set the selection material defined in the SelectionManager
         originRender.material = selectionMaterial;
         originRender.material.shader = selectionGlow;
-        // Toggle the viewing of the subnodes by reaching out to the graphManager
-        Debug.Log("My D00D I am calling ToggleSubNodes");
+
         graphController.ToggleSubNodes(gameObject);
         
     }

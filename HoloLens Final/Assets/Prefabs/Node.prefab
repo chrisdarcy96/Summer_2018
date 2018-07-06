@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba3e5a57ec5a114ba1a318d8137f03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: {fileID: 1781881690646952, guid: b32f489a03bc00647b7c411838799cbe, type: 2}
+  spawn: {fileID: 1187447812592512, guid: 26823c948b378fb49a7805c23fa7294d, type: 2}
   shadeOnView: {fileID: 4800000, guid: a5b15dc825eb2b74487e94826b0eaf83, type: 3}
 --- !u!135 &135128235130190624
 SphereCollider:
