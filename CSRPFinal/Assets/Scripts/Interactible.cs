@@ -78,24 +78,12 @@ public class Interactible : MonoBehaviour, IFocusable {
             stareTimer += Time.deltaTime;
             if(stareTimer >= stareTriggerDuration)
             {
-
-                //SelectionManager.HandleSelection(this.gameObject);
-
                 ToggleSelection();
-
-                // FIXME: Could this create infinite requests if SelectionManager says no
-                if (this.isSelected)
-                {
-                    //// Highlight the selected object
-                    //originRender.material = selectionMaterial;
-                    //originRender.material.shader = selectionGlow;
-                    // ^ Moved to update based on tag status
-
-                    // Clear out the timer and beingLookedAt variables
-                    stareTimer = 0f;
-                    beingLookedAt = false;
-                }
             }
+        }
+        else
+        {
+            stareTimer = 0.0f;
         }
 
 
@@ -125,6 +113,8 @@ public class Interactible : MonoBehaviour, IFocusable {
     }
     public void ToggleSelection()
     {
+        // restart timer, we are counting again...
+        stareTimer = 0f;
         if (isSelected)
         {
             UnSelectSelf();
