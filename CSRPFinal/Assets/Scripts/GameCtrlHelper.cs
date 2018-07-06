@@ -6,7 +6,7 @@ public class GameCtrlHelper : MonoBehaviour
 {
 
     [SerializeField]
-    private bool verbose = true;
+    private bool verbose = false;
 
     //[SerializeField]
     //private BPhysicsWorld bPhysicsWorld;

@@ -5,10 +5,10 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-CSRPFinal.sln: 338FB7EA369F4DA599E6E1C75F17D453
+CSRPFinal.sln: 791882CB7A2DA7592C677BBA5CDFDACA
 project.json: 494B3BA068F2C74E88C1552965C06584
 CSRPFinal\App.cs: 162A938AC0C1ACDA2071C43063C664BC
-CSRPFinal\CSRPFinal.csproj: D6F4FA9F4C28E9038B14596F202C585C
+CSRPFinal\CSRPFinal.csproj: CC0CDECAA6800751C54526E8C7097F43
 CSRPFinal\CSRPFinal.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
 CSRPFinal\Package.appxmanifest: 900EF05CBD92CDB5F1D45FD1BC9AC6C7
 CSRPFinal\project.json: 1D02BC64BAC0D041019673A1C4C51737

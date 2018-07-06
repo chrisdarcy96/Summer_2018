@@ -8,7 +8,7 @@ using UnityEngine;
  
 // Kudos to a stare-select explanation done for the Google Cardboard by this StackOverflow user:
 // https://stackoverflow.com/questions/34384382/use-gaze-input-duration-to-select-ui-text-in-google-cardboard/40842739#40842739
-public class Interactible : MonoBehaviour, IFocusable {
+public class Interactible : MonoBehaviour, IFocusable, IInputClickHandler {
 
     public Shader gazeGlow;
     public Shader selectionGlow;
@@ -125,5 +125,10 @@ public class Interactible : MonoBehaviour, IFocusable {
         {
             SelectSelf();
         }
+    }
+
+    public void OnInputClicked(InputClickedEventData eventData)
+    {
+        ToggleSelection();
     }
 }

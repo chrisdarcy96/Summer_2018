@@ -10,15 +10,6 @@ public class GraphController : MonoBehaviour
     [SerializeField]
     public List<GraphNodeType> nodes = new List<GraphNodeType>();
 
-    [SerializeField]
-    private static bool verbose = false;
-
-    private static GameController gameControl;
-
-    private bool repulseActive = true;
-    [SerializeField]
-    private bool debugRepulse = false;
-
     // Prefabs
     public GameObject hostPrefab;
     public GameObject procPrefab;
@@ -51,10 +42,6 @@ public class GraphController : MonoBehaviour
 
     private static int nodeCount;
     private static int linkCount;
-
-    // Collection of dummy variables for debug
-    private int debugChildNodes = 3;
-    private string host = "example.com";
 
     [SerializeField]
     public int LinkCount { get; set; }
@@ -247,13 +234,7 @@ public class GraphController : MonoBehaviour
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
 
-           // if (verbose)
-                //Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
-        }
-        else
-        {
-          //  if (verbose)
-                //Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
+         
         }
 
         return nodeCreated;
@@ -271,16 +252,8 @@ public class GraphController : MonoBehaviour
         {
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
-
-           // if (verbose)
-              //  Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
         }
-        else
-        {
-           // if (verbose)
-            //    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
-        }
-
+       
         return nodeCreated;
     }
 
@@ -289,10 +262,6 @@ public class GraphController : MonoBehaviour
     {
         if (source == null || target == null)
         {
-            if (verbose)
-            {
-                //Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source or target does not exist. Link not created.");
-            }
             return false;
         }
         else
@@ -322,62 +291,13 @@ public class GraphController : MonoBehaviour
                 }
                 else
                 {
-                    if (verbose)
-                    {
-                       // Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Link between source " + source.name + " and target " + target.name + " already exists. Link not created.");
-                    }
                     return false;
                 }
             }
             else
             {
-                if (verbose)
-                {
-                   // Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source " + source.name + " and target " + target.name + " are the same. Link not created.");
-                }
                 return false;
             }
-        }
-    }
-
-    public void GenerateLink(string mode)
-    {
-        if (mode == "random")
-        {
-            bool success = false;
-            int tryCounter = 0;
-            int tryLimit = nodeCount * 5;
-
-            while (!success && tryCounter < tryLimit)
-            {
-                tryCounter++;
-
-                int sourceRnd = UnityEngine.Random.Range(0, nodeCount);
-                int targetRnd = UnityEngine.Random.Range(0, nodeCount);
-
-                GameObject source = GameObject.Find("node_" + sourceRnd);
-                GameObject target = GameObject.Find("node_" + targetRnd);
-
-                success = CreateLink(source, target);
-            }
-         //   if (!success)
-                //if (verbose)
-                  //  Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Too many unsuccessful tries, limit reached. Bailing out of GenerateLink run with mode=random. TryCounter: " + tryCounter + " Limit: " + nodeCount * 5);
-        }
-    }
-
-    public void GenerateLink(string mode, GameObject source, GameObject target)
-    {
-        // TODO: This overload does not need a string mode variable - one could do away with the parameter entirely.
-        if (mode == "specific_src_tgt")
-        {
-            bool success = false;
-
-            success = CreateLink(source, target);
-
-           // if (!success)
-              //  if (verbose)
-                  //  Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Problem with creating link. Link not created.");
         }
     }
 
@@ -387,15 +307,6 @@ public class GraphController : MonoBehaviour
         {
             // Create a node on random Coordinates
             GenerateNode();
-        }
-    }
-
-    public void GenLinks(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            // Create a link on random Coordinates
-            GenerateLink("random");
         }
     }
 
@@ -433,7 +344,7 @@ public class GraphController : MonoBehaviour
                 nodeObj.SetActive(true);
                 nodeInfo.unHide = false;
                 // re-create the link
-                GenerateLink("specific_src_tgt", nodeObj, nodeInfo.root);
+                CreateLink(nodeObj, nodeInfo.root);
             }
         }
         // After we're all done, remove the links.
@@ -456,7 +367,6 @@ public class GraphController : MonoBehaviour
                 print("Scrubbing link " + link.name);
                 Destroy(link);
                 LinkCount -= 1;
-                //gameCtrlUI.PanelStatusLinkCountTxt.text = "Linkcount: " + LinkCount;
             }
 
         }
@@ -466,10 +376,6 @@ public class GraphController : MonoBehaviour
 
     void Start()
     {
-        gameControl = GetComponent<GameController>();
-        //gameCtrlUI = GetComponent<GameCtrlUI>();
-        //gameCtrlHelper = GetComponent<GameCtrlHelper>();
-
         nodeCount = 0;
         linkCount = 0;
 
@@ -482,7 +388,7 @@ public class GraphController : MonoBehaviour
             {
                 continue;
             }
-            GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
+            CreateLink(nodeObj, nodeObj.GetComponent<NodePhysX>().root);
         }
 
         // Debug 
@@ -508,7 +414,7 @@ public class GraphController : MonoBehaviour
         GameObject nodeObj = newNode.getObject();
 
         nodes.Add(newNode);
-        GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
+        CreateLink(nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
         //print("Created new node named " + newNode.name);
 
@@ -526,7 +432,7 @@ public class GraphController : MonoBehaviour
         // Hierarchy maintenance - make this new node a child of the GraphController
         nodeObj.transform.parent = this.transform;
 
-        GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
+        CreateLink(nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
         //print("Created new host named " + newNode.name);
 
@@ -541,7 +447,7 @@ public class GraphController : MonoBehaviour
         GraphNodeType newNode = GenerateNode(createProcess: true);
         GameObject nodeObj = newNode.getObject();
         nodes.Add(newNode);
-        GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
+        CreateLink(nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
         //print("Created new process named " + newNode.name);
 
