@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using System.Text;
 
 
-public class ReadFile : MonoBehaviour {
+public class SplunkReader : MonoBehaviour {
 
     public string path = "httplistener.json";
 

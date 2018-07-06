@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: e98a522f9a52bd141b7424c4a7f5dbe9
+timeCreated: 1530915092
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Node_Prefab: {instanceID: 0}
+  - Parent_Object: {instanceID: 0}
+  - MiniNodePrefab: {instanceID: 0}
+  - GraphManager: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
