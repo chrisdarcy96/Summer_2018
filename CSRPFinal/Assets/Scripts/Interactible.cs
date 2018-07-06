@@ -30,10 +30,11 @@ public class Interactible : MonoBehaviour, IFocusable {
 
     public void OnFocusEnter()
     {
+        beingLookedAt = true;
         if (!isSelected)
         {
             GetComponent<Renderer>().material.shader = gazeGlow;
-            beingLookedAt = true;
+            
         }
 
 
@@ -43,10 +44,11 @@ public class Interactible : MonoBehaviour, IFocusable {
 
     public void OnFocusExit()
     {
+        beingLookedAt = false;
         if (!isSelected)
         {
             GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
-            beingLookedAt = false;
+            
 
         }
     }
@@ -103,7 +105,7 @@ public class Interactible : MonoBehaviour, IFocusable {
 
     public void UnSelectSelf()
     {
-        print("UnSelectSelf() called");
+        //print("UnSelectSelf() called");
         isSelected = false;
         originRender.material = originMat;
         originRender.material.shader = standard;

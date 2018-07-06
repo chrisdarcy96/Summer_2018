@@ -39,7 +39,7 @@ public class Link : MonoBehaviour
                 // TODO: Figure out why there's some NaN forces right at the beginning of the simulation.
                 if(float.IsNaN(sourceRbImpulse.x) && float.IsNaN(sourceRbImpulse.y) && float.IsNaN(sourceRbImpulse.z))
                 {
-                    Debug.LogWarning("NaN force suppressed");
+                    //Debug.LogWarning("NaN force suppressed");
                     return;
                 }
                 //Debug.Log("(Link.FixedUpdate) targetRb: " + targetRb + ". forceDirection.normalized: " + forceDirection.normalized + ". distSqrNorm: " + distSqrNorm + ". Applying Impulse: " + targetRbImpulse);

@@ -69,7 +69,7 @@ public class SubGraphNode : ScriptableObject {
     public void ToggleMesh()
     {
         showMesh = !showMesh;
-        Debug.Log("ToggleMesh called "+ showMesh);
+        //Debug.Log("ToggleMesh called "+ showMesh);
         thisObject.GetComponent<Renderer>().enabled = showMesh; 
 
     }
