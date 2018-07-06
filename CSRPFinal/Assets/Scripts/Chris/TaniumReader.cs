@@ -82,36 +82,22 @@ public class TaniumReader : MonoBehaviour {
         {
             //string json_item = sr.ReadToEnd();  // reads entire JSON file into String (there's no way this will ever break...)
             string json_item = sr.ReadLine();   // read single line into string
+
             while(json_item != null && json_item != "")
             {
-                Dictionary<string, string> fields = new Dictionary<string, string>();
-                // found https://stackoverflow.com/questions/13297563/read-and-parse-a-json-file-in-c-sharp
-                // probably look into this more in depth
-                JObject line = JsonConvert.DeserializeObject<JObject>(json_item);
-                // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JObject.htm
-                
+                JArray arr = JArray.Parse(json_item);
 
-                JProperty result = line.Property("result"); // get "result" property
-                // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JProperty.htm
-
-                JToken actual = result.First;   // returns first JToken in JProperty (there should only be one in this case)
-                                                // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JToken.htm
-
-
-                // now add each token in the JToken to Dictionary
-                IEnumerable<JToken> childs = actual.Children();
-                foreach(JToken child in childs)
+                //print(arr.ToString());
+                foreach(JObject obj in arr)
                 {
-                    string[] split = child.ToString().Split(new char[] { ':' }, 2);
-
-                    split[0] = split[0].Trim().Trim('"');   // kill leading whitespace and " char
-                    split[1] = split[1].Trim().Trim('"');
-
-                    fields.Add(split[0], split[1]);
+                    Dictionary<string, string> fields = new Dictionary<string, string>();
+                    foreach (KeyValuePair<string, JToken> pair in obj)
+                    {
+                        fields.Add(pair.Key, pair.Value.ToString());
+                    }
+                    
+                    GetConnections.Add(fields);
                 }
-
-                // Add this result to list
-                GetConnections.Add(fields);
 
                 json_item = sr.ReadLine();
             }
@@ -129,7 +115,7 @@ public class TaniumReader : MonoBehaviour {
         foreach(Dictionary<string, string> connection in list)
         {
             StringBuilder conn = new StringBuilder();
-            conn.Append("*** Connection: ");
+            conn.Append("*** Process: ");
             conn.Append(conn_num++);
             conn.AppendLine();
             
@@ -142,8 +128,6 @@ public class TaniumReader : MonoBehaviour {
             }
             sb.AppendLine(conn.ToString());
             conn.Clear();
-            //conn.Length = 0;
-            //conn.Capacity = 16;
         }
         return sb.ToString();
     }
