@@ -10,7 +10,7 @@ public class GraphController : MonoBehaviour
     public List<GraphNodeType> nodes = new List<GraphNodeType>();
 
     [SerializeField]
-    private static bool verbose = true;
+    private static bool verbose = false;
 
     private static GameController gameControl;
 
@@ -58,41 +58,9 @@ public class GraphController : MonoBehaviour
     private string host = "example.com";
 
     [SerializeField]
-    public int LinkCount
-    {
-        get
-        {
-            return linkCount;
-        }
-        set
-        {
-            linkCount = value;
-        }
-    }
-
-    public bool RepulseActive
-    {
-        get
-        {
-            return repulseActive;
-        }
-        set
-        {
-            repulseActive = value;
-        }
-    }
-
-    public bool AllStatic
-    {
-        get
-        {
-            return allStatic;
-        }
-        set
-        {
-            allStatic = value;
-        }
-    }
+    public int LinkCount { get; set; }
+    public bool RepulseActive { get; set; }
+    public bool AllStatic { get; set; }
 
     public float GlobalGravityPhysX
     {
@@ -166,6 +134,7 @@ public class GraphController : MonoBehaviour
         }
     }
 
+    public List<GraphNodeType> Nodes { get; set; }
 
 
     public void ResetWorld()
@@ -532,7 +501,7 @@ public class GraphController : MonoBehaviour
         nodes.Add(newNode);
         GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
-        print("Created new node named " + newNode.name);
+        //print("Created new node named " + newNode.name);
 
     }
 
@@ -550,7 +519,7 @@ public class GraphController : MonoBehaviour
 
         GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
-        print("Created new host named " + newNode.name);
+        //print("Created new host named " + newNode.name);
 
     }
 
@@ -565,7 +534,7 @@ public class GraphController : MonoBehaviour
         nodes.Add(newNode);
         GenerateLink("specific_src_tgt", nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
-        print("Created new process named " + newNode.name);
+        //print("Created new process named " + newNode.name);
 
     }
 
