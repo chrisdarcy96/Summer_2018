@@ -152,6 +152,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114909344775851466, guid: 4b09074b9ff9ab644afee4d93e8f340d,
+        type: 2}
+      propertyPath: subNodePrefab
+      value: 
+      objectReference: {fileID: 1781881690646952, guid: 6b7af31307b9d9d419e70872136b635b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b09074b9ff9ab644afee4d93e8f340d, type: 2}
   m_IsPrefabParent: 0
@@ -186,9 +192,9 @@ MonoBehaviour:
   Node_Prefab: {fileID: 1338073754193012, guid: b5dc30530ff5e1645ba6ed2c89befaad,
     type: 2}
   Parent_Object: {fileID: 826282349}
-  MiniNodePrefab: {fileID: 1187447812592512, guid: dd94b0bef980ca6489d6647ea2225dad,
+  MiniNodePrefab: {fileID: 1781881690646952, guid: 6b7af31307b9d9d419e70872136b635b,
     type: 2}
-  GraphManager: {fileID: 0}
+  GraphManager: {fileID: 983989755}
 --- !u!4 &511139763
 Transform:
   m_ObjectHideFlags: 0
@@ -255,6 +261,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1917881429158956, guid: d7a1da9da6d15ce4498f0ed604941c84,
     type: 2}
   m_PrefabInternal: {fileID: 2052208288}
+--- !u!114 &983989755 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114909344775851466, guid: 4b09074b9ff9ab644afee4d93e8f340d,
+    type: 2}
+  m_PrefabInternal: {fileID: 474199690}
+  m_Script: {fileID: 11500000, guid: 94ebb54d6abff8a4e9bca388a4399731, type: 3}
 --- !u!1 &1725281071
 GameObject:
   m_ObjectHideFlags: 0

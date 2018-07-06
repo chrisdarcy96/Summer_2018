@@ -258,14 +258,14 @@ public class SubGraphController : MonoBehaviour
             subNodeCount++;
 
 
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
+           // if (verbose)
+              //  Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
 
         }
         else
         {
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
+            //if (verbose)
+               // Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
         }
 
         return nodeCreated.gameObject;

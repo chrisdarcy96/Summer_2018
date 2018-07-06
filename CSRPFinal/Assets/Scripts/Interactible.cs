@@ -64,9 +64,9 @@ public class Interactible : MonoBehaviour, IFocusable {
         // store the GraphNodeType for this object
         foreach(GraphNodeType gnt in graphController.Nodes)
         {
-            if(gnt.getObject().GetInstanceID() == this.GetInstanceID())
+            if (GameObject.ReferenceEquals(this.gameObject, gnt.getObject()))
             {
-                Debug.Log("Match Found!!!");
+                gntME = gnt;
             }
         }
     }
@@ -121,7 +121,7 @@ public class Interactible : MonoBehaviour, IFocusable {
         originRender.material.shader = standard;
         gameObject.tag = originTag;
         // Toggle the viewing of the subnodes by reaching out to the graphManager
-        graphController.ToggleSubNodes(gameObject);
+        gntME.ToggleActiveSubs();
     }
     public void ToggleSelection()
     {

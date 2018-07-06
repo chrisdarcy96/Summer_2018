@@ -25,7 +25,7 @@ public class SubGraphNode : ScriptableObject {
         data = text;
 
         thisObject = Instantiate(thisObject, position, Quaternion.identity);
-        thisObject.gameObject.GetComponent<Renderer>().enabled = showMesh;
+        thisObject.gameObject.GetComponent<Renderer>().enabled = false;
         thisObject.transform.parent = parent.transform;
         thisObject.name = parent.name + "_SubGraphNode" + parent.transform.childCount;
         thisObject.GetComponent<TextMesh>().text = data;
@@ -69,7 +69,7 @@ public class SubGraphNode : ScriptableObject {
     public void ToggleMesh()
     {
         showMesh = !showMesh;
-        Debug.Log("ToggleMesh called");
+        Debug.Log("ToggleMesh called "+ showMesh);
         thisObject.GetComponent<Renderer>().enabled = showMesh; 
 
     }

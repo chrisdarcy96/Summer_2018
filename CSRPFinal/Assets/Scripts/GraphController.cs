@@ -7,6 +7,7 @@ using System;
 public class GraphController : MonoBehaviour
 {
     // Storage unit for the nodes we have
+    [SerializeField]
     public List<GraphNodeType> nodes = new List<GraphNodeType>();
 
     [SerializeField]
@@ -19,7 +20,6 @@ public class GraphController : MonoBehaviour
     private bool debugRepulse = false;
 
     // Prefabs
-    public GameObject nodePrefabBullet;
     public GameObject hostPrefab;
     public GameObject procPrefab;
     public GameObject subNodePrefab;
@@ -28,7 +28,6 @@ public class GraphController : MonoBehaviour
 
     [SerializeField]
     private float nodeVectorGenRange = 7F;
-
     [SerializeField]
     private float globalGravityBullet = 0.1f;
     [SerializeField]
@@ -134,7 +133,17 @@ public class GraphController : MonoBehaviour
         }
     }
 
-    public List<GraphNodeType> Nodes { get; set; }
+    public List<GraphNodeType> Nodes
+    {
+        get
+        {
+            return nodes;
+        }
+        set
+        {
+            nodes = value;
+        }
+    }
 
 
     public void ResetWorld()
@@ -212,14 +221,14 @@ public class GraphController : MonoBehaviour
             nodeCount++;
 
 
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
+           // if (verbose)
+               // Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
 
         }
         else
         {
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
+           // if (verbose)
+               // Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
         }
 
         return nodeCreated;
@@ -238,13 +247,13 @@ public class GraphController : MonoBehaviour
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
 
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
+           // if (verbose)
+                //Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
         }
         else
         {
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
+          //  if (verbose)
+                //Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
         }
 
         return nodeCreated;
@@ -263,13 +272,13 @@ public class GraphController : MonoBehaviour
             nodeCreated.name = "node_" + nodeCount;
             nodeCount++;
 
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
+           // if (verbose)
+              //  Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
         }
         else
         {
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
+           // if (verbose)
+            //    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
         }
 
         return nodeCreated;
@@ -282,7 +291,7 @@ public class GraphController : MonoBehaviour
         {
             if (verbose)
             {
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source or target does not exist. Link not created.");
+                //Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source or target does not exist. Link not created.");
             }
             return false;
         }
@@ -315,7 +324,7 @@ public class GraphController : MonoBehaviour
                 {
                     if (verbose)
                     {
-                        Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Link between source " + source.name + " and target " + target.name + " already exists. Link not created.");
+                       // Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Link between source " + source.name + " and target " + target.name + " already exists. Link not created.");
                     }
                     return false;
                 }
@@ -324,7 +333,7 @@ public class GraphController : MonoBehaviour
             {
                 if (verbose)
                 {
-                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source " + source.name + " and target " + target.name + " are the same. Link not created.");
+                   // Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source " + source.name + " and target " + target.name + " are the same. Link not created.");
                 }
                 return false;
             }
@@ -351,9 +360,9 @@ public class GraphController : MonoBehaviour
 
                 success = CreateLink(source, target);
             }
-            if (!success)
-                if (verbose)
-                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Too many unsuccessful tries, limit reached. Bailing out of GenerateLink run with mode=random. TryCounter: " + tryCounter + " Limit: " + nodeCount * 5);
+         //   if (!success)
+                //if (verbose)
+                  //  Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Too many unsuccessful tries, limit reached. Bailing out of GenerateLink run with mode=random. TryCounter: " + tryCounter + " Limit: " + nodeCount * 5);
         }
     }
 
@@ -366,9 +375,9 @@ public class GraphController : MonoBehaviour
 
             success = CreateLink(source, target);
 
-            if (!success)
-                if (verbose)
-                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Problem with creating link. Link not created.");
+           // if (!success)
+              //  if (verbose)
+                  //  Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Problem with creating link. Link not created.");
         }
     }
 
