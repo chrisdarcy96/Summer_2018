@@ -10,12 +10,16 @@ public class GraphNodeType : ScriptableObject {
     private string hostIP;
     private int fields;
     private SubGraphNode[] subNodes;
+
+    // metadata for tanium objects
+    private int process_id;
+    private string process_name;
+    private string username;
     
     public static GraphNodeType CreateInstance(GameObject go, DateTime time, string host, Vector3 pos, GameObject miniGo, bool act = false, int num = 3)
     {
         GraphNodeType inst = CreateInstance<GraphNodeType>();
         inst.Init(go, time, host, pos, act, num);
-        inst.InitSubNodes(new string[] {time.ToString(), host, pos.ToString() }, miniGo);
         return inst;
     }
 
@@ -68,6 +72,22 @@ public class GraphNodeType : ScriptableObject {
     public SubGraphNode[] getSubGraphNodes()
     {
         return subNodes;
+    }
+
+    // following methods for tanium data
+    public int getProcessId()
+    {
+        return process_id;
+    }
+
+    public string getProcessName()
+    {
+        return process_name;
+    }
+
+    public string getProcessUser()
+    {
+        return username;
     }
 
     // ************ Mutators *****************
@@ -160,6 +180,23 @@ public class GraphNodeType : ScriptableObject {
             //sgn.getObject().SetActive(true);
             sgn.ToggleMesh();
         }
+    }
+
+    // following methods for tanium processes
+
+    public void setProcessId(int new_id)
+    {
+        process_id = new_id;
+    }
+
+    public void setProcessName(string new_name)
+    {
+        process_name = new_name;
+    }
+
+    public void setProcessUser(string new_user)
+    {
+        username = new_user;
     }
 
 }

@@ -11,9 +11,6 @@ public class SplunkReader : MonoBehaviour {
 
     public string path = "httplistener.json";
 
-    public GameObject Node_Prefab;
-    public GameObject Parent_Object;
-    public GameObject MiniNodePrefab;
     public GraphController GraphManager; 
     private static GameObject[] nodes;
 
@@ -58,7 +55,7 @@ public class SplunkReader : MonoBehaviour {
             float x;
             float y;
             GetPoints(i, out x, out y);
-            GraphManager.NewHost(new Vector3(x, y, 2), host, time);
+            GraphManager.NewConn(new Vector3(x, y, 2), host, time);
 
         }
         return node;

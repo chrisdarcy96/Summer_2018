@@ -11,9 +11,6 @@ public class TaniumReader : MonoBehaviour {
 
     public string path = "taniumreader.json";
 
-    public GameObject Node_Prefab;
-    public GameObject Parent_Object;
-    public GameObject MiniNodePrefab;
     public GraphController GraphManager; 
     private static GameObject[] nodes;
 
@@ -40,35 +37,35 @@ public class TaniumReader : MonoBehaviour {
         print(PrettyPrint(GetConnections));
 
         // create game Objects
-        nodes = CreateNodes();
+        CreateNodes();
 	}
 
 
 	
-    private GameObject[] CreateNodes()
+    private void CreateNodes()
     {
-        GameObject[] node = new GameObject[GetConnections.Count];
         int i = 0;
         foreach(Dictionary<string, string> pair in GetConnections)
         {   
             // get neat splunk data
             DateTime time;
-            string host;
-            GetUsefulInfo(pair, out time, out host);
+            string process_name;
+            string user;
+            int pid;
+            GetUsefulInfo(pair, out process_name, out user, out pid);
             float x;
             float y;
-            GetPoints(i, out x, out y);
-            GraphManager.NewHost(new Vector3(x, y, 2), host, time);
+            GetPoints(i++, out x, out y);
+            GraphManager.NewProc(new Vector3(x,y,2), user, process_name, pid);
 
         }
-        return node;
     }
 
     private void GetPoints(int i, out float xPos, out float yPos)
     {
         // split 360 degress (or 2pi) into equal fractions
         double theta = (Math.PI) / (GetConnections.Count-1);
-        double angle = theta * i;   // angle moves this around the circle
+        double angle = (theta * i)+Math.PI;   // angle moves this around the circle
 
         xPos = Convert.ToSingle(.25 * Math.Cos(angle));  // get X and convert back to float
         yPos = Convert.ToSingle(.25 * Math.Sin(angle));  // for y
@@ -132,13 +129,16 @@ public class TaniumReader : MonoBehaviour {
         return sb.ToString();
     }
 
-    private void GetUsefulInfo(Dictionary<string, string> pair, out DateTime Splunktime, out string host)
+    private void GetUsefulInfo(Dictionary<string, string> pair, out string process_name, out string host, out int pid)
     {
-        string time;
-        pair.TryGetValue("_time", out time);
-        Splunktime = Convert.ToDateTime(time);
+        string unformatted_time;
+        pair.TryGetValue("create_time", out unformatted_time);
+        string unformatted_pid;
+        pair.TryGetValue("process_id", out unformatted_pid);
 
-        pair.TryGetValue("host", out host);
+        process_name = pair["process_name"];
+        host = pair["username"];
+        pid = Int32.Parse(unformatted_pid);
     }
 
 }

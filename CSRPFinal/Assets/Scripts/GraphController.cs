@@ -26,7 +26,7 @@ public class GraphController : MonoBehaviour
     [SerializeField]
     private float repulseForceStrength = 0.1f;
     [SerializeField]
-    private float nodePhysXForceSphereRadius = 50F;                         // only works in PhysX; in BulletUnity CollisionObjects are used, which would need removing and readding to the world. Todo: Could implement it somewhen.
+    private float nodePhysXForceSphereRadius = 50F; // only works in PhysX; in BulletUnity CollisionObjects are used, which would need removing and readding to the world. Todo: Could implement it somewhen.
     [SerializeField]
     private float linkForceStrength = 6F;
     [SerializeField]
@@ -171,86 +171,33 @@ public class GraphController : MonoBehaviour
 
     }
 
-
-    private GraphNodeType InstHost(Vector3 createPos)
+    private GraphNodeType GenerateProc(Vector3 createPos, string user, string process_name, int pid)
     {
-        // Overload for debugging purposes
-        return GraphNodeType.CreateInstance(hostPrefab, DateTime.Now, "example.com", createPos, subNodePrefab);
+        GraphNodeType newProc = InstProc(createPos, DateTime.Today, user);
+        newProc.setProcessName(process_name);
+        newProc.setProcessId(pid);
+
+        newProc.InitSubNodes(new string[] { user, process_name, pid.ToString()}, subNodePrefab);
+        newProc.getObject().name = "process_" + pid.ToString();
+        nodeCount++;
+        return newProc;
     }
 
-    private GraphNodeType InstProc(Vector3 createPos)
-    {
-        // debug overload
-        return GraphNodeType.CreateInstance(procPrefab, DateTime.Now, "example.com", createPos, subNodePrefab);
-    }
 
-
-    public GraphNodeType GenerateNode(bool createProcess = false)
-    {
-        // Method for creating a Node on random coordinates, e.g. when spawning multiple new nodes
-
-        GraphNodeType nodeCreated = null;
-
-        Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
-
-        if (createProcess)
-        {
-            nodeCreated = InstProc(createPos);
-        }
-        else
-        {
-            nodeCreated = InstHost(createPos);
-        }
-
-        if (nodeCreated != null)
-        {
-            nodeCreated.name = "node_" + nodeCount;
-            nodeCount++;
-
-
-           // if (verbose)
-               // Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.name);
-
-        }
-        else
-        {
-           // if (verbose)
-               // Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
-        }
-
-        return nodeCreated;
-    }
-
-    public GraphNodeType GenerateNode(Vector3 createPos)
-    {
-        // Method for creating a Node on specific coordinates, e.g. in Paintmode when a node is created at the end of a paintedLink
-        // Debug overload that uses default information for the node's subnodes.
-        GraphNodeType nodeCreated = null;
-
-        nodeCreated = InstHost(createPos);
-
-        if (nodeCreated != null)
-        {
-            nodeCreated.name = "node_" + nodeCount;
-            nodeCount++;
-
-         
-        }
-
-        return nodeCreated;
-    }
-
-    public GraphNodeType GenerateNode(Vector3 createPos, string hostname, DateTime metaTime)
+    public GraphNodeType GenerateConn(Vector3 createPos, string hostname, DateTime metaTime)
     {
         // Method for creating a Node on specific coordinates, e.g. in Paintmode when a node is created at the end of a paintedLink
         // "Standard" overload for manual input of meta information
         GraphNodeType nodeCreated = null;
 
         nodeCreated = InstHost(createPos, metaTime, hostname);
+        // @TODO make this more then just example flavor
+
+        nodeCreated.InitSubNodes(new string[] { nodeCreated.getTime().ToString(), nodeCreated.getHost(), "example"}, subNodePrefab);
 
         if (nodeCreated != null)
         {
-            nodeCreated.name = "node_" + nodeCount;
+            nodeCreated.getObject().name = "host" + hostname;
             nodeCount++;
         }
        
@@ -283,6 +230,7 @@ public class GraphController : MonoBehaviour
                 {
                     Link linkObject = Instantiate(linkPrefab, new Vector3(0, 0, 0), Quaternion.identity) as Link;
                     linkObject.name = "link_" + linkCount;
+                    linkObject.transform.parent = this.transform;
                     linkObject.source = source;
                     linkObject.target = target;
                     linkCount++;
@@ -301,14 +249,7 @@ public class GraphController : MonoBehaviour
         }
     }
 
-    public void GenNodes(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            // Create a node on random Coordinates
-            GenerateNode();
-        }
-    }
+
 
     public void UpdateLinks()
     {
@@ -391,41 +332,27 @@ public class GraphController : MonoBehaviour
             CreateLink(nodeObj, nodeObj.GetComponent<NodePhysX>().root);
         }
 
-        // Debug 
-        for (int i = 0; i < randomNodes; i++)
-        {
-            if (hostsAndProcesses && i % 2 == 0)
-            {
-                NewProc();
-            }
-            else
-            {
-                NewHost();
-            }
-        }
+        //// Debug 
+        //for (int i = 0; i < randomNodes; i++)
+        //{
+        //    if (hostsAndProcesses && i % 2 == 0)
+        //    {
+        //        NewProc();
+        //    }
+        //    else
+        //    {
+        //        NewHost();
+        //    }
+        //}
     }
 
-    private void NewHost()
-    {
-        ///<summary>This function creates a new host on random coordinates, as well as a link between it and the root.</summary>
-        ///
-        // Debug overload
-        GraphNodeType newNode = GenerateNode();
-        GameObject nodeObj = newNode.getObject();
 
-        nodes.Add(newNode);
-        CreateLink(nodeObj, nodeObj.GetComponent<NodePhysX>().root);
-
-        //print("Created new node named " + newNode.name);
-
-    }
-
-    public void NewHost(Vector3 createPos, string hostname, DateTime metaTime)
+    public void NewConn(Vector3 createPos, string hostname, DateTime metaTime)
     {
         ///<summary>This function creates a new host on set coordinates, as well as a link between it and the root.</summary>
         ///
         // "Standard" overload
-        GraphNodeType newNode = GenerateNode(createPos, hostname, metaTime);
+        GraphNodeType newNode = GenerateConn(createPos, hostname, metaTime);
         GameObject nodeObj = newNode.getObject();
         nodes.Add(newNode);
 
@@ -438,20 +365,23 @@ public class GraphController : MonoBehaviour
 
     }
 
-    private void NewProc()
+    public void NewProc(Vector3 createPos, string user, string process_name, int pid)
     {
-        ///<summary>This function creates a new process on random coordinates, as well as a link between it and the root.</summary>
+        ///<summary>This function creates a new host on set coordinates, as well as a link between it and the root.</summary>
         ///
-        //Debug overload
+        //
 
-        GraphNodeType newNode = GenerateNode(createProcess: true);
+        GraphNodeType newNode = GenerateProc(createPos, user, process_name, pid);
         GameObject nodeObj = newNode.getObject();
         nodes.Add(newNode);
+        nodeObj.transform.parent = this.transform;
+
         CreateLink(nodeObj, nodeObj.GetComponent<NodePhysX>().root);
 
         //print("Created new process named " + newNode.name);
 
     }
+
 
     public void ToggleSubNodes(GameObject node)
     {
