@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Link : MonoBehaviour
 {
-
     public string id;
     public GameObject source;
     public GameObject target;
@@ -66,7 +65,6 @@ public class Link : MonoBehaviour
         //draw line
         lineRenderer.material = new Material(Shader.Find("Self-Illumin/Diffuse"));
         lineRenderer.material.SetColor("_Color", c);
-        //lineRenderer.SetWidth(0.3f, 0.3f);
         lineRenderer.startWidth = startWidth;
         lineRenderer.endWidth = endWidth;
         lineRenderer.positionCount = 2;

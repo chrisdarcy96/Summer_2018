@@ -189,7 +189,12 @@ Prefab:
     - target: {fileID: 114909344775851466, guid: 4b09074b9ff9ab644afee4d93e8f340d,
         type: 2}
       propertyPath: randomNodes
-      value: 25
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114909344775851466, guid: 4b09074b9ff9ab644afee4d93e8f340d,
+        type: 2}
+      propertyPath: hostsAndProcesses
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b09074b9ff9ab644afee4d93e8f340d, type: 2}
