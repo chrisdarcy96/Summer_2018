@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4363375353789128}
-  - component: {fileID: 114223672233122628}
   m_Layer: 0
   m_Name: SubGraphManager
   m_TagString: Untagged
@@ -40,32 +39,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114223672233122628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1487245908690650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b12df1a028df7429a4a7d17dac498e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  subNodes: []
-  links: []
-  allStatic: 0
-  paintMode: 0
-  repulseActive: 1
-  debugRepulse: 0
-  subNodePrefab: {fileID: 1187447812592512, guid: dd94b0bef980ca6489d6647ea2225dad,
-    type: 2}
-  linkPrefab: {fileID: 114910071216619204, guid: 627c5efdc6be8ea4190eac43c8f9e5e4,
-    type: 2}
-  nodeVectorGenRange: 7
-  globalGravityBullet: 0.1
-  globalGravityPhysX: 10
-  repulseForceStrength: 0.1
-  nodePhysXForceSphereRadius: 50
-  linkForceStrength: 6
-  linkIntendedLinkLength: 0.15
-  stratificationScalingFactor: 1

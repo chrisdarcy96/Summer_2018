@@ -6,7 +6,7 @@ public class GameCtrlHelper : MonoBehaviour
 {
 
     [SerializeField]
-    private bool verbose = true;
+    private bool verbose = false;
 
     //[SerializeField]
     //private BPhysicsWorld bPhysicsWorld;
@@ -42,8 +42,8 @@ public class GameCtrlHelper : MonoBehaviour
         {
             GameObject hitGo = hitInfo.collider.gameObject;
 
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": GetMouseButtonDown: Ray did hit. On Object: " + hitGo.name);
+            //if (verbose)
+              //  Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": GetMouseButtonDown: Ray did hit. On Object: " + hitGo.name);
 
             return hitGo;
         }

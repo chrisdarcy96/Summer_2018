@@ -8,7 +8,7 @@ using UnityEngine;
  
 // Kudos to a stare-select explanation done for the Google Cardboard by this StackOverflow user:
 // https://stackoverflow.com/questions/34384382/use-gaze-input-duration-to-select-ui-text-in-google-cardboard/40842739#40842739
-public class Interactible : MonoBehaviour, IFocusable {
+public class Interactible : MonoBehaviour, IFocusable, IInputClickHandler {
 
     public Shader gazeGlow;
     public Shader selectionGlow;
@@ -30,10 +30,11 @@ public class Interactible : MonoBehaviour, IFocusable {
 
     public void OnFocusEnter()
     {
+        beingLookedAt = true;
         if (!isSelected)
         {
             GetComponent<Renderer>().material.shader = gazeGlow;
-            beingLookedAt = true;
+            
         }
 
 
@@ -43,10 +44,11 @@ public class Interactible : MonoBehaviour, IFocusable {
 
     public void OnFocusExit()
     {
+        beingLookedAt = false;
         if (!isSelected)
         {
             GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
-            beingLookedAt = false;
+            
 
         }
     }
@@ -64,9 +66,9 @@ public class Interactible : MonoBehaviour, IFocusable {
         // store the GraphNodeType for this object
         foreach(GraphNodeType gnt in graphController.Nodes)
         {
-            if(gnt.getObject().GetInstanceID() == this.GetInstanceID())
+            if (GameObject.ReferenceEquals(this.gameObject, gnt.getObject()))
             {
-                Debug.Log("Match Found!!!");
+                gntME = gnt;
             }
         }
     }
@@ -78,24 +80,12 @@ public class Interactible : MonoBehaviour, IFocusable {
             stareTimer += Time.deltaTime;
             if(stareTimer >= stareTriggerDuration)
             {
-
-                //SelectionManager.HandleSelection(this.gameObject);
-
                 ToggleSelection();
-
-                // FIXME: Could this create infinite requests if SelectionManager says no
-                if (this.isSelected)
-                {
-                    //// Highlight the selected object
-                    //originRender.material = selectionMaterial;
-                    //originRender.material.shader = selectionGlow;
-                    // ^ Moved to update based on tag status
-
-                    // Clear out the timer and beingLookedAt variables
-                    stareTimer = 0f;
-                    beingLookedAt = false;
-                }
             }
+        }
+        else
+        {
+            stareTimer = 0.0f;
         }
 
 
@@ -115,16 +105,18 @@ public class Interactible : MonoBehaviour, IFocusable {
 
     public void UnSelectSelf()
     {
-        print("UnSelectSelf() called");
+        //print("UnSelectSelf() called");
         isSelected = false;
         originRender.material = originMat;
         originRender.material.shader = standard;
         gameObject.tag = originTag;
         // Toggle the viewing of the subnodes by reaching out to the graphManager
-        graphController.ToggleSubNodes(gameObject);
+        gntME.ToggleActiveSubs();
     }
     public void ToggleSelection()
     {
+        // restart timer, we are counting again...
+        stareTimer = 0f;
         if (isSelected)
         {
             UnSelectSelf();
@@ -133,5 +125,10 @@ public class Interactible : MonoBehaviour, IFocusable {
         {
             SelectSelf();
         }
+    }
+
+    public void OnInputClicked(InputClickedEventData eventData)
+    {
+        ToggleSelection();
     }
 }

@@ -54,7 +54,7 @@ public class NodePhysX : Node {
             // STARTHERE: Adjust the forces to help the selected node "rotate" to the desired facing
             Vector3 focusImpulse = -dirToCamera * thisRigidbody.mass * graphControl.GlobalGravityPhysX * graphControl.stratificationScalingFactor;
             thisRigidbody.AddForce(focusImpulse);
-            print("Added force to selection");
+            //print("Added force to selection");
         }
     }
 

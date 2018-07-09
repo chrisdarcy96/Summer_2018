@@ -10,12 +10,16 @@ public class GraphNodeType : ScriptableObject {
     private string hostIP;
     private int fields;
     private SubGraphNode[] subNodes;
+
+    // metadata for tanium objects
+    private int process_id;
+    private string process_name;
+    private string username;
     
     public static GraphNodeType CreateInstance(GameObject go, DateTime time, string host, Vector3 pos, GameObject miniGo, bool act = false, int num = 3)
     {
         GraphNodeType inst = CreateInstance<GraphNodeType>();
         inst.Init(go, time, host, pos, act, num);
-        inst.InitSubNodes(new string[] {time.ToString(), host, pos.ToString() }, miniGo);
         return inst;
     }
 
@@ -68,6 +72,22 @@ public class GraphNodeType : ScriptableObject {
     public SubGraphNode[] getSubGraphNodes()
     {
         return subNodes;
+    }
+
+    // following methods for tanium data
+    public int getProcessId()
+    {
+        return process_id;
+    }
+
+    public string getProcessName()
+    {
+        return process_name;
+    }
+
+    public string getProcessUser()
+    {
+        return username;
     }
 
     // ************ Mutators *****************
@@ -125,7 +145,7 @@ public class GraphNodeType : ScriptableObject {
         positionSubNodes();
     }
 
-    public void positionSubNodes(float r = 0.1f)
+    public void positionSubNodes(float r = 0.05f)
     {
         double theta = (Math.PI / 2) / (fields - 1);
         double startPos = 0;
@@ -137,7 +157,7 @@ public class GraphNodeType : ScriptableObject {
                 startPos = Math.PI / 2;   // shift over to left side of nodes
                 subNodes[i].getObject().GetComponent<TextMesh>().anchor = TextAnchor.UpperRight;   
             }
-            else if(Mathf.Round(this.position.x * 100f)/100f == 0)
+            else if(Mathf.Round(this.position.x * 1000f)/1000f == 0)
             {
                 startPos = Math.PI / 4;
                 subNodes[i].getObject().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
@@ -153,13 +173,27 @@ public class GraphNodeType : ScriptableObject {
 
     public void ToggleActiveSubs()
     {
-        Debug.Log("My D00000D I ToggleActiveSubs has been called");
         foreach(SubGraphNode sgn in subNodes)
         {
-            Debug.Log("My D000000000D I am a subnode being toggled!");
-            sgn.getObject().SetActive(true);
             sgn.ToggleMesh();
         }
+    }
+
+    // following methods for tanium processes
+
+    public void setProcessId(int new_id)
+    {
+        process_id = new_id;
+    }
+
+    public void setProcessName(string new_name)
+    {
+        process_name = new_name;
+    }
+
+    public void setProcessUser(string new_user)
+    {
+        username = new_user;
     }
 
 }
