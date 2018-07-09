@@ -10,12 +10,8 @@ using System.Text;
 public class SplunkReader : MonoBehaviour {
 
     public string path = "httplistener.json";
-
     public GraphController GraphManager; 
-    private static GameObject[] nodes;
-
     public static List<Dictionary<string, string>> GetConnections { get; private set; }
-    public static GameObject[] Nodes { get { return nodes; } }
 
 
 
@@ -37,14 +33,13 @@ public class SplunkReader : MonoBehaviour {
         print(PrettyPrint(GetConnections));
 
         // create game Objects
-        nodes = CreateNodes();
+        CreateNodes();
 	}
 
 
 	
-    private GameObject[] CreateNodes()
+    private void CreateNodes()
     {
-        GameObject[] node = new GameObject[GetConnections.Count];
         int i = 0;
         foreach(Dictionary<string, string> pair in GetConnections)
         {   
@@ -54,11 +49,10 @@ public class SplunkReader : MonoBehaviour {
             GetUsefulInfo(pair, out time, out host);
             float x;
             float y;
-            GetPoints(i, out x, out y);
+            GetPoints(i++, out x, out y);
             GraphManager.NewConn(new Vector3(x, y, 2), host, time);
 
         }
-        return node;
     }
 
     private void GetPoints(int i, out float xPos, out float yPos)
