@@ -178,7 +178,7 @@ public class GraphController : MonoBehaviour
         newProc.setProcessName(process_name);
         newProc.setProcessId(pid);
 
-        newProc.InitSubNodes(new string[] { user, process_name, pid.ToString()}, subNodePrefab);
+        newProc.InitSubNodes(new string[] { "User: "+user, "Process Name: "+process_name, "PID: "+pid.ToString()}, subNodePrefab);
         newProc.getObject().name = "process_" + pid.ToString();
         nodeCount++;
         return newProc;
@@ -194,7 +194,7 @@ public class GraphController : MonoBehaviour
         nodeCreated = InstHost(createPos, metaTime, hostname);
         // @TODO make this more then just example flavor
 
-        nodeCreated.InitSubNodes(new string[] { nodeCreated.getTime().ToString(), nodeCreated.getHost(), "example"}, subNodePrefab);
+        nodeCreated.InitSubNodes(new string[] { "Connection Time: "+nodeCreated.getTime().ToString(), "User: "+nodeCreated.getHost(), "example"}, subNodePrefab);
 
         if (nodeCreated != null)
         {
