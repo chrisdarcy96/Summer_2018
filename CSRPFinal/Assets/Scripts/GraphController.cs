@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+
 //using BulletUnity;
 
 public class GraphController : MonoBehaviour
@@ -230,7 +231,7 @@ public class GraphController : MonoBehaviour
                 {
                     Link linkObject = Instantiate(linkPrefab, new Vector3(0, 0, 0), Quaternion.identity) as Link;
                     linkObject.name = "link_" + linkCount;
-                    linkObject.transform.parent = this.transform;
+                    linkObject.transform.parent = GameObject.Find("LinkHolder").transform;
                     linkObject.source = source;
                     linkObject.target = target;
                     linkCount++;
@@ -332,18 +333,29 @@ public class GraphController : MonoBehaviour
             CreateLink(nodeObj, nodeObj.GetComponent<NodePhysX>().root);
         }
 
-        //// Debug 
-        //for (int i = 0; i < randomNodes; i++)
-        //{
-        //    if (hostsAndProcesses && i % 2 == 0)
-        //    {
-        //        NewProc();
-        //    }
-        //    else
-        //    {
-        //        NewHost();
-        //    }
-        //}
+        // Debug 
+        for (int i = 0; i < randomNodes; i++)
+        {
+            if (hostsAndProcesses && i % 2 == 0)
+            {
+                NewProc();
+            }
+            else
+            {
+                NewConn();
+            }
+        }
+    }
+
+    private void NewConn()
+    {
+        NewConn(new Vector3(UnityEngine.Random.Range(-5, 5), UnityEngine.Random.Range(-5, 0), 2), "HOST", new DateTime(2000, 1, 1));
+    }
+
+    // to generate random nodes
+    private void NewProc()
+    {
+        NewProc(new Vector3(UnityEngine.Random.Range(-5, 5), UnityEngine.Random.Range(-5,0), 2), "HOST", "Example Process", -1);
     }
 
 
