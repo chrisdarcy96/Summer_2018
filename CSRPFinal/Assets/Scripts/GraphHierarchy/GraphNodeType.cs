@@ -145,7 +145,7 @@ public class GraphNodeType : ScriptableObject {
         positionSubNodes();
     }
 
-    public void positionSubNodes(float r = 0.1f)
+    public void positionSubNodes(float r = 0.05f)
     {
         double theta = (Math.PI / 2) / (fields - 1);
         double startPos = 0;
@@ -157,7 +157,7 @@ public class GraphNodeType : ScriptableObject {
                 startPos = Math.PI / 2;   // shift over to left side of nodes
                 subNodes[i].getObject().GetComponent<TextMesh>().anchor = TextAnchor.UpperRight;   
             }
-            else if(Mathf.Round(this.position.x * 100f)/100f == 0)
+            else if(Mathf.Round(this.position.x * 1000f)/1000f == 0)
             {
                 startPos = Math.PI / 4;
                 subNodes[i].getObject().transform.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
@@ -173,11 +173,8 @@ public class GraphNodeType : ScriptableObject {
 
     public void ToggleActiveSubs()
     {
-      //  Debug.Log("My D00000D I ToggleActiveSubs has been called");
         foreach(SubGraphNode sgn in subNodes)
         {
-          //  Debug.Log("My D000000000D I am a subnode being toggled!");
-            //sgn.getObject().SetActive(true);
             sgn.ToggleMesh();
         }
     }
