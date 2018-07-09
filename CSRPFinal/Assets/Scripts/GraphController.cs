@@ -187,13 +187,11 @@ public class GraphController : MonoBehaviour
 
     public GraphNodeType GenerateConn(Vector3 createPos, string hostname, DateTime metaTime)
     {
-        // Method for creating a Node on specific coordinates, e.g. in Paintmode when a node is created at the end of a paintedLink
-        // "Standard" overload for manual input of meta information
         GraphNodeType nodeCreated = null;
 
         nodeCreated = InstHost(createPos, metaTime, hostname);
         // @TODO make this more then just example flavor
-
+        // @TODO: labels should come from dictionary keys
         nodeCreated.InitSubNodes(new string[] { "Connection Time: "+nodeCreated.getTime().ToString(), "User: "+nodeCreated.getHost(), "example"}, subNodePrefab);
 
         if (nodeCreated != null)
