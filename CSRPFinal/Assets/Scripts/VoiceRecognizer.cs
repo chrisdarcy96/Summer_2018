@@ -11,32 +11,22 @@ public class VoiceRecognizer : MonoBehaviour {
 
     private KeywordRecognizer kwr;
     private Dictionary<string, Action> keywords = new Dictionary<string, Action>();
+    private List<GameObject> nodes;
 
 	// Use this for initialization
 	void Start () {
-        keywords.Add("tap to place", () =>
-        {
-            // action that should happen
-            this.GetComponent<TapToPlace>().enabled = !this.GetComponent<TapToPlace>().enabled;
-        });
+        nodes = new List<GameObject>();
+        GameObject[] upper = GameObject.FindGameObjectsWithTag("upper");
+        GameObject[] lower = GameObject.FindGameObjectsWithTag("lower");
+        nodes.AddRange(upper);
+        nodes.AddRange(lower);
 
         keywords.Add("freeze graph", () =>
         {
-            GameObject[] upper = GameObject.FindGameObjectsWithTag("upper");
-            GameObject[] lower = GameObject.FindGameObjectsWithTag("lower");
-            foreach(GameObject go in upper)
+            
+            foreach(GameObject go in nodes)
             {
-                if (go.GetComponent<NodePhysX>().isActiveAndEnabled)
-                {
-                    go.GetComponent<NodePhysX>().enabled = false;
-                }
-            }
-            foreach (GameObject go in lower)
-            {
-                if (go.GetComponent<NodePhysX>().isActiveAndEnabled)
-                {
-                    go.GetComponent<NodePhysX>().enabled = false;
-                }
+                go.GetComponent<NodePhysX>().enabled = !go.GetComponent<NodePhysX>().enabled;
             }
         });
 
