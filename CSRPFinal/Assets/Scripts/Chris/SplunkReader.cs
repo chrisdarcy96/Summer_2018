@@ -9,7 +9,7 @@ using System.Text;
 
 public class SplunkReader : MonoBehaviour {
 
-    public string path = "httplistener.json";
+    public string path = "splunkdata.json";
     public GraphController GraphManager; 
     public static List<Dictionary<string, string>> GetConnections { get; private set; }
 
@@ -87,18 +87,25 @@ public class SplunkReader : MonoBehaviour {
 
                 JToken actual = result.First;   // returns first JToken in JProperty (there should only be one in this case)
                                                 // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JToken.htm
-
+               
 
                 // now add each token in the JToken to Dictionary
                 IEnumerable<JToken> childs = actual.Children();
                 foreach(JToken child in childs)
                 {
                     string[] split = child.ToString().Split(new char[] { ':' }, 2);
-
+                    print(split[0] + ": "+split[1]);
                     split[0] = split[0].Trim().Trim('"');   // kill leading whitespace and " char
                     split[1] = split[1].Trim().Trim('"');
-
-                    fields.Add(split[0], split[1]);
+                    if (fields.ContainsKey(split[0]))
+                    {
+                        Debug.LogWarning("AGH! Already added "+split[0]);
+                    }
+                    else
+                    {
+                        fields.Add(split[0], split[1]);
+                    }
+                    
                 }
 
                 // Add this result to list
