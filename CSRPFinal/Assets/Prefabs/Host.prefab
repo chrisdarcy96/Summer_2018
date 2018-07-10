@@ -27,7 +27,6 @@ GameObject:
   - component: {fileID: 114740388880581548}
   - component: {fileID: 114013095209717578}
   - component: {fileID: 114849956317792642}
-  - component: {fileID: 114971216512186778}
   m_Layer: 0
   m_Name: Host
   m_TagString: upper
@@ -174,17 +173,6 @@ MonoBehaviour:
   IsBeingPlaced: 0
   AllowMeshVisualizationControl: 1
   UseColliderCenter: 0
---- !u!114 &114971216512186778
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1338073754193012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b7175bc65726ea4090e28e5866aba08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &135675664418224382
 SphereCollider:
   m_ObjectHideFlags: 1

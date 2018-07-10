@@ -16,17 +16,80 @@ public class VoiceRecognizer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         nodes = new List<GameObject>();
-        GameObject[] upper = GameObject.FindGameObjectsWithTag("upper");
-        GameObject[] lower = GameObject.FindGameObjectsWithTag("lower");
-        nodes.AddRange(upper);
-        nodes.AddRange(lower);
-
+        
         keywords.Add("freeze graph", () =>
         {
-            
-            foreach(GameObject go in nodes)
+            Debug.Log("Freeze graph recognized");
+            GameObject[] upper = GameObject.FindGameObjectsWithTag("upper");
+            GameObject[] lower = GameObject.FindGameObjectsWithTag("lower");
+            foreach (GameObject go in upper)
             {
-                go.GetComponent<NodePhysX>().enabled = !go.GetComponent<NodePhysX>().enabled;
+                go.GetComponent<NodePhysX>().enabled = false;
+                go.GetComponent<Rigidbody>().isKinematic = true;
+            }
+            foreach (GameObject go in lower)
+            {
+                go.GetComponent<NodePhysX>().enabled = false;
+                go.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        });
+
+        keywords.Add("stop freeze", () =>
+        {
+            Debug.Log("Freeze graph recognized");
+            GameObject[] upper = GameObject.FindGameObjectsWithTag("upper");
+            GameObject[] lower = GameObject.FindGameObjectsWithTag("lower");
+            foreach (GameObject go in upper)
+            {
+                go.GetComponent<NodePhysX>().enabled = true;
+                go.GetComponent<Rigidbody>().isKinematic = false;
+            }
+            foreach (GameObject go in lower)
+            {
+                go.GetComponent<NodePhysX>().enabled = true;
+                go.GetComponent<Rigidbody>().isKinematic = false;
+            }
+        });
+
+        keywords.Add("enable place", () =>
+        {
+            Debug.Log("Tapping to place recognized");
+            GameObject[] upper = GameObject.FindGameObjectsWithTag("upper");
+            GameObject[] lower = GameObject.FindGameObjectsWithTag("lower");
+            foreach (GameObject go in upper)
+            {
+                go.GetComponent<NodePhysX>().enabled = false;
+                go.GetComponent<Interactible>().enabled = false;
+                go.GetComponent<TapToPlace>().enabled = true;
+                go.GetComponent<Rigidbody>().isKinematic = true;
+            }
+            foreach (GameObject go in lower)
+            {
+                go.GetComponent<NodePhysX>().enabled = false;
+                go.GetComponent<Interactible>().enabled = false;
+                go.GetComponent<TapToPlace>().enabled = true;
+                go.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        });
+
+        keywords.Add("stop placing", () =>
+        {
+            Debug.Log("Tapping to place recognized");
+            GameObject[] upper = GameObject.FindGameObjectsWithTag("upper");
+            GameObject[] lower = GameObject.FindGameObjectsWithTag("lower");
+            foreach (GameObject go in upper)
+            {
+                go.GetComponent<NodePhysX>().enabled = true;
+                go.GetComponent<Interactible>().enabled = true;
+                go.GetComponent<TapToPlace>().enabled = false;
+                go.GetComponent<Rigidbody>().isKinematic = false;
+            }
+            foreach (GameObject go in lower)
+            {
+                go.GetComponent<NodePhysX>().enabled = true;
+                go.GetComponent<Interactible>().enabled = true;
+                go.GetComponent<TapToPlace>().enabled = false;
+                go.GetComponent<Rigidbody>().isKinematic = false;
             }
         });
 
@@ -45,11 +108,5 @@ public class VoiceRecognizer : MonoBehaviour {
             keywordAction.Invoke();
         }
 
-
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

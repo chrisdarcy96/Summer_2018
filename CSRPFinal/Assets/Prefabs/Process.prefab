@@ -27,7 +27,6 @@ GameObject:
   - component: {fileID: 114935896549270792}
   - component: {fileID: 114063796276839154}
   - component: {fileID: 114086077384773326}
-  - component: {fileID: 114633308774082402}
   m_Layer: 0
   m_Name: Process
   m_TagString: lower
@@ -156,17 +155,6 @@ MonoBehaviour:
   hide: 0
   unHide: 0
   root: {fileID: 1917881429158956, guid: d7a1da9da6d15ce4498f0ed604941c84, type: 2}
---- !u!114 &114633308774082402
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1985470366745714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b7175bc65726ea4090e28e5866aba08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114935896549270792
 MonoBehaviour:
   m_ObjectHideFlags: 1

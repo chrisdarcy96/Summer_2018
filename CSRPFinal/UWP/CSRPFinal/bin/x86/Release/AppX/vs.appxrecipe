@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\bin\x86\Release\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-07-09T23:48:30.017</Modified>
+      <Modified>2018-07-10T18:11:35.965</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\bin\x86\Release\CSRPFinal.exe">
       <PackagePath>entrypoint\CSRPFinal.exe</PackagePath>
-      <Modified>2018-07-09T23:48:05.408</Modified>
+      <Modified>2018-07-10T18:11:05.398</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\.nuget\packages\microsoft.applicationinsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -501,7 +501,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Resource.res">
       <PackagePath>Resource.res</PackagePath>
-      <Modified>2018-07-09T23:47:15.882</Modified>
+      <Modified>2018-07-10T18:07:48.493</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -555,15 +555,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\boot.config">
       <PackagePath>Data\boot.config</PackagePath>
-      <Modified>2018-07-09T23:45:58.624</Modified>
+      <Modified>2018-07-10T18:06:25.627</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\globalgamemanagers">
       <PackagePath>Data\globalgamemanagers</PackagePath>
-      <Modified>2018-07-09T23:45:55.638</Modified>
+      <Modified>2018-07-10T18:06:22.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\level0">
       <PackagePath>Data\level0</PackagePath>
-      <Modified>2018-07-09T23:45:52.727</Modified>
+      <Modified>2018-07-10T18:06:19.210</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\Resources\unity default resources">
       <PackagePath>Data\Resources\unity default resources</PackagePath>
@@ -571,31 +571,31 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\Resources\unity_builtin_extra">
       <PackagePath>Data\Resources\unity_builtin_extra</PackagePath>
-      <Modified>2018-07-09T23:45:58.618</Modified>
+      <Modified>2018-07-10T18:06:25.621</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\globalgamemanagers.assets">
       <PackagePath>Data\globalgamemanagers.assets</PackagePath>
-      <Modified>2018-07-09T23:45:56.019</Modified>
+      <Modified>2018-07-10T18:06:22.889</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\sharedassets0.assets">
       <PackagePath>Data\sharedassets0.assets</PackagePath>
-      <Modified>2018-07-09T23:45:57.550</Modified>
+      <Modified>2018-07-10T18:06:24.537</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\level0.resS">
       <PackagePath>Data\level0.resS</PackagePath>
-      <Modified>2018-07-09T23:45:52.725</Modified>
+      <Modified>2018-07-10T18:06:19.206</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\sharedassets0.assets.resS">
       <PackagePath>Data\sharedassets0.assets.resS</PackagePath>
-      <Modified>2018-07-09T23:45:57.547</Modified>
+      <Modified>2018-07-10T18:06:24.533</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\managedAssemblies.txt">
       <PackagePath>Data\managedAssemblies.txt</PackagePath>
-      <Modified>2018-07-09T23:47:15.814</Modified>
+      <Modified>2018-07-10T18:07:48.347</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\nativePlugins.txt">
       <PackagePath>Data\nativePlugins.txt</PackagePath>
-      <Modified>2018-07-09T23:47:15.817</Modified>
+      <Modified>2018-07-10T18:07:48.350</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\StreamingAssets\httplistener.json">
       <PackagePath>Data\StreamingAssets\httplistener.json</PackagePath>
@@ -612,227 +612,227 @@
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-07-09T23:48:06.624</Modified>
+      <Modified>2018-07-10T18:11:06.721</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.TilemapModule.dll">
       <PackagePath>UnityEngine.TilemapModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.770</Modified>
+      <Modified>2018-07-10T18:11:25.842</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.TextRenderingModule.dll">
       <PackagePath>UnityEngine.TextRenderingModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.778</Modified>
+      <Modified>2018-07-10T18:11:25.849</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.TerrainPhysicsModule.dll">
       <PackagePath>UnityEngine.TerrainPhysicsModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.783</Modified>
+      <Modified>2018-07-10T18:11:25.853</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.TerrainModule.dll">
       <PackagePath>UnityEngine.TerrainModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.793</Modified>
+      <Modified>2018-07-10T18:11:25.871</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.SharedInternalsModule.dll">
       <PackagePath>UnityEngine.SharedInternalsModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.799</Modified>
+      <Modified>2018-07-10T18:11:25.879</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.SpriteMaskModule.dll">
       <PackagePath>UnityEngine.SpriteMaskModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.803</Modified>
+      <Modified>2018-07-10T18:11:25.884</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.SpriteShapeModule.dll">
       <PackagePath>UnityEngine.SpriteShapeModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.808</Modified>
+      <Modified>2018-07-10T18:11:25.889</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.StyleSheetsModule.dll">
       <PackagePath>UnityEngine.StyleSheetsModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.814</Modified>
+      <Modified>2018-07-10T18:11:25.894</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UIElementsModule.dll">
       <PackagePath>UnityEngine.UIElementsModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.857</Modified>
+      <Modified>2018-07-10T18:11:25.923</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UnityWebRequestWWWModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestWWWModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.862</Modified>
+      <Modified>2018-07-10T18:11:25.932</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.VehiclesModule.dll">
       <PackagePath>UnityEngine.VehiclesModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.867</Modified>
+      <Modified>2018-07-10T18:11:25.937</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.VideoModule.dll">
       <PackagePath>UnityEngine.VideoModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.873</Modified>
+      <Modified>2018-07-10T18:11:25.944</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.VRModule.dll">
       <PackagePath>UnityEngine.VRModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.887</Modified>
+      <Modified>2018-07-10T18:11:25.960</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.WebModule.dll">
       <PackagePath>UnityEngine.WebModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.893</Modified>
+      <Modified>2018-07-10T18:11:25.969</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.WindModule.dll">
       <PackagePath>UnityEngine.WindModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.898</Modified>
+      <Modified>2018-07-10T18:11:25.975</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UnityWebRequestTextureModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestTextureModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.903</Modified>
+      <Modified>2018-07-10T18:11:25.980</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UIModule.dll">
       <PackagePath>UnityEngine.UIModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.909</Modified>
+      <Modified>2018-07-10T18:11:25.986</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UNETModule.dll">
       <PackagePath>UnityEngine.UNETModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.920</Modified>
+      <Modified>2018-07-10T18:11:26.017</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UnityAnalyticsModule.dll">
       <PackagePath>UnityEngine.UnityAnalyticsModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.925</Modified>
+      <Modified>2018-07-10T18:11:26.023</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UnityConnectModule.dll">
       <PackagePath>UnityEngine.UnityConnectModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.930</Modified>
+      <Modified>2018-07-10T18:11:26.029</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UnityWebRequestAudioModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestAudioModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.934</Modified>
+      <Modified>2018-07-10T18:11:26.034</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UnityWebRequestModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.944</Modified>
+      <Modified>2018-07-10T18:11:26.041</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.ScreenCaptureModule.dll">
       <PackagePath>UnityEngine.ScreenCaptureModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.949</Modified>
+      <Modified>2018-07-10T18:11:26.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.DirectorModule.dll">
       <PackagePath>UnityEngine.DirectorModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.958</Modified>
+      <Modified>2018-07-10T18:11:26.056</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.CrashReportingModule.dll">
       <PackagePath>UnityEngine.CrashReportingModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.963</Modified>
+      <Modified>2018-07-10T18:11:26.061</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.CoreModule.dll">
       <PackagePath>UnityEngine.CoreModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.292</Modified>
+      <Modified>2018-07-10T18:11:26.417</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.ClothModule.dll">
       <PackagePath>UnityEngine.ClothModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.298</Modified>
+      <Modified>2018-07-10T18:11:26.425</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.AudioModule.dll">
       <PackagePath>UnityEngine.AudioModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.313</Modified>
+      <Modified>2018-07-10T18:11:26.444</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.AssetBundleModule.dll">
       <PackagePath>UnityEngine.AssetBundleModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.318</Modified>
+      <Modified>2018-07-10T18:11:26.449</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.AccessibilityModule.dll">
       <PackagePath>UnityEngine.AccessibilityModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.323</Modified>
+      <Modified>2018-07-10T18:11:26.455</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.AIModule.dll">
       <PackagePath>UnityEngine.AIModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.331</Modified>
+      <Modified>2018-07-10T18:11:26.466</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.AnimationModule.dll">
       <PackagePath>UnityEngine.AnimationModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.362</Modified>
+      <Modified>2018-07-10T18:11:26.487</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.ARModule.dll">
       <PackagePath>UnityEngine.ARModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.367</Modified>
+      <Modified>2018-07-10T18:11:26.493</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.dll">
       <PackagePath>UnityEngine.dll</PackagePath>
-      <Modified>2018-07-09T23:46:32.376</Modified>
+      <Modified>2018-07-10T18:06:58.833</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.ParticlesLegacyModule.dll">
       <PackagePath>UnityEngine.ParticlesLegacyModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.373</Modified>
+      <Modified>2018-07-10T18:11:26.502</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.ParticleSystemModule.dll">
       <PackagePath>UnityEngine.ParticleSystemModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.390</Modified>
+      <Modified>2018-07-10T18:11:26.543</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.PerformanceReportingModule.dll">
       <PackagePath>UnityEngine.PerformanceReportingModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.395</Modified>
+      <Modified>2018-07-10T18:11:26.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.Physics2DModule.dll">
       <PackagePath>UnityEngine.Physics2DModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.410</Modified>
+      <Modified>2018-07-10T18:11:26.568</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.PhysicsModule.dll">
       <PackagePath>UnityEngine.PhysicsModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.428</Modified>
+      <Modified>2018-07-10T18:11:26.583</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.JSONSerializeModule.dll">
       <PackagePath>UnityEngine.JSONSerializeModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.432</Modified>
+      <Modified>2018-07-10T18:11:26.588</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.GameCenterModule.dll">
       <PackagePath>UnityEngine.GameCenterModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.439</Modified>
+      <Modified>2018-07-10T18:11:26.596</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.GridModule.dll">
       <PackagePath>UnityEngine.GridModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.444</Modified>
+      <Modified>2018-07-10T18:11:26.602</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.ImageConversionModule.dll">
       <PackagePath>UnityEngine.ImageConversionModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.449</Modified>
+      <Modified>2018-07-10T18:11:26.608</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.IMGUIModule.dll">
       <PackagePath>UnityEngine.IMGUIModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.475</Modified>
+      <Modified>2018-07-10T18:11:26.633</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.InputModule.dll">
       <PackagePath>UnityEngine.InputModule.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.481</Modified>
+      <Modified>2018-07-10T18:11:26.640</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.542</Modified>
+      <Modified>2018-07-10T18:11:26.712</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.Timeline.dll">
       <PackagePath>UnityEngine.Timeline.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.579</Modified>
+      <Modified>2018-07-10T18:11:26.761</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\nunit.framework.dll">
       <PackagePath>nunit.framework.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.623</Modified>
+      <Modified>2018-07-10T18:11:26.820</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.UI.dll">
       <PackagePath>UnityEngine.UI.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.718</Modified>
+      <Modified>2018-07-10T18:11:26.939</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.SpatialTracking.dll">
       <PackagePath>UnityEngine.SpatialTracking.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.725</Modified>
+      <Modified>2018-07-10T18:11:26.945</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.HoloLens.dll">
       <PackagePath>UnityEngine.HoloLens.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.740</Modified>
+      <Modified>2018-07-10T18:11:27.021</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.StandardEvents.dll">
       <PackagePath>UnityEngine.StandardEvents.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.750</Modified>
+      <Modified>2018-07-10T18:11:27.064</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\UnityEngine.Networking.dll">
       <PackagePath>UnityEngine.Networking.dll</PackagePath>
-      <Modified>2018-07-09T23:48:22.822</Modified>
+      <Modified>2018-07-10T18:11:27.179</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Assembly-CSharp.dll">
       <PackagePath>Assembly-CSharp.dll</PackagePath>
-      <Modified>2018-07-09T23:48:21.763</Modified>
+      <Modified>2018-07-10T18:11:25.833</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\bin\x86\Release\Core\CSRPFinal.exe">
       <PackagePath>CSRPFinal.exe</PackagePath>
-      <Modified>2018-07-09T23:48:30.013</Modified>
+      <Modified>2018-07-10T18:11:35.956</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
