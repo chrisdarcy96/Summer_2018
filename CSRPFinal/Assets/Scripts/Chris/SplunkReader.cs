@@ -98,7 +98,6 @@ public class SplunkReader : MonoBehaviour {
                     
                     split[0] = split[0].Trim().Trim('"');   // kill leading whitespace and " char
                     split[1] = split[1].Trim().Trim('"');
-                    print(split[0] + ": " + split[1]);
                     if (fields.ContainsKey(split[0]))
                     {
                         Debug.LogWarning("AGH! Already added "+split[0]);

@@ -451,6 +451,9 @@
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\StreamingAssets\httplistener.json">
       <PackagePath>Data\StreamingAssets\httplistener.json</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\StreamingAssets\splunkdata.json">
+      <PackagePath>Data\StreamingAssets\splunkdata.json</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\cdarcy\Documents\Repo\Summer_2018\CSRPFinal\UWP\CSRPFinal\Data\StreamingAssets\taniumreader.json">
       <PackagePath>Data\StreamingAssets\taniumreader.json</PackagePath>
     </AppxPackagedFile>
