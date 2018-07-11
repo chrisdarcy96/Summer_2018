@@ -45,12 +45,13 @@ public class SplunkReader : MonoBehaviour {
         {   
             // get neat splunk data
             DateTime time;
-            string host;
-            GetUsefulInfo(pair, out time, out host);
+            string processName;
+            string remoteAddress;
+            GetUsefulInfo(pair, out time, out processName, out remoteAddress);
             float x;
             float y;
             GetPoints(i++, out x, out y);
-            GraphManager.NewConn(new Vector3(x, y, 2), host, time);
+            GraphManager.NewConn(new Vector3(x, y, 2), time, processName, remoteAddress);
 
         }
     }
@@ -94,9 +95,10 @@ public class SplunkReader : MonoBehaviour {
                 foreach(JToken child in childs)
                 {
                     string[] split = child.ToString().Split(new char[] { ':' }, 2);
-                    print(split[0] + ": "+split[1]);
+                    
                     split[0] = split[0].Trim().Trim('"');   // kill leading whitespace and " char
                     split[1] = split[1].Trim().Trim('"');
+                    print(split[0] + ": " + split[1]);
                     if (fields.ContainsKey(split[0]))
                     {
                         Debug.LogWarning("AGH! Already added "+split[0]);
@@ -144,13 +146,14 @@ public class SplunkReader : MonoBehaviour {
         return sb.ToString();
     }
 
-    private void GetUsefulInfo(Dictionary<string, string> pair, out DateTime Splunktime, out string host)
+    private void GetUsefulInfo(Dictionary<string, string> pair, out DateTime Splunktime, out string processName, out string remoteAddress)
     {
         string time;
         pair.TryGetValue("_time", out time);
         Splunktime = Convert.ToDateTime(time);
 
-        pair.TryGetValue("host", out host);
+        pair.TryGetValue("ProcessName", out processName);
+        pair.TryGetValue("RemoteAddress", out remoteAddress);
     }
 
 }

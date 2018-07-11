@@ -185,18 +185,19 @@ public class GraphController : MonoBehaviour
     }
 
 
-    public GraphNodeType GenerateConn(Vector3 createPos, string hostname, DateTime metaTime)
+    public GraphNodeType GenerateConn(Vector3 createPos, DateTime time, string process, string remoteAddress)
     {
         GraphNodeType nodeCreated = null;
 
-        nodeCreated = InstHost(createPos, metaTime, hostname);
+        nodeCreated = InstHost(createPos, time, process);
+        nodeCreated.setRemoteAddress(remoteAddress);
         // @TODO make this more then just example flavor
         // @TODO: labels should come from dictionary keys
-        nodeCreated.InitSubNodes(new string[] { "Connection Time: "+nodeCreated.getTime().ToString(), "User: "+nodeCreated.getHost(), "example"}, subNodePrefab);
+        nodeCreated.InitSubNodes(new string[] { "Connection Time: "+nodeCreated.getTime().ToString(), "User: "+nodeCreated.getHost(), "Dest IP: "+nodeCreated.getRemoteAddress()}, subNodePrefab);
 
         if (nodeCreated != null)
         {
-            nodeCreated.getObject().name = "host" + hostname;
+            nodeCreated.getObject().name = "host" + process;
             nodeCount++;
         }
        
@@ -347,7 +348,7 @@ public class GraphController : MonoBehaviour
 
     private void NewConn()
     {
-        NewConn(new Vector3(UnityEngine.Random.Range(-5, 5), UnityEngine.Random.Range(-5, 0), 2), "HOST", new DateTime(2000, 1, 1));
+        NewConn(new Vector3(UnityEngine.Random.Range(-5, 5), UnityEngine.Random.Range(-5, 0), 2), new DateTime(2000, 1, 1), "HOST", "8.8.8.8");
     }
 
     // to generate random nodes
@@ -357,12 +358,12 @@ public class GraphController : MonoBehaviour
     }
 
 
-    public void NewConn(Vector3 createPos, string hostname, DateTime metaTime)
+    public void NewConn(Vector3 createPos, DateTime time, string process, string remoteAddress)
     {
         ///<summary>This function creates a new host on set coordinates, as well as a link between it and the root.</summary>
         ///
         // "Standard" overload
-        GraphNodeType newNode = GenerateConn(createPos, hostname, metaTime);
+        GraphNodeType newNode = GenerateConn(createPos, time, process, remoteAddress);
         GameObject nodeObj = newNode.getObject();
         nodes.Add(newNode);
 

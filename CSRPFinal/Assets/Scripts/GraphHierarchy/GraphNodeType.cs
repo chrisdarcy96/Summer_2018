@@ -8,6 +8,7 @@ public class GraphNodeType : ScriptableObject {
     private bool IsActive;
     private Vector3 position;
     private string hostIP;
+    private string remoteAddress;
     private int fields;
     private SubGraphNode[] subNodes;
 
@@ -72,6 +73,11 @@ public class GraphNodeType : ScriptableObject {
     public SubGraphNode[] getSubGraphNodes()
     {
         return subNodes;
+    }
+
+    public string getRemoteAddress()
+    {
+        return remoteAddress;
     }
 
     // following methods for tanium data
@@ -177,6 +183,11 @@ public class GraphNodeType : ScriptableObject {
         {
             sgn.ToggleMesh();
         }
+    }
+
+    public void setRemoteAddress(string newIP)
+    {
+        remoteAddress = newIP;
     }
 
     // following methods for tanium processes
