@@ -9,13 +9,9 @@ using System.Text;
 
 public class SplunkReader : MonoBehaviour {
 
-    public string path = "httplistener.json";
-
+    public string path = "splunkdata.json";
     public GraphController GraphManager; 
-    private static GameObject[] nodes;
-
     public static List<Dictionary<string, string>> GetConnections { get; private set; }
-    public static GameObject[] Nodes { get { return nodes; } }
 
 
 
@@ -37,28 +33,27 @@ public class SplunkReader : MonoBehaviour {
         print(PrettyPrint(GetConnections));
 
         // create game Objects
-        nodes = CreateNodes();
+        CreateNodes();
 	}
 
 
 	
-    private GameObject[] CreateNodes()
+    private void CreateNodes()
     {
-        GameObject[] node = new GameObject[GetConnections.Count];
         int i = 0;
         foreach(Dictionary<string, string> pair in GetConnections)
         {   
             // get neat splunk data
             DateTime time;
-            string host;
-            GetUsefulInfo(pair, out time, out host);
+            string processName;
+            string remoteAddress;
+            GetUsefulInfo(pair, out time, out processName, out remoteAddress);
             float x;
             float y;
-            GetPoints(i, out x, out y);
-            GraphManager.NewConn(new Vector3(x, y, 2), host, time);
+            GetPoints(i++, out x, out y);
+            GraphManager.NewConn(new Vector3(x, y, 2), time, processName, remoteAddress);
 
         }
-        return node;
     }
 
     private void GetPoints(int i, out float xPos, out float yPos)
@@ -93,18 +88,25 @@ public class SplunkReader : MonoBehaviour {
 
                 JToken actual = result.First;   // returns first JToken in JProperty (there should only be one in this case)
                                                 // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JToken.htm
-
+               
 
                 // now add each token in the JToken to Dictionary
                 IEnumerable<JToken> childs = actual.Children();
                 foreach(JToken child in childs)
                 {
                     string[] split = child.ToString().Split(new char[] { ':' }, 2);
-
+                    
                     split[0] = split[0].Trim().Trim('"');   // kill leading whitespace and " char
                     split[1] = split[1].Trim().Trim('"');
-
-                    fields.Add(split[0], split[1]);
+                    if (fields.ContainsKey(split[0]))
+                    {
+                        Debug.LogWarning("AGH! Already added "+split[0]);
+                    }
+                    else
+                    {
+                        fields.Add(split[0], split[1]);
+                    }
+                    
                 }
 
                 // Add this result to list
@@ -139,19 +141,18 @@ public class SplunkReader : MonoBehaviour {
             }
             sb.AppendLine(conn.ToString());
             conn.Clear();
-            //conn.Length = 0;
-            //conn.Capacity = 16;
         }
         return sb.ToString();
     }
 
-    private void GetUsefulInfo(Dictionary<string, string> pair, out DateTime Splunktime, out string host)
+    private void GetUsefulInfo(Dictionary<string, string> pair, out DateTime Splunktime, out string processName, out string remoteAddress)
     {
         string time;
         pair.TryGetValue("_time", out time);
         Splunktime = Convert.ToDateTime(time);
 
-        pair.TryGetValue("host", out host);
+        pair.TryGetValue("ProcessName", out processName);
+        pair.TryGetValue("RemoteAddress", out remoteAddress);
     }
 
 }

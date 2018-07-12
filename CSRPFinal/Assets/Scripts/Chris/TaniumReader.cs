@@ -10,12 +10,8 @@ using System.Text;
 public class TaniumReader : MonoBehaviour {
 
     public string path = "taniumreader.json";
-
     public GraphController GraphManager; 
-    private static GameObject[] nodes;
-
     public static List<Dictionary<string, string>> GetConnections { get; private set; }
-    public static GameObject[] Nodes { get { return nodes; } }
 
 
 
